@@ -1,5 +1,0 @@
----
-name: Unknown
-kind: professional
----
-

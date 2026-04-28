@@ -1,12 +1,11 @@
 ---
-title: "Docs Site Plan"
-section: "Planning and release readiness"
+title: Docs Site Plan
+section: Planning and release readiness
 order: 230
-sourcePath: "docs/plans/docs-site.md"
-slug: "docs-site-plan"
-description: "Docs should be first-class brain content."
+sourcePath: docs/plans/docs-site.md
+description: Docs should be first-class brain content.
+slug: docs-site-plan
 ---
-
 # Docs Site Plan
 
 ## Decision

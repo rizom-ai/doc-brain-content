@@ -1,12 +1,11 @@
 ---
-title: "Public Release Cleanup Plan"
-section: "Planning and release readiness"
+title: Public Release Cleanup Plan
+section: Planning and release readiness
 order: 240
-sourcePath: "docs/plans/public-release-cleanup.md"
-slug: "public-release-cleanup"
-description: "Paused until the public plugin feature work is complete."
+sourcePath: docs/plans/public-release-cleanup.md
+description: Paused until the public plugin feature work is complete.
+slug: public-release-cleanup
 ---
-
 # Public Release Cleanup Plan
 
 ## Status

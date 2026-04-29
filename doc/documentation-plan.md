@@ -1,12 +1,14 @@
 ---
-title: "Documentation Plan"
-section: "Planning and release readiness"
+title: Documentation Plan
+section: Planning and release readiness
 order: 220
-sourcePath: "docs/plans/documentation.md"
-slug: "documentation-plan"
-description: "The repo now has a real base layer of user-facing documentation: getting started, CLI reference, brain.yaml reference, deployment guidance, theming docs, and ar"
+sourcePath: docs/plans/documentation.md
+description: >-
+  The repo now has a real base layer of user-facing documentation: getting
+  started, CLI reference, brain.yaml reference, deployment guidance, theming
+  docs, and ar
+slug: documentation-plan
 ---
-
 # Plan: User-Facing Documentation
 
 ## Context

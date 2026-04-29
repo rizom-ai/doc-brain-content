@@ -1,12 +1,13 @@
 ---
-title: "Package Structure"
-section: "Architecture"
+title: Package Structure
+section: Architecture
 order: 180
-sourcePath: "docs/architecture/package-structure.md"
-slug: "package-structure"
-description: "The Brains repository is a monorepo with 8 workspace directories. Each directory has a clear role in the architecture."
+sourcePath: docs/architecture/package-structure.md
+description: >-
+  The Brains repository is a monorepo with 8 workspace directories. Each
+  directory has a clear role in the architecture.
+slug: package-structure
 ---
-
 # Package Structure
 
 ## Overview

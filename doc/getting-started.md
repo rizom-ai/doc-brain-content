@@ -1,12 +1,14 @@
 ---
-title: "Getting Started"
-section: "Start here"
+title: Getting Started
+section: Start here
 order: 10
-sourcePath: "packages/brain-cli/docs/getting-started.md"
-slug: "getting-started"
-description: "A brain is an AI-powered knowledge agent built around markdown content, MCP-native tooling, and a plugin-based runtime. A brain can be personal, team-oriented, "
+sourcePath: packages/brain-cli/docs/getting-started.md
+description: >-
+  A brain is an AI-powered knowledge agent built around markdown content,
+  MCP-native tooling, and a plugin-based runtime. A brain can be personal,
+  team-oriented, 
+slug: getting-started
 ---
-
 # Getting Started
 
 ## What is a Brain?

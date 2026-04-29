@@ -1,12 +1,14 @@
 ---
-title: "Rizom Site TBD"
-section: "Planning and release readiness"
+title: Rizom Site TBD
+section: Planning and release readiness
 order: 260
-sourcePath: "docs/plans/rizom-site-tbd.md"
-slug: "rizom-site-tbd"
-description: "These are product/content follow-ups only. They should be handled in the extracted app repos or their content repos unless a shared package change is genuinely "
+sourcePath: docs/plans/rizom-site-tbd.md
+description: >-
+  These are product/content follow-ups only. They should be handled in the
+  extracted app repos or their content repos unless a shared package change is
+  genuinely 
+slug: rizom-site-tbd
 ---
-
 # Rizom Sites — Open Product/Content Items
 
 These are product/content follow-ups only. They should be handled in the extracted app repos or their content repos unless a shared package change is genuinely required.

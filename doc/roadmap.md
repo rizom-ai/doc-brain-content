@@ -1,11 +1,12 @@
 ---
-title: Roadmap
-section: Planning and release readiness
+title: "Roadmap"
+section: "Planning and release readiness"
 order: 210
-sourcePath: docs/roadmap.md
-description: 'Last updated: 2026-04-28'
-slug: roadmap
+sourcePath: "docs/roadmap.md"
+slug: "roadmap"
+description: "Last updated: 2026-04-28"
 ---
+
 # brains roadmap
 
 Last updated: 2026-04-28
@@ -53,8 +54,8 @@ These areas are effectively landed:
 - **Finalized content preservation** — exact/finalized/approved content now persists directly through `system_create` without being routed through generation, with entity-service markdown creation and Rover eval coverage for decks, posts, newsletters, notes, and social posts
 - **Rover eval stabilization** — the full Rover suite is green at 86/86, with agent follow-up fixtures isolated from shared mutable domains and YAML fixture tests reduced to broad integrity checks instead of brittle exact-path assertions
 - **Assessment package split** — SWOT moved out of agent discovery into `entities/assessment`, keeping agent discovery as the evidence source and assessment as the interpretation/output boundary
-- **Doc entity and docs-site bootstrap** — `entities/doc` package with schema, adapter, plugin, datasource, and componentized list/detail templates; `/docs` and `/docs/:slug` routes with grouped sidebar nav and previous/next links; shared docs ecosystem chrome rendered as a route-level section over `@rizom/ui`; Relay docs test app validates the path end-to-end against a running docs brain
-- **Docs publishing ownership clarified** — release-driven sync from this repo into `rizom-ai/doc-brain-content`, with a separate docs app repo likely named `rizom-ai/doc-brain` owning the standalone deploy/rebuild of `docs.rizom.ai`; no in-monorepo docs deploy path
+- **Doc entity and docs-site bootstrap** — `entities/doc` package with schema, adapter, plugin, datasource, and componentized list/detail templates; `/docs` and `/docs/:slug` routes with grouped sidebar nav and previous/next links; Relay docs test app validates the path end-to-end against a running docs brain
+- **Docs publishing ownership clarified** — release-driven sync from this repo into `rizom-ai/doc-brain-content`, with `rizom-ai/doc-brain` owning the standalone deploy/rebuild of `docs.rizom.ai`; no in-monorepo docs deploy path
 - **Docs sync script** — `scripts/sync-docs-content.ts` generates `doc/*.md` from `docs/docs-manifest.yaml` into a content checkout; `bun run docs:check` validates manifest, links, and that the committed Relay docs fixture stays in sync
 
 ## Near-term priorities
@@ -87,30 +88,45 @@ Phase 2 user-facing docs are in place:
 
 Architecture-level plugin docs stay intentionally thin and point implementation detail to the relevant `AGENTS.md` files and `plugins/examples/`.
 
-The Phase 3 docs site is partially landed: the [docs index](/docs), [source manifest](https://github.com/rizom-ai/brains/blob/main/docs/docs-manifest.yaml), and the `entities/doc` package (schema, adapter, plugin, datasource, componentized list/detail templates) are in place, and the Relay docs test app validates list/detail routing and route-level ecosystem composition.
+The Phase 3 docs site is partially landed: the [docs index](/docs), [source manifest](https://github.com/rizom-ai/brains/blob/main/docs/docs-manifest.yaml), and the `entities/doc` package (schema, adapter, plugin, datasource, componentized list/detail templates) are in place, and the Relay docs test app validates list/detail routing.
 
 Remaining Phase 3 work:
 
-- wire `scripts/sync-docs-content.ts` into the release workflow so generated docs are pushed to `rizom-ai/doc-brain-content` for each release ref
-- separate docs app repo, likely `rizom-ai/doc-brain`, owns standalone deploy/rebuild of `docs.rizom.ai` using the same scaffolding as other deployed brains
+- configure production secrets/deploy target for `rizom-ai/doc-brain`
+- add `DOCS_CONTENT_SYNC_TOKEN` to `rizom-ai/brains` so releases can push generated docs to `rizom-ai/doc-brain-content`
 - auto-generate CLI reference from code and `brain.yaml` schema reference from Zod schemas
 
 Plans:
 
 - [documentation.md](/docs/documentation-plan)
-- [docs-site.md](/docs/docs-site-plan)
+- [`doc-brain` remaining work](https://github.com/rizom-ai/doc-brain/blob/main/docs/remaining-work.md)
+
+### 3. External plugin API
+
+External plugin authors still cannot build and load full plugins against `@rizom/brain`. The published surface today is `./cli`, `./site`, `./themes`, and `./deploy` — none of the plugin/entity/service/interface authoring exports exist, and `brain.yaml` cannot load plugins from `node_modules`.
+
+Starts with an audit of the abstractions and shell lifecycle, not with publishing exports. The plugin framework has grown organically alongside the entity/service/interface split; freezing whatever shape happens to exist today would force the first real external authors to absorb the breaking changes that an internal review would surface anyway. The audit decides which asymmetries between the three plugin types are intentional, what the minimal lifecycle hook set should be, and what the versioning policy is. Shell initialization coordination lands before publishing so `onRegister`/`onReady` semantics are real, not aspirational.
+
+Scope after the audit: public subpath exports (`@rizom/brain/plugins`, `/entities`, `/services`, `/interfaces`, `/utils`, `/templates`), `brain.yaml` `plugins:` schema with env-var interpolation, plugin API version constant, and at least one reference external plugin proving the path end-to-end.
+
+Plans:
+
+- [shell-init-coordination.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/shell-init-coordination.md) — prerequisite lifecycle work before public plugin exports
+- [external-plugin-api.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/external-plugin-api.md) — §0 audit plus shell lifecycle coordination gate §1-§5
+- [custom-brain-definitions.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/custom-brain-definitions.md) — downstream `brain.ts` escape hatch that depends on the public surface
 
 ## Long-term
 
 These areas are intentionally post-`v0.2.0`. They are tracked but not gating launch.
 
-### Public plugin surface
+### Framework consolidation
 
-A cleaner external extension story — public subpath exports (`@rizom/brain/plugins`, `/entities`, `/services`, etc.), loading plugins from `brain.yaml`, a plugin API version contract, and at least one reference external plugin.
+Independent internal cleanup items — each removes a fragile coupling held together by discipline rather than by the type system or package boundaries. These do not gate the plugin surface: env declarations external plugins make live in their own packages, and deploy scaffolding is unrelated. Pick those up between feature cycles in any order.
 
-Plan:
+Plans:
 
-- [external-plugin-api.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/external-plugin-api.md)
+- [env-schema-canonical.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/env-schema-canonical.md) — co-locate env declarations next to the consuming service; aggregate via `shellEnvVars()` in `shell/core`; have `brain-cli` consume that single source instead of `bundled-model-env-schemas.ts`.
+- [deploy-scaffolding-consolidation.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/deploy-scaffolding-consolidation.md) — extract `@brains/deploy-templates` as the canonical home for Caddyfile/Dockerfile/Kamal/scripts/workflow content; cut `brain-cli/src/commands/init.ts` from 1400+ lines; keep `@rizom/ops` fleet-only.
 
 ### Public repo cleanup
 

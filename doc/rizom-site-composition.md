@@ -1,11 +1,12 @@
 ---
-title: Rizom Site Composition Plan
-section: Planning and release readiness
+title: "Rizom Site Composition Plan"
+section: "Planning and release readiness"
 order: 250
-sourcePath: docs/plans/rizom-site-composition.md
-description: 'The architecture/extraction work is done for the current target:'
-slug: rizom-site-composition
+sourcePath: "docs/plans/rizom-site-composition.md"
+slug: "rizom-site-composition"
+description: "The architecture/extraction work is done for the current target:"
 ---
+
 # Rizom Site Composition — Open Items
 
 ## Current shape

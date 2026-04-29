@@ -1,13 +1,12 @@
 ---
-title: Hydration Pattern
-section: Architecture
+title: "Hydration Pattern"
+section: "Architecture"
 order: 190
-sourcePath: docs/hydration-pattern.md
-description: >-
-  This document records the removed hydration pattern so it can be recovered
-  from git if needed.
-slug: hydration-pattern
+sourcePath: "docs/hydration-pattern.md"
+slug: "hydration-pattern"
+description: "This document records the removed hydration pattern so it can be recovered from git if needed."
 ---
+
 # Removed pattern: site-builder hydration
 
 This document records the removed hydration pattern so it can be recovered from git if needed.

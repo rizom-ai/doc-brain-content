@@ -1,11 +1,12 @@
 ---
-title: MCP Inspector Guide
-section: Interfaces
+title: "MCP Inspector Guide"
+section: "Interfaces"
 order: 90
-sourcePath: docs/mcp-inspector-guide.md
-description: 'Note: MCP Inspector will automatically combine these into the header:'
-slug: mcp-inspector-guide
+sourcePath: "docs/mcp-inspector-guide.md"
+slug: "mcp-inspector-guide"
+description: "Note: MCP Inspector will automatically combine these into the header:"
 ---
+
 # MCP Inspector Quick Guide
 
 ## Local Development Setup

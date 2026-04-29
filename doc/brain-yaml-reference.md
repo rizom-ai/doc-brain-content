@@ -1,14 +1,12 @@
 ---
-title: brain.yaml Reference
-section: Start here
+title: "brain.yaml Reference"
+section: "Start here"
 order: 20
-sourcePath: packages/brain-cli/docs/brain-yaml-reference.md
-description: >-
-  brain.yaml is the instance-level configuration file for a brain. It selects
-  the brain model, chooses a preset, overrides deployment settings, and passes
-  config 
-slug: brain-yaml-reference
+sourcePath: "packages/brain-cli/docs/brain-yaml-reference.md"
+slug: "brain-yaml-reference"
+description: "brain.yaml is the instance-level configuration file for a brain. It selects the brain model, chooses a preset, overrides deployment settings, and passes config "
 ---
+
 # brain.yaml Reference
 
 `brain.yaml` is the instance-level configuration file for a brain. It selects the brain model, chooses a preset, overrides deployment settings, and passes config to plugins and interfaces.
@@ -246,6 +244,24 @@ plugins:
 ```
 
 The package version belongs in the instance `package.json`; `brain.yaml` only declares and configures the plugin. List-form `plugins:` is not supported.
+
+```json
+{
+  "dependencies": {
+    "@rizom/brain-plugin-calendar": "^0.1.0"
+  }
+}
+```
+
+External plugin packages should declare their compatible runtime with a peer dependency:
+
+```json
+{
+  "peerDependencies": {
+    "@rizom/brain": "^0.2.0-alpha.45"
+  }
+}
+```
 
 ### `permissions`
 

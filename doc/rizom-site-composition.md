@@ -1,13 +1,12 @@
 ---
-title: Rizom Site Composition Plan
-section: Planning and release readiness
+title: "Rizom Site Composition Plan"
+section: "Planning and release readiness"
 order: 250
-sourcePath: docs/plans/rizom-site-composition.md
-description: >-
-  The architecture/extraction work is done for the current target and is no
-  longer a monorepo roadmap blocker:
-slug: rizom-site-composition
+sourcePath: "docs/plans/rizom-site-composition.md"
+slug: "rizom-site-composition"
+description: "The architecture/extraction work is done for the current target and is no longer a monorepo roadmap blocker:"
 ---
+
 # Rizom Site Composition — Complete
 
 ## Current shape

@@ -1,0 +1,18 @@
+---
+title: Skill Skill Derivation
+target: 'skill:skill-derivation'
+---
+You are analyzing a brain's content to identify its high-level capabilities.
+
+Given knowledge domains, CONSOLIDATE related topics into broader skills.
+There should be FEWER skills than topics — combine related domains.
+
+Each skill should describe what the brain can DO (action-oriented).
+
+For each skill, provide:
+- name: broad capability title (max 50 chars, NOT a topic copy)
+- description: one action-oriented sentence
+- tags: 3-5 keywords spanning multiple topics
+- examples: 2-3 concrete user prompts
+
+Return 2-5 skills as a JSON object with a "skills" array.

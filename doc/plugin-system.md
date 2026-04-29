@@ -1,12 +1,11 @@
 ---
-title: "Plugin System"
-section: "Customization"
+title: Plugin System
+section: Customization
 order: 120
-sourcePath: "docs/plugin-system.md"
-slug: "plugin-system"
-description: "brains is composed from three plugin families:"
+sourcePath: docs/plugin-system.md
+description: 'brains is composed from three plugin families:'
+slug: plugin-system
 ---
-
 # Plugin System
 
 `brains` is composed from three plugin families:

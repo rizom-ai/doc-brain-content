@@ -27,7 +27,8 @@ A plugin package should declare `@rizom/brain` as a peer dependency. The instanc
     }
   },
   "peerDependencies": {
-    "@rizom/brain": "^0.2.0-alpha.45"
+    "@rizom/brain": "^0.2.0-alpha.45",
+    "zod": "^3.0.0"
   }
 }
 ```
@@ -39,7 +40,6 @@ Do not import internal `@brains/*` workspaces from external plugins. Use the cur
 - `@rizom/brain/services`
 - `@rizom/brain/interfaces`
 - `@rizom/brain/templates`
-- `@rizom/brain/utils`
 
 ## Plugin factory contract
 
@@ -54,7 +54,7 @@ import {
   type ServicePluginContext,
   type Tool,
 } from "@rizom/brain/plugins";
-import { z } from "@rizom/brain/utils";
+import { z } from "zod";
 
 interface CalendarConfig {
   timezone?: string;

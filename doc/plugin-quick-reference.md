@@ -1,12 +1,13 @@
 ---
-title: "Plugin Quick Reference"
-section: "Customization"
+title: Plugin Quick Reference
+section: Customization
 order: 130
-sourcePath: "docs/plugin-quick-reference.md"
-slug: "plugin-quick-reference"
-description: "Use this as a compact checklist for choosing and authoring plugins. For full external package guidance, see External Plugin Authoring."
+sourcePath: docs/plugin-quick-reference.md
+description: >-
+  Use this as a compact checklist for choosing and authoring plugins. For full
+  external package guidance, see External Plugin Authoring.
+slug: plugin-quick-reference
 ---
-
 # Plugin Development Quick Reference
 
 Use this as a compact checklist for choosing and authoring plugins. For full external package guidance, see [External Plugin Authoring](/docs/external-plugin-authoring).

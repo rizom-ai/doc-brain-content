@@ -1,13 +1,12 @@
 ---
-title: External Plugin Authoring
-section: Customization
+title: "External Plugin Authoring"
+section: "Customization"
 order: 135
-sourcePath: docs/external-plugin-authoring.md
-description: >-
-  External plugin packages use the public @rizom/brain authoring API and are
-  loaded by brain instances from brain.yaml.
-slug: external-plugin-authoring
+sourcePath: "docs/external-plugin-authoring.md"
+slug: "external-plugin-authoring"
+description: "External plugin packages use the public @rizom/brain authoring API and are loaded by brain instances from brain.yaml."
 ---
+
 # External Plugin Authoring
 
 External plugin packages use the public `@rizom/brain` authoring API and are loaded by brain instances from `brain.yaml`.
@@ -34,8 +33,9 @@ A plugin package should declare `@rizom/brain` as a peer dependency. The instanc
 }
 ```
 
-Do not import internal `@brains/*` workspaces from external plugins. `ServicePlugin`, `EntityPlugin`, `InterfacePlugin`, and `MessageInterfacePlugin` are available from the curated public API; use public subpaths for supporting contracts:
+Do not import internal `@brains/*` workspaces from external plugins. `PLUGIN_API_VERSION` is available from the root `@rizom/brain` export for diagnostics; compatibility during alpha is enforced through `peerDependencies`. `ServicePlugin`, `EntityPlugin`, `InterfacePlugin`, and `MessageInterfacePlugin` are available from the curated public API; use public subpaths for supporting contracts:
 
+- `@rizom/brain`
 - `@rizom/brain/plugins`
 - `@rizom/brain/entities`
 - `@rizom/brain/services`
@@ -109,6 +109,44 @@ The repository keeps a package-local compile fixture at [`packages/brain-cli/tes
 ## Messaging interfaces
 
 Use `InterfacePlugin` for generic/non-chat interfaces. Use `MessageInterfacePlugin` when building a channel/chat surface such as Slack, Teams, Matrix, Telegram, or Discord. It extends `InterfacePlugin` with shared message-routing helpers, progress-message tracking, URL capture helpers, and text-upload validation.
+
+```ts
+import {
+  MessageInterfacePlugin,
+  type JobProgressEvent,
+  type PluginFactory,
+} from "@rizom/brain/plugins";
+import { z } from "zod";
+
+const packageJson = {
+  name: "@rizom/brain-plugin-chat-example",
+  version: "0.1.0",
+};
+
+class ChatExamplePlugin extends MessageInterfacePlugin {
+  constructor() {
+    super("chat-example", packageJson, {}, z.object({}));
+  }
+
+  protected sendMessageToChannel(
+    channelId: string | null,
+    message: string,
+  ): void {
+    // Send `message` through your platform SDK.
+    console.log(channelId, message);
+  }
+
+  protected override async onProgressUpdate(
+    event: JobProgressEvent,
+  ): Promise<void> {
+    // Optional: mirror progress into platform-specific UI state.
+    void event.id;
+  }
+}
+
+export const plugin: PluginFactory = () => new ChatExamplePlugin();
+export default plugin;
+```
 
 ## Loading from `brain.yaml`
 

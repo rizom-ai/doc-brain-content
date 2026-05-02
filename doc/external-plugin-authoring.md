@@ -1,13 +1,12 @@
 ---
-title: External Plugin Authoring
-section: Customization
+title: "External Plugin Authoring"
+section: "Customization"
 order: 135
-sourcePath: docs/external-plugin-authoring.md
-description: >-
-  External plugin packages use the public @rizom/brain authoring API and are
-  loaded by brain instances from brain.yaml.
-slug: external-plugin-authoring
+sourcePath: "docs/external-plugin-authoring.md"
+slug: "external-plugin-authoring"
+description: "External plugin packages use the public @rizom/brain authoring API and are loaded by brain instances from brain.yaml."
 ---
+
 # External Plugin Authoring
 
 External plugin packages use the public `@rizom/brain` authoring API and are loaded by brain instances from `brain.yaml`.
@@ -28,13 +27,13 @@ A plugin package should declare `@rizom/brain` as a peer dependency. The instanc
     }
   },
   "peerDependencies": {
-    "@rizom/brain": "^0.2.0-alpha.45",
+    "@rizom/brain": "^0.2.0-alpha.47",
     "zod": "^3.0.0"
   }
 }
 ```
 
-Do not import internal `@brains/*` workspaces from external plugins. `PLUGIN_API_VERSION` is available from the root `@rizom/brain` export for diagnostics; compatibility during alpha is enforced through `peerDependencies`. `ServicePlugin`, `EntityPlugin`, `InterfacePlugin`, and `MessageInterfacePlugin` are available from the curated public API; use public subpaths for supporting contracts:
+Do not import internal `@brains/*` workspaces from external plugins. `PLUGIN_API_VERSION` is available from the root `@rizom/brain` export for diagnostics; compatibility during alpha is enforced through `peerDependencies`. The minimal reference package is [`rizom-ai/brain-plugin-hello`](https://github.com/rizom-ai/brain-plugin-hello). `ServicePlugin`, `EntityPlugin`, `InterfacePlugin`, and `MessageInterfacePlugin` are available from the curated public API; use public subpaths for supporting contracts:
 
 - `@rizom/brain`
 - `@rizom/brain/plugins`
@@ -105,7 +104,7 @@ export const plugin: PluginFactory = (config) => new CalendarPlugin(config);
 export default plugin;
 ```
 
-The repository keeps a package-local compile fixture at [`packages/brain-cli/test/fixtures/external-plugin`](https://github.com/rizom-ai/brains/tree/main/packages/brain-cli/test/fixtures/external-plugin). It typechecks against the public `.d.ts` contracts and must not import `@brains/*`.
+The repository keeps a package-local compile fixture at [`packages/brain-cli/test/fixtures/external-plugin`](https://github.com/rizom-ai/brains/tree/main/packages/brain-cli/test/fixtures/external-plugin). It typechecks against the public `.d.ts` contracts and must not import `@brains/*`. For a durable entity example, see [`rizom-ai/brain-plugin-recipes`](https://github.com/rizom-ai/brain-plugin-recipes).
 
 ## Messaging interfaces
 

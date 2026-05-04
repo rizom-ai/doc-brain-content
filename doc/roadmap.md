@@ -1,12 +1,11 @@
 ---
-title: "Roadmap"
-section: "Planning and release readiness"
+title: Roadmap
+section: Planning and release readiness
 order: 210
-sourcePath: "docs/roadmap.md"
-slug: "roadmap"
-description: "Last updated: 2026-04-29"
+sourcePath: docs/roadmap.md
+description: 'Last updated: 2026-04-29'
+slug: roadmap
 ---
-
 # brains roadmap
 
 Last updated: 2026-04-29

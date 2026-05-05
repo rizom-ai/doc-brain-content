@@ -1,13 +1,12 @@
 ---
-title: Customization Guide
-section: Customization
+title: "Customization Guide"
+section: "Customization"
 order: 100
-sourcePath: docs/customization-guide.md
-description: >-
-  brains is customized in layers. Prefer the smallest layer that solves the
-  problem:
-slug: customization-guide
+sourcePath: "docs/customization-guide.md"
+slug: "customization-guide"
+description: "brains is customized in layers. Prefer the smallest layer that solves the problem:"
 ---
+
 # Customization Guide
 
 `brains` is customized in layers. Prefer the smallest layer that solves the problem:

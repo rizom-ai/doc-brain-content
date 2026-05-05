@@ -1,14 +1,12 @@
 ---
-title: Rizom Site Follow-ups
-section: Planning and release readiness
+title: "Rizom Site Follow-ups"
+section: "Planning and release readiness"
 order: 260
-sourcePath: docs/plans/rizom-site-tbd.md
-description: >-
-  The monorepo Rizom site architecture task is complete. The items below are
-  product/content follow-ups only; they should be handled in the extracted app
-  repos or
-slug: rizom-site-tbd
+sourcePath: "docs/plans/rizom-site-tbd.md"
+slug: "rizom-site-tbd"
+description: "The monorepo Rizom site architecture task is complete. The items below are product/content follow-ups only; they should be handled in the extracted app repos or"
 ---
+
 # Rizom Sites — External Product/Content Follow-ups
 
 The monorepo Rizom site architecture task is complete. The items below are product/content follow-ups only; they should be handled in the extracted app repos or their content repos unless a shared package change is genuinely required.

@@ -1,13 +1,12 @@
 ---
-title: CLI Reference
-section: Start here
+title: "CLI Reference"
+section: "Start here"
 order: 30
-sourcePath: packages/brain-cli/docs/cli-reference.md
-description: >-
-  The brain CLI scaffolds brain instances, boots them, runs diagnostics and
-  evals, and can proxy commands to local or remote brains.
-slug: cli-reference
+sourcePath: "packages/brain-cli/docs/cli-reference.md"
+slug: "cli-reference"
+description: "The brain CLI scaffolds brain instances, boots them, runs diagnostics and evals, and can proxy commands to local or remote brains."
 ---
+
 # CLI Reference
 
 The `brain` CLI scaffolds brain instances, boots them, runs diagnostics and evals, and can proxy commands to local or remote brains.
@@ -37,15 +36,15 @@ brain init mybrain --no-interactive
 
 **Options**
 
-| Flag                    | Default            | Description                                                                                                                                                                                                                                                                                               |
-| ----------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--model <name>`        | `rover`            | Brain model: `rover`, `relay`, `ranger`                                                                                                                                                                                                                                                                   |
-| `--domain <domain>`     | `{model}.rizom.ai` | Production domain                                                                                                                                                                                                                                                                                         |
-| `--content-repo <repo>` | —                  | Git repo for content sync                                                                                                                                                                                                                                                                                 |
-| `--backend <name>`      | `none`             | Secret backend. `none` (default) emits no `@plugin` directive — varlock load resolves every value from `process.env` (in CI, from GitHub Actions secrets). Pass any other name to emit a generic `@plugin(@varlock/<name>-plugin)` line you can hand-tune; no other backend is verified end-to-end today. |
-| `--deploy`              | `false`            | Include `config/deploy.yml`, Kamal hook, `deploy/Dockerfile`, and publish/deploy GitHub workflows                                                                                                                                                                                                         |
-| `--ai-api-key <key>`    | —                  | Pre-fill `.env` with `AI_API_KEY=<key>`                                                                                                                                                                                                                                                                   |
-| `--no-interactive`      | `false`            | Skip interactive prompts and use only supplied flags                                                                                                                                                                                                                                                      |
+| Flag                    | Default            | Description                                                                                                                                                                                                                                                                                              |
+| ----------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--model <name>`        | `rover`            | Brain model: `rover`, `relay`, `ranger`                                                                                                                                                                                                                                                                  |
+| `--domain <domain>`     | `{model}.rizom.ai` | Production domain                                                                                                                                                                                                                                                                                        |
+| `--content-repo <repo>` | —                  | Git repo for content sync                                                                                                                                                                                                                                                                                |
+| `--backend <name>`      | `none`             | Secret backend. `none` (default) emits no `@plugin` directive — varlock load resolves every value from `process.env` (in CI, usually GitHub Actions secrets). Bitwarden-backed apps are migrated with `brain secrets:push --push-to bitwarden`, which rewrites `.env.schema` with pinned Bitwarden refs. |
+| `--deploy`              | `false`            | Include `config/deploy.yml`, Kamal hook, `deploy/Dockerfile`, and publish/deploy GitHub workflows                                                                                                                                                                                                        |
+| `--ai-api-key <key>`    | —                  | Pre-fill `.env` with `AI_API_KEY=<key>`                                                                                                                                                                                                                                                                  |
+| `--no-interactive`      | `false`            | Skip interactive prompts and use only supplied flags                                                                                                                                                                                                                                                     |
 
 **Generated files**
 

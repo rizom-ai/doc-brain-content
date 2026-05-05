@@ -1,12 +1,13 @@
 ---
-title: "Development Workflow"
-section: "Architecture"
+title: Development Workflow
+section: Architecture
 order: 200
-sourcePath: "docs/development-workflow.md"
-slug: "development-workflow"
-description: "This document outlines the development workflow and best practices for the Brains project."
+sourcePath: docs/development-workflow.md
+description: >-
+  This document outlines the development workflow and best practices for the
+  Brains project.
+slug: development-workflow
 ---
-
 # Development Workflow
 
 This document outlines the development workflow and best practices for the Brains project.

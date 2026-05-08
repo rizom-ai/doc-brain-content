@@ -31,8 +31,9 @@ plugins:
   #   git:
   #     repo: your-org/brain-data
   #     authToken: ${GIT_SYNC_TOKEN}
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for MCP clients that cannot use OAuth:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
 ```
 
 ## Supported top-level fields
@@ -60,8 +61,9 @@ anchors:
 trusted:
   - "discord:987654321"
 plugins:
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for MCP clients that cannot use OAuth:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
 permissions:
   anchors:
     - "cli:*"
@@ -224,13 +226,14 @@ plugins:
     git:
       repo: your-org/brain-data
       authToken: ${GIT_SYNC_TOKEN}
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for MCP clients that cannot use OAuth:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
   discord:
     botToken: ${DISCORD_BOT_TOKEN}
 ```
 
-These values are merged into the selected capability or interface config.
+These values are merged into the selected capability or interface config. When `auth-service` is enabled, HTTP MCP uses the built-in OAuth/passkey provider by default; set `plugins.mcp.authToken` only for non-OAuth clients or emergency static-token access.
 
 External plugin packages use the same keyed map with a reserved `package` field and optional nested `config` object:
 
@@ -308,8 +311,9 @@ String values support `${ENV_VAR}` syntax.
 
 ```yaml
 plugins:
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for MCP clients that cannot use OAuth:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
 ```
 
 Notes:
@@ -320,13 +324,13 @@ Notes:
 
 ## Common environment variables
 
-| Variable            | Typical use                   |
-| ------------------- | ----------------------------- |
-| `AI_API_KEY`        | Main AI provider key          |
-| `AI_IMAGE_KEY`      | Separate image-generation key |
-| `GIT_SYNC_TOKEN`    | Git-backed content sync       |
-| `MCP_AUTH_TOKEN`    | MCP HTTP auth                 |
-| `DISCORD_BOT_TOKEN` | Discord bot interface         |
+| Variable            | Typical use                               |
+| ------------------- | ----------------------------------------- |
+| `AI_API_KEY`        | Main AI provider key                      |
+| `AI_IMAGE_KEY`      | Separate image-generation key             |
+| `GIT_SYNC_TOKEN`    | Git-backed content sync                   |
+| `MCP_AUTH_TOKEN`    | Deprecated MCP HTTP static-token fallback |
+| `DISCORD_BOT_TOKEN` | Discord bot interface                     |
 
 ## Deploy/bootstrap environment variables
 
@@ -356,10 +360,10 @@ preset: core
 
 anchors: []
 
-plugins:
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+plugins: {}
 ```
+
+HTTP MCP uses the built-in OAuth/passkey provider when the model includes `auth-service`. Add `plugins.mcp.authToken` only as a deprecated fallback for non-OAuth clients.
 
 ### Public rover instance with site + sync
 
@@ -379,8 +383,9 @@ plugins:
     git:
       repo: your-org/brain-data
       authToken: ${GIT_SYNC_TOKEN}
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for non-OAuth MCP clients:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
   discord:
     botToken: ${DISCORD_BOT_TOKEN}
 ```
@@ -400,8 +405,9 @@ permissions:
       level: public
 
 plugins:
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for non-OAuth MCP clients:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
 ```
 
 ### Ranger instance using the shared Rizom site core
@@ -416,6 +422,7 @@ site:
   theme: "@acme/rizom-theme"
 
 plugins:
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
+  # Optional deprecated fallback for non-OAuth MCP clients:
+  # mcp:
+  #   authToken: ${MCP_AUTH_TOKEN}
 ```

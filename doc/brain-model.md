@@ -1,12 +1,11 @@
 ---
-title: "Brain Models"
-section: "Architecture"
+title: Brain Models
+section: Architecture
 order: 160
-sourcePath: "docs/brain-model.md"
-slug: "brain-model"
-description: "Brains follow a model/instance separation:"
+sourcePath: docs/brain-model.md
+description: 'Brains follow a model/instance separation:'
+slug: brain-model
 ---
-
 # Brain Model & Instance Architecture
 
 ## Overview

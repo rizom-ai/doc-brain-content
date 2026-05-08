@@ -1,12 +1,14 @@
 ---
-title: "Tech Stack"
-section: "Architecture"
+title: Tech Stack
+section: Architecture
 order: 170
-sourcePath: "docs/tech-stack.md"
-slug: "tech-stack"
-description: "The Brains project uses a modern, TypeScript-based stack optimized for building an extensible, AI-powered knowledge management system with multiple interfaces."
+sourcePath: docs/tech-stack.md
+description: >-
+  The Brains project uses a modern, TypeScript-based stack optimized for
+  building an extensible, AI-powered knowledge management system with multiple
+  interfaces.
+slug: tech-stack
 ---
-
 # Brains Tech Stack
 
 ## Overview

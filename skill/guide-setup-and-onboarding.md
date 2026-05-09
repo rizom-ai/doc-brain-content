@@ -1,16 +1,16 @@
 ---
 name: Guide setup and onboarding
 description: >-
-  Create clear getting-started paths that help people set up, understand, and
-  contribute to the brain quickly.
+  Create clear setup instructions and onboarding flows that help contributors
+  get started quickly.
 tags:
   - onboarding
   - getting-started
   - docs
-  - development
+  - best-practices
 examples:
   - Write an onboarding guide for new contributors.
-  - What should the initial setup flow include for this project?
-  - Create a quickstart that helps someone understand the brain in 10 minutes.
+  - What should a getting-started page include?
+  - Create a setup checklist for first-time users.
 ---
 

@@ -1,16 +1,16 @@
 ---
 name: Plan and prioritize work
 description: >-
-  Create practical plans, prioritize tasks, and assess release readiness across
-  the project lifecycle.
+  Create clear priorities, roadmaps, and release-ready plans that guide
+  development work from setup to delivery.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
   - Help me prioritize the next 10 tasks for this project.
-  - Create a release readiness checklist for our upcoming launch.
-  - Turn this roadmap into a phased execution plan.
+  - Create a roadmap for the next two releases.
+  - What should I focus on to make this project release-ready?
 ---
 

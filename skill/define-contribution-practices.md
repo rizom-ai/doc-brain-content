@@ -1,16 +1,18 @@
 ---
 name: Define contribution practices
 description: >-
-  Establish contribution standards, development workflow conventions, and best
-  practices for working in the brain.
+  Write contribution guidelines and best practices that make collaboration,
+  setup, and ongoing development consistent.
 tags:
   - best-practices
   - development
   - docs
-  - plugins
+  - onboarding
 examples:
-  - Write contribution guidelines for this knowledge base.
-  - Define a development workflow for adding new content safely.
-  - What best practices should contributors follow when creating plugins?
+  - Draft contribution best practices for new collaborators.
+  - What guidelines should I include for working on this repository?
+  - >-
+    Write a contributor workflow that helps people set up quickly and avoid
+    mistakes.
 ---
 

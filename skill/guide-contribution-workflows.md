@@ -1,16 +1,16 @@
 ---
 name: Guide contribution workflows
 description: >-
-  Define contribution best practices and development workflows that make it easy
-  for others to participate effectively.
+  Write and improve contribution practices, development workflows, and
+  best-practice guidance for collaborators.
 tags:
   - best-practices
   - development
   - docs
   - onboarding
 examples:
-  - Create contribution guidelines for new collaborators.
-  - Describe a development workflow for editing and reviewing content.
-  - What rules should contributors follow when updating this brain?
+  - Outline the contribution workflow for new developers.
+  - What best practices should contributors follow when editing this brain?
+  - Create a developer guide for reviewing and submitting changes.
 ---
 

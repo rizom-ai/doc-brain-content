@@ -1,16 +1,16 @@
 ---
 name: Plan releases and priorities
 description: >-
-  Prioritize work, shape the roadmap, and assess release readiness for a
-  coordinated delivery process.
+  Create release plans and prioritize work by balancing readiness, roadmap
+  goals, and development constraints.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
-  - Help prioritize upcoming work for the project roadmap.
-  - Assess whether a release is ready to ship.
-  - Create a short-term roadmap with clear milestones.
+  - Help me prioritize the next release milestones.
+  - Assess whether a feature is ready for release.
+  - Create a roadmap-based plan for the next development cycle.
 ---
 

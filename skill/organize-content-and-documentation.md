@@ -1,20 +1,16 @@
 ---
 name: Organize content and documentation
 description: >-
-  Create clear content structures and maintain documentation that helps users
-  navigate, understand, and contribute effectively.
+  Create and maintain clear content structures, documentation, and setup guides
+  that make the brain easy to use.
 tags:
   - docs
-  - best-practices
   - getting-started
   - onboarding
+  - development
 examples:
-  - >-
-    Create a documentation structure for setup, onboarding, and contribution
-    guides.
-  - >-
-    How should I organize content so new contributors can find what they need
-    quickly?
-  - Write a clear getting-started outline for this brain.
+  - Draft a getting-started guide for new contributors.
+  - Restructure the documentation so topics are easier to navigate.
+  - Create a setup checklist for onboarding to this brain.
 ---
 

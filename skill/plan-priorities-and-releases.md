@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and releases
 description: >-
-  Evaluate roadmap items, prioritize work, and prepare release-ready plans and
-  readiness checks.
+  Prioritize work, shape roadmaps, and assess release readiness so the brain
+  evolves in a coordinated way.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
-  - Help me prioritize the next set of roadmap items.
-  - What should be included in a release readiness checklist?
-  - Draft a roadmap that balances near-term fixes with longer-term goals.
+  - Help prioritize the next set of improvements.
+  - Create a roadmap for the next quarter.
+  - Check whether a release is ready to ship.
 ---
 

@@ -1,16 +1,16 @@
 ---
 name: Organize content and docs
 description: >-
-  Structure, maintain, and improve content so knowledge is easy to find,
-  consistent, and reusable.
+  Create clear content structures, setup guides, and onboarding materials that
+  help people navigate and use the brain effectively.
 tags:
   - docs
-  - design
+  - getting-started
+  - onboarding
   - development
-  - best-practices
 examples:
-  - Restructure the content architecture for easier navigation and reuse.
-  - Suggest a better documentation layout for related topics and guides.
-  - Review this content structure and recommend improvements for clarity.
+  - Draft a getting-started guide for new contributors.
+  - How should I organize content so setup and onboarding are easy to follow?
+  - Create a documentation structure for this brain's key workflows.
 ---
 

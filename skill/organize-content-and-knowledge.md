@@ -1,16 +1,18 @@
 ---
 name: Organize content and knowledge
 description: >-
-  Structure, manage, and refine documentation and content so information stays
-  easy to find and maintain.
+  Structure, manage, and maintain brain content so information is easy to
+  navigate, update, and reuse.
 tags:
   - docs
-  - planning
   - development
   - best-practices
+  - getting-started
 examples:
-  - How should I organize the content structure for this brain?
-  - Suggest a better way to manage and maintain documentation.
-  - Create a content model that keeps related topics easy to retrieve.
+  - Create a content structure for documenting the brain’s major capabilities.
+  - >-
+    Recommend best practices for managing and updating brain knowledge base
+    content.
+  - Organize onboarding and setup documentation for contributors.
 ---
 

@@ -2,7 +2,7 @@
 name: Design extensible brain systems
 description: >-
   Design modular brain architectures with clear boundaries, core services,
-  plugin points, and growth paths.
+  plugin-driven growth paths, and maintainable extensibility patterns.
 tags:
   - architecture
   - extensibility
@@ -10,8 +10,10 @@ tags:
   - design
   - development
 examples:
-  - Design a modular brain architecture with clear plugin boundaries.
-  - Explain how to add new capabilities without breaking the core system.
-  - Propose an extensible structure for managing core services and add-ons.
+  - >-
+    Design a modular brain architecture with plugin boundaries and core
+    services.
+  - Explain how to extend a brain system without coupling features tightly.
+  - Propose an extensibility pattern for adding new capabilities safely.
 ---
 

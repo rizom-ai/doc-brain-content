@@ -1,16 +1,17 @@
 ---
 name: Guide onboarding and setup
 description: >-
-  Create clear getting-started guidance that helps users understand the brain
-  concept and begin using it quickly.
+  Create clear getting-started guidance that helps new contributors or users
+  install, configure, and begin using the brain quickly.
 tags:
-  - getting-started
   - onboarding
+  - getting-started
   - docs
-  - planning
+  - development
+  - setup
 examples:
-  - Write a getting-started guide for new brain users.
-  - Explain the first steps for setting up a brain project.
-  - Create an onboarding checklist for a new knowledge agent.
+  - Write a getting-started guide for setting up the brain CLI.
+  - Create onboarding steps for a new contributor joining the project.
+  - Document the minimum setup needed to run the brain locally.
 ---
 

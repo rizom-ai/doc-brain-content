@@ -10,13 +10,11 @@ tags:
   - plugins
 examples:
   - >-
-    Design a modular brain architecture with clear core services and plugin
-    boundaries.
+    Design a modular brain architecture with plugin boundaries and core
+    services.
+  - Explain how to structure a brain app for future extensibility.
   - >-
-    How should I structure a brain system so new capabilities can be added
-    cleanly?
-  - >-
-    Explain the extensibility pattern you would use for a plugin-driven brain
-    app.
+    Propose a plugin-driven architecture for adding new capabilities without
+    rewrites.
 ---
 

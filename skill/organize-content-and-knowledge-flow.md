@@ -1,20 +1,16 @@
 ---
 name: Organize content and knowledge flow
 description: >-
-  Structure, manage, and maintain content so information stays consistent,
-  discoverable, and easy to evolve.
+  Create and improve content management patterns that keep documentation,
+  structure, and knowledge easy to navigate and maintain.
 tags:
   - docs
   - development
-  - best-practices
   - architecture
+  - best-practices
 examples:
-  - >-
-    Create a content structure for organizing skills, topics, and notes in a
-    brain system.
-  - >-
-    Recommend best practices for keeping knowledge content consistent across
-    modules.
-  - Show how to manage content updates without breaking existing organization.
+  - Help me organize my brain content into a cleaner structure.
+  - What is the best way to manage documentation across multiple content areas?
+  - Suggest a content hierarchy that improves findability and reuse.
 ---
 

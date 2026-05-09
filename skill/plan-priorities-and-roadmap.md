@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and roadmap
 description: >-
-  Turn goals into prioritized work plans, release milestones, and practical
-  project roadmaps.
+  Analyze project direction, prioritize work, and shape a roadmap that balances
+  near-term needs with long-term goals.
 tags:
   - planning
   - priorities
   - release
-  - development
+  - best-practices
 examples:
-  - Help prioritize the next set of tasks for this project.
-  - Create a roadmap for the next three releases.
-  - Assess whether the project is ready for release and what remains.
+  - Help me prioritize the next set of tasks.
+  - Turn these ideas into a practical roadmap.
+  - What should be in the next release plan?
 ---
 

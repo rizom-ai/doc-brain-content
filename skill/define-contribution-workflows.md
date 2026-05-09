@@ -1,16 +1,17 @@
 ---
 name: Define contribution workflows
 description: >-
-  Document best practices for content changes, development workflow, and
-  collaboration so contributors can work consistently.
+  Document development practices and contribution norms that make collaboration,
+  review, and maintenance predictable.
 tags:
+  - development
   - best-practices
   - docs
-  - development
   - plugins
+  - architecture
 examples:
-  - Write contribution guidelines for the project.
-  - Define a development workflow for adding new content or plugins.
-  - What are the best practices for submitting changes to this brain system?
+  - Create contribution guidelines for this repository.
+  - Document the workflow for proposing and reviewing changes.
+  - How should contributors work with the plugin system?
 ---
 

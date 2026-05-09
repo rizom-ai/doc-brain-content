@@ -1,16 +1,16 @@
 ---
-name: Plan Delivery and Priorities
+name: Plan delivery and priorities
 description: >-
-  Define roadmaps, prioritize work, and assess release readiness for development
-  planning.
+  Define release-ready work by balancing priorities, roadmaps, and development
+  workflow decisions.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help me create a project roadmap for the next quarter.
-  - Prioritize these tasks into a realistic development plan.
-  - What should I check before declaring a release ready?
+  - Create a prioritized roadmap for the next release.
+  - Assess whether this project is ready for release.
+  - Recommend a development workflow that supports faster delivery.
 ---
 

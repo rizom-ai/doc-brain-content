@@ -1,16 +1,15 @@
 ---
 name: Structure and maintain content
 description: >-
-  Organize knowledge so content is easy to navigate, update, and reuse across
-  documentation and project workflows.
+  Organize, update, and standardize brain content so documentation stays easy to
+  navigate, reuse, and keep consistent.
 tags:
   - docs
   - development
   - best-practices
-  - planning
 examples:
-  - Restructure this documentation into a clearer content hierarchy.
-  - How should I organize project content so it is easier to maintain?
-  - Create a reusable template for recurring documentation updates.
+  - Reorganize these notes into a clearer documentation structure.
+  - How should I update this content to keep it consistent across pages?
+  - Create a maintainable outline for this knowledge base section.
 ---
 

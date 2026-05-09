@@ -1,16 +1,17 @@
 ---
 name: Plan onboarding and setup
 description: >-
-  Write and refine onboarding flows that help new contributors get set up and
-  productive quickly.
+  Create clear getting-started materials that help new contributors or users
+  understand setup, workflow, and contribution paths quickly.
 tags:
   - onboarding
   - getting-started
   - docs
   - development
+  - best-practices
 examples:
-  - Create a contributor onboarding guide from scratch.
-  - What should the setup steps be for new users and contributors?
-  - Draft a quick-start path for first-time contributors.
+  - Write an onboarding guide for new contributors to this brain project.
+  - Create a setup checklist for someone joining the system for the first time.
+  - Draft a getting-started path that explains workflow and contribution basics.
 ---
 

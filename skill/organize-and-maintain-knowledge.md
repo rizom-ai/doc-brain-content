@@ -7,11 +7,10 @@ tags:
   - docs
   - development
   - best-practices
-  - content
   - organization
 examples:
-  - Help me reorganize my brain content into a clearer structure.
-  - Create a consistent documentation system for these notes.
-  - How can I keep content easy to update and reuse?
+  - Restructure this content into a cleaner documentation hierarchy.
+  - How should I keep knowledge pages consistent over time?
+  - Suggest a better content structure for this topic set.
 ---
 

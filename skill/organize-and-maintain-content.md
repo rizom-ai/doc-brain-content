@@ -1,16 +1,15 @@
 ---
 name: Organize and maintain content
 description: >-
-  Structure, manage, and improve documentation so information stays consistent,
-  discoverable, and easy to update.
+  Structure, update, and normalize knowledge so documentation stays consistent,
+  reusable, and easy to navigate.
 tags:
   - docs
   - development
   - best-practices
-  - architecture
 examples:
-  - Propose a better content structure for this knowledge base.
-  - Refactor overlapping documentation into a clearer hierarchy.
-  - Create guidelines for keeping content consistent over time.
+  - Restructure these notes into a clearer documentation hierarchy.
+  - Identify duplicated content and suggest a consolidation plan.
+  - Update the docs to keep terminology and formatting consistent.
 ---
 

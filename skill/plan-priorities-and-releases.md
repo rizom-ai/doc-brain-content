@@ -1,15 +1,16 @@
 ---
 name: Plan priorities and releases
 description: >-
-  Prioritize work, shape roadmaps, and assess release readiness to keep projects
-  moving toward delivery.
+  Organize roadmaps, priorities, and release readiness work into clear plans
+  that support delivery decisions.
 tags:
   - planning
   - priorities
   - release
+  - best-practices
 examples:
-  - Help me prioritize these tasks for the next milestone.
-  - Create a roadmap from these feature requests.
-  - What should I check before calling a release ready?
+  - Help me prioritize these roadmap items for the next release.
+  - Create a release readiness checklist for this project.
+  - Turn these goals into a practical project roadmap.
 ---
 

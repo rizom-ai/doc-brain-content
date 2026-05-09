@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and roadmap
 description: >-
-  Analyze project direction, prioritize work, and shape a roadmap that balances
-  near-term needs with long-term goals.
+  Define priorities, release readiness, and roadmap direction to support project
+  planning decisions.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
-  - Help me prioritize the next set of tasks.
-  - Turn these ideas into a practical roadmap.
-  - What should be in the next release plan?
+  - Help me prioritize the next documentation tasks.
+  - Draft a roadmap for the next release cycle.
+  - What should we check before calling this release ready?
 ---
 

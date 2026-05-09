@@ -1,15 +1,16 @@
 ---
 name: Organize content and documentation
 description: >-
-  Structure, manage, and improve content so information is easy to find,
-  maintain, and reuse.
+  Structure, maintain, and improve project content so information is clear,
+  consistent, and easy to navigate.
 tags:
   - docs
   - best-practices
   - development
+  - planning
 examples:
-  - Suggest a better content structure for this documentation set.
-  - Organize these topics into a maintainable documentation hierarchy.
-  - Rewrite this project content to be easier to navigate.
+  - Refactor this documentation into a clearer structure.
+  - Suggest a content organization system for this project.
+  - Write best practices for maintaining project docs.
 ---
 

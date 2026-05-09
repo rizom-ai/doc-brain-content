@@ -1,7 +1,7 @@
 ---
 name: Plan work and release readiness
 description: >-
-  Prioritize work, shape roadmaps, and assess whether a project is ready for
+  Prioritize tasks, shape roadmaps, and assess whether the project is ready for
   release.
 tags:
   - planning
@@ -9,8 +9,8 @@ tags:
   - release
   - best-practices
 examples:
-  - Create a prioritized roadmap for the next release.
-  - Assess whether this project is ready to ship.
-  - Help decide which tasks should come first this quarter.
+  - Help prioritize the next set of roadmap items.
+  - Create a release readiness checklist for this project.
+  - Draft a roadmap based on current project goals.
 ---
 

@@ -1,16 +1,16 @@
 ---
-name: Support Contribution Workflows
+name: Support contribution workflows
 description: >-
-  Define contribution best practices and development workflows that help
-  collaborators contribute effectively.
+  Define contribution practices that make collaboration, review, and ongoing
+  development smoother.
 tags:
-  - development
   - best-practices
-  - onboarding
+  - development
   - docs
+  - onboarding
 examples:
-  - Write contribution guidelines for this project.
-  - Describe a development workflow for new contributors.
-  - Suggest best practices for reviewing and submitting changes.
+  - Write contribution guidelines for new developers.
+  - Describe the best workflow for submitting and reviewing changes.
+  - Create a contributor guide that explains team expectations.
 ---
 

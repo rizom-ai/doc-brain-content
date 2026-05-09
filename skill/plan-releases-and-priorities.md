@@ -1,16 +1,16 @@
 ---
 name: Plan releases and priorities
 description: >-
-  Help prioritize work and shape roadmaps by translating goals into
-  release-ready plans and execution steps.
+  Create roadmaps, prioritize work, and assess release readiness for a brain
+  project.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help prioritize the next three roadmap items for this brain project.
-  - Draft a release readiness checklist for an upcoming version.
-  - Turn these goals into a quarterly project roadmap.
+  - Build a project roadmap for the next three releases.
+  - Help prioritize feature work versus documentation improvements.
+  - Assess whether the project is ready for release and list any gaps.
 ---
 

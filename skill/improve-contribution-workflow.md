@@ -1,16 +1,16 @@
 ---
-name: Improve contribution workflow
+name: Improve Contribution Workflow
 description: >-
-  Define contribution practices and development workflows that keep work
-  consistent, reviewable, and release-ready.
+  Define best practices for development and contribution so collaboration stays
+  smooth and consistent.
 tags:
   - development
   - best-practices
-  - release
   - docs
+  - plugins
 examples:
-  - Draft contribution guidelines for the team.
-  - What workflow should we use from development to release?
-  - Create a checklist for review and release readiness.
+  - Write contribution guidelines for developers working on this project.
+  - How should the development workflow be structured for maintainability?
+  - Create a checklist for contributors before submitting changes.
 ---
 

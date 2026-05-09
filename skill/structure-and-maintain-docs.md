@@ -1,20 +1,16 @@
 ---
 name: Structure and maintain docs
 description: >-
-  Organize content into usable documentation, setup guides, onboarding flows,
-  and contribution instructions.
+  Organize, update, and keep brain content consistent so information is easy to
+  navigate, reuse, and maintain.
 tags:
   - docs
-  - onboarding
-  - getting-started
+  - development
   - best-practices
+  - content-management
 examples:
-  - >-
-    Restructure this documentation so new contributors can find setup and
-    onboarding fast.
-  - Write a contribution guide that explains the workflow and best practices.
-  - >-
-    Create a content structure for a project wiki with clear sections and
-    navigation.
+  - How should I restructure this documentation so it is easier to navigate?
+  - Create a consistent content model for these brain notes.
+  - Review this section and suggest cleanup for reuse and consistency.
 ---
 

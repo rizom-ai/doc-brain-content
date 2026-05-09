@@ -1,17 +1,16 @@
 ---
 name: Define contribution workflows
 description: >-
-  Document development practices and contribution norms that make collaboration,
-  review, and maintenance predictable.
+  Explain contribution standards, development practices, and release
+  expectations that keep work aligned and production-ready.
 tags:
-  - development
   - best-practices
+  - development
+  - release
   - docs
-  - plugins
-  - architecture
 examples:
-  - Create contribution guidelines for this repository.
-  - Document the workflow for proposing and reviewing changes.
-  - How should contributors work with the plugin system?
+  - Draft contribution guidelines for this knowledge base.
+  - What should be included in a release readiness checklist?
+  - Explain the recommended development workflow for contributors.
 ---
 

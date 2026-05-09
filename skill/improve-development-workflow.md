@@ -1,16 +1,16 @@
 ---
 name: Improve development workflow
 description: >-
-  Define practical development workflows and best practices that make
-  implementation, review, and iteration smoother.
+  Define contribution practices, release readiness checks, and day-to-day
+  development processes that keep the brain healthy.
 tags:
   - development
   - best-practices
-  - plugins
+  - release
   - docs
 examples:
-  - Outline a development workflow for adding a new plugin.
-  - What best practices should guide changes to the brain architecture?
-  - How can I make the contribution process more consistent for developers?
+  - Create a contribution guide for this repository.
+  - List the checks needed before a release is considered ready.
+  - Recommend a development workflow for reviewing and shipping changes.
 ---
 

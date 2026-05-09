@@ -1,16 +1,16 @@
 ---
 name: Guide onboarding and contribution
 description: >-
-  Write clear getting-started content and contribution guidance that helps new
-  people join and participate effectively.
+  Create clear getting-started guidance that helps new contributors understand
+  setup, workflows, and expectations.
 tags:
   - onboarding
   - getting-started
-  - docs
   - best-practices
+  - docs
 examples:
-  - Draft an onboarding guide for new contributors.
-  - Create a contribution workflow from first issue to pull request.
-  - Rewrite this setup guide so newcomers can follow it easily.
+  - Write an onboarding guide for new contributors to this brain.
+  - Create a contributor checklist for setup and first tasks.
+  - Draft best practices for submitting high-quality contributions.
 ---
 

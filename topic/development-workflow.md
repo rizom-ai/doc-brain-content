@@ -1,4 +1,4 @@
 ---
 title: Development Workflow
 ---
-This topic covers the day-to-day process for contributing effectively to the codebase. It focuses on how work should be organized from initial planning through implementation and handoff. The workflow is intended to help contributors understand expected practices before making changes. It also implies a repeatable structure for collaboration so that changes are easier to review and maintain. Because the content emphasizes contribution guidance, the workflow is a central operational topic rather than a narrow technical detail.
+This topic covers the repeatable process for planning, implementing, testing, reviewing, and handing off development work in a codebase. It emphasizes practical guidance for contributors on how to organize tasks, follow expected practices, and standardize collaboration so changes are easier to review, maintain, and release. The workflow may include step-by-step development procedures and checklists for team use, especially when building new features or plugin capabilities from start to finish.

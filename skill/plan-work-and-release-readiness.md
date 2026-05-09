@@ -1,16 +1,16 @@
 ---
-name: Plan work and release readiness
+name: Plan Work and Release Readiness
 description: >-
-  Prioritize tasks, shape roadmaps, and assess release readiness to keep
-  development aligned and shippable.
+  Prioritize work, shape a project roadmap, and assess whether the brain is
+  ready for release.
 tags:
   - planning
   - priorities
   - release
-  - development
+  - best-practices
 examples:
-  - Help me prioritize the next set of brain improvements.
-  - Build a simple roadmap for the next release.
-  - What should I check before marking this release as ready?
+  - Create a prioritized roadmap for the next two releases.
+  - Review release readiness for a new brain feature set.
+  - Help me decide which tasks should be done first.
 ---
 

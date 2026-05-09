@@ -1,17 +1,16 @@
 ---
 name: Guide setup and onboarding
 description: >-
-  Create clear starting paths that help new contributors set up, understand the
-  workflow, and begin contributing quickly.
+  Create clear setup and onboarding guidance that helps new contributors get
+  started quickly.
 tags:
-  - getting-started
   - onboarding
+  - getting-started
   - docs
   - development
-  - best-practices
 examples:
-  - Create a quick-start guide for new contributors.
-  - Write onboarding steps for setting up the project locally.
-  - Explain the first tasks a new contributor should complete.
+  - Write a quickstart guide for new contributors.
+  - What should a new user do first to set up this project?
+  - Turn these setup notes into an onboarding checklist.
 ---
 

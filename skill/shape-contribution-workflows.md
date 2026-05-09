@@ -1,18 +1,16 @@
 ---
 name: Shape contribution workflows
 description: >-
-  Document best practices for contributing, managing content, and keeping
-  development work consistent and maintainable.
+  Define practical development and contribution practices that make
+  collaboration, review, and handoffs smoother.
 tags:
   - best-practices
-  - docs
   - development
-  - content
+  - docs
+  - release
 examples:
-  - Write contribution guidelines for code and documentation changes.
-  - >-
-    Describe the content management workflow for maintaining the brain knowledge
-    base.
-  - Recommend best practices for reviewing and merging plugin contributions.
+  - Draft contribution guidelines for this brain project.
+  - What workflow should contributors follow from issue to merge?
+  - Create a review checklist for changes before release.
 ---
 

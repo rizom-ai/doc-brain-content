@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and releases
 description: >-
-  Prioritize work, shape roadmaps, and assess release readiness so the brain
-  evolves in a coordinated way.
+  Set priorities, roadmap direction, and release readiness criteria to keep the
+  project moving forward predictably.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help prioritize the next set of improvements.
-  - Create a roadmap for the next quarter.
-  - Check whether a release is ready to ship.
+  - Help me prioritize the next set of brain improvements.
+  - Create a roadmap for the next three releases.
+  - What should be checked before declaring this brain release-ready?
 ---
 

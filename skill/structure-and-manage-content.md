@@ -1,16 +1,15 @@
 ---
 name: Structure and manage content
 description: >-
-  Organize content into clear, maintainable structures and manage documentation
-  so it stays consistent and easy to navigate.
+  Organize docs and knowledge into a maintainable structure that is easy to
+  navigate, update, and reuse.
 tags:
   - docs
-  - planning
-  - best-practices
   - development
+  - best-practices
 examples:
-  - Propose a content structure for this brain's documentation.
-  - Refactor these notes into a clearer documentation hierarchy.
-  - Recommend a content management approach for keeping docs current.
+  - Propose a better content structure for this knowledge base.
+  - Identify duplicate topics and suggest a cleaner organization.
+  - Create a maintenance plan for keeping documentation current.
 ---
 

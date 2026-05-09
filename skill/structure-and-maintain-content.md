@@ -1,15 +1,16 @@
 ---
 name: Structure and maintain content
 description: >-
-  Organize content into maintainable structures and workflows for editing,
-  managing, and evolving documentation.
+  Organize knowledge so content is easy to navigate, update, and reuse across
+  documentation and project workflows.
 tags:
   - docs
   - development
   - best-practices
+  - planning
 examples:
-  - Propose a content structure for this knowledge base.
-  - Suggest a better workflow for managing and updating docs.
-  - Review these pages for content organization issues.
+  - Restructure this documentation into a clearer content hierarchy.
+  - How should I organize project content so it is easier to maintain?
+  - Create a reusable template for recurring documentation updates.
 ---
 

@@ -1,16 +1,16 @@
 ---
 name: Structure and maintain knowledge
 description: >-
-  Organize, update, and maintain content so information stays easy to navigate,
-  reuse, and contribute to.
+  Organize, update, and connect brain content so information stays easy to
+  navigate, reuse, and extend.
 tags:
   - docs
   - development
   - best-practices
   - onboarding
 examples:
-  - Help me reorganize this documentation into a clearer structure.
-  - What’s the best way to keep brain content easy to update over time?
-  - Create a contribution guide for maintaining this knowledge base.
+  - Organize these notes into a clearer structure for future reuse.
+  - How should I update this content so it stays easy to maintain?
+  - Create a clean content hierarchy for these brain topics.
 ---
 

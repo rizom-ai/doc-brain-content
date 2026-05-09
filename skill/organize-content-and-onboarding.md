@@ -1,18 +1,17 @@
 ---
-name: Organize Content and Onboarding
+name: Organize content and onboarding
 description: >-
-  Create clear content structures, setup guidance, and onboarding flows that
-  help users get started quickly.
+  Structure brain content so people can quickly find, understand, and contribute
+  to information with clear setup and contribution guidance.
 tags:
   - docs
   - onboarding
   - getting-started
+  - best-practices
   - development
 examples:
-  - Draft a getting-started guide for new contributors.
-  - Organize the documentation so setup and onboarding are easy to follow.
-  - >-
-    Write a content structure that helps users understand the system from first
-    use.
+  - Restructure this knowledge base into a clearer content hierarchy.
+  - Write an onboarding guide for new contributors.
+  - Create contribution best practices for maintaining this content.
 ---
 

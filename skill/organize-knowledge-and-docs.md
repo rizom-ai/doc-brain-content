@@ -1,16 +1,16 @@
 ---
 name: Organize knowledge and docs
 description: >-
-  Structure, maintain, and improve content so information is easy to find,
-  update, and reuse.
+  Structure, maintain, and improve content so information stays easy to
+  navigate, update, and reuse.
 tags:
   - docs
   - development
   - best-practices
-  - getting-started
+  - planning
 examples:
-  - How should I reorganize this content library for easier navigation?
-  - Create a content structure for a new documentation hub.
-  - What are best practices for maintaining reusable brain content?
+  - Restructure this content into a clearer documentation hierarchy.
+  - Identify duplicated pages and suggest how to consolidate them.
+  - Write a content maintenance checklist for the knowledge base.
 ---
 

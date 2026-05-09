@@ -1,14 +1,16 @@
 ---
 name: Plan and prioritize work
-description: 'Create roadmaps, set priorities, and prepare work for execution and release.'
+description: >-
+  Create practical roadmaps, rank contributions, and assess release readiness to
+  guide execution.
 tags:
   - planning
   - priorities
   - release
-  - development
+  - best-practices
 examples:
-  - Help me build a project roadmap for the next quarter.
-  - Prioritize these tasks by impact and effort.
-  - What should I include in a release readiness checklist?
+  - Help me prioritize the next 5 tasks for this project.
+  - Create a release readiness checklist for the upcoming version.
+  - Turn these ideas into a 3-month roadmap with clear milestones.
 ---
 

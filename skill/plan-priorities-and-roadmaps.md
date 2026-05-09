@@ -1,16 +1,17 @@
 ---
 name: Plan priorities and roadmaps
 description: >-
-  Prioritize work, define release readiness, and turn project goals into a
-  practical roadmap.
+  Turn goals and constraints into prioritized work plans, release-ready
+  milestones, and actionable project roadmaps.
 tags:
   - planning
   - priorities
   - release
   - development
+  - best-practices
 examples:
-  - Help me prioritize features for the next release.
-  - Create a roadmap from current work to release readiness.
-  - How do I decide what should be built next in this project?
+  - Help me prioritize the next set of brain improvements.
+  - Draft a roadmap for the next release cycle.
+  - What does release readiness look like for this project?
 ---
 

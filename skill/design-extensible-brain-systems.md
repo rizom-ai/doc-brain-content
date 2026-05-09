@@ -5,18 +5,13 @@ description: >-
   plugin-driven growth paths.
 tags:
   - architecture
-  - extensibility
-  - plugins
   - design
+  - plugins
+  - extensibility
+  - development
 examples:
-  - >-
-    Design an extensible brain architecture with a plugin system and clear core
-    boundaries.
-  - >-
-    Explain how to structure a modular brain so new capabilities can be added
-    safely.
-  - >-
-    Compare different extensibility patterns for a brain application and
-    recommend one.
+  - Design a modular brain architecture with clear service boundaries.
+  - How should I structure a plugin-driven brain system for future growth?
+  - Explain the core services and extension points for this setup.
 ---
 

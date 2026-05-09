@@ -1,16 +1,17 @@
 ---
-name: Guide Setup and Onboarding
+name: Guide setup and onboarding
 description: >-
-  Create clear setup and onboarding guidance that helps contributors get started
-  quickly and confidently.
+  Create clear getting-started materials that help new contributors set up,
+  navigate, and begin using the brain quickly.
 tags:
-  - onboarding
   - getting-started
+  - onboarding
   - docs
   - development
+  - best-practices
 examples:
-  - Write a quickstart guide for setting up the brain project locally.
-  - Create an onboarding checklist for new contributors.
-  - Draft a setup flow that reduces friction for first-time developers.
+  - Write an onboarding guide for new contributors.
+  - Create a setup checklist for a fresh brain workspace.
+  - What should a first-time user know to get started quickly?
 ---
 

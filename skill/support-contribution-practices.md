@@ -1,16 +1,16 @@
 ---
-name: Support Contribution Practices
+name: Support contribution practices
 description: >-
-  Write and improve contributor guidance that clarifies standards, collaboration
-  norms, and how to add value safely.
+  Define contribution standards and development workflows that help teams
+  collaborate effectively.
 tags:
   - best-practices
-  - docs
   - development
+  - docs
   - plugins
 examples:
-  - Draft contribution guidelines for adding new content or plugins.
-  - Explain best practices for submitting changes to the brain project.
-  - 'Create a checklist for safe, high-quality contributions.'
+  - Write contribution guidelines for new developers.
+  - Describe the preferred development workflow for this repository.
+  - Explain how contributors should add new plugins safely.
 ---
 

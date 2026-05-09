@@ -9,8 +9,10 @@ tags:
   - extensibility
   - plugins
 examples:
-  - Design a modular brain architecture for a knowledge assistant.
+  - Design a modular brain architecture for a growing knowledge base.
   - How should I separate core services from plugins in this system?
-  - Propose an extensible architecture that can grow without rewrites.
+  - >-
+    Propose an extensible architecture that supports future capabilities without
+    rewrites.
 ---
 

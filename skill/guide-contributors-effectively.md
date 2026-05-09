@@ -1,16 +1,16 @@
 ---
 name: Guide contributors effectively
 description: >-
-  Create clear onboarding, setup, and contribution guidance that helps new
-  contributors get productive quickly.
+  Write practical contribution guidance that aligns setup, onboarding, and best
+  practices for collaboration.
 tags:
-  - onboarding
-  - getting-started
+  - development
   - best-practices
+  - onboarding
   - docs
 examples:
-  - Write an onboarding guide for new contributors.
-  - What setup steps should I include to help someone start contributing?
-  - Create contribution best practices for this project.
+  - Draft contribution guidelines for this project.
+  - What should a new contributor do in their first hour?
+  - Explain the development workflow and where to start contributing.
 ---
 

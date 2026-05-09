@@ -1,16 +1,16 @@
 ---
 name: Guide setup and onboarding
 description: >-
-  Write practical setup and onboarding guidance that helps contributors get
-  started quickly and correctly.
+  Write setup instructions and onboarding guidance that help contributors get
+  started quickly.
 tags:
   - onboarding
   - getting-started
   - docs
   - best-practices
 examples:
-  - Write a quick-start onboarding guide for new contributors.
-  - What should a setup checklist include for this project?
-  - Draft a contributor-friendly getting-started section.
+  - Draft a getting-started guide for new contributors.
+  - Write setup instructions for a fresh environment.
+  - Create an onboarding checklist for a new teammate.
 ---
 

@@ -1,16 +1,20 @@
 ---
 name: Guide development workflow
 description: >-
-  Define contribution practices, development routines, and release-ready
-  workflows that help teams work consistently.
+  Define and improve how work moves from setup to contribution through
+  consistent development practices.
 tags:
   - development
   - best-practices
-  - release
-  - planning
+  - onboarding
+  - setup
 examples:
-  - Create a development workflow for contributors and maintainers.
-  - What best practices should guide feature implementation and review?
-  - Outline a release-ready development process for this project.
+  - Create a development workflow for new contributors from setup to first PR.
+  - >-
+    List best practices for setting up the project locally and avoiding common
+    mistakes.
+  - >-
+    Explain how the team should handle branching, reviews, and contribution
+    steps.
 ---
 

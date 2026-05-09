@@ -1,16 +1,16 @@
 ---
 name: Manage content and contribution flow
 description: >-
-  Write and organize documentation, contribution guidance, and content workflows
-  that help people understand and extend the system.
+  Structure, maintain, and improve content so it stays organized, useful, and
+  easy to contribute to.
 tags:
   - docs
   - best-practices
   - development
-  - onboarding
+  - planning
 examples:
-  - Create contribution guidelines for new plugin authors.
-  - Rewrite the onboarding docs for a new developer joining the project.
-  - How should content and documentation be structured for maintainability?
+  - How should I organize and maintain this brain's content?
+  - Write contribution best practices for adding new knowledge domains.
+  - Suggest a content structure that keeps documentation easy to navigate.
 ---
 

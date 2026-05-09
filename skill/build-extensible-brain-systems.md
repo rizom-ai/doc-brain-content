@@ -1,19 +1,18 @@
 ---
-name: Build Extensible Brain Systems
+name: Build extensible brain systems
 description: >-
-  Design and explain the architecture and extensibility patterns of a brain
-  application, including its core structure and plugin-driven capabilities.
+  Design modular brain architectures with clear boundaries, core services, and
+  plugin-driven growth paths.
 tags:
   - architecture
-  - plugins
-  - typescript
-  - extensibility
   - design
+  - extensibility
+  - plugins
 examples:
-  - How is the brain application structured?
-  - Explain the plugin architecture and how it extends the core system.
   - >-
-    What are the main architectural components I should know before
-    contributing?
+    Design a modular brain architecture for a knowledge base that can grow over
+    time.
+  - Explain how to structure core services and plugins in a brain system.
+  - What are the key boundaries for making this brain extensible?
 ---
 

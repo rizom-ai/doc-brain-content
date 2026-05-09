@@ -1,16 +1,20 @@
 ---
 name: Structure and maintain docs
 description: >-
-  Organize content into coherent, maintainable documentation structures that
-  support setup, onboarding, and ongoing content management.
+  Organize content into usable documentation, setup guides, onboarding flows,
+  and contribution instructions.
 tags:
   - docs
-  - getting-started
   - onboarding
-  - development
+  - getting-started
+  - best-practices
 examples:
-  - Restructure these docs into a clearer content hierarchy.
-  - Create an onboarding guide for new contributors to this project.
-  - Recommend a content organization strategy for long-term maintainability.
+  - >-
+    Restructure this documentation so new contributors can find setup and
+    onboarding fast.
+  - Write a contribution guide that explains the workflow and best practices.
+  - >-
+    Create a content structure for a project wiki with clear sections and
+    navigation.
 ---
 

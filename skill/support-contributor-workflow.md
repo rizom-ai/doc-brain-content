@@ -1,16 +1,16 @@
 ---
 name: Support contributor workflow
 description: >-
-  Define contribution practices and development workflows that make ongoing
-  collaboration efficient and consistent.
+  Define practical development and contribution workflows that help people
+  collaborate effectively and follow project norms.
 tags:
   - development
   - best-practices
   - docs
-  - plugins
+  - planning
 examples:
-  - Write contribution guidelines for developers.
-  - Describe an effective development workflow for this repository.
-  - Recommend best practices for collaborating on plugin work.
+  - Write contribution guidelines for this project.
+  - Describe an efficient development workflow for contributors.
+  - What best practices should new contributors follow when submitting changes?
 ---
 

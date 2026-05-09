@@ -1,17 +1,16 @@
 ---
 name: Plan and prioritize work
 description: >-
-  Create clear priorities, roadmaps, and release plans that balance scope,
-  readiness, and delivery goals.
+  Create roadmaps, prioritize work, and determine release readiness across
+  projects and initiatives.
 tags:
   - planning
   - priorities
   - release
   - development
-  - best-practices
 examples:
-  - Help me prioritize the next 10 tasks for my product roadmap.
-  - Create a release readiness checklist for an upcoming launch.
-  - Turn these backlog items into a 3-month project roadmap.
+  - Create a project roadmap for the next quarter.
+  - Help me prioritize these tasks by impact and effort.
+  - What should be done before a release is considered ready?
 ---
 

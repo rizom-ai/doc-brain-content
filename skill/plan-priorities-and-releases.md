@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and releases
 description: >-
-  Prioritize work and define release-ready milestones that keep the project
-  aligned with its roadmap.
+  Define priorities, roadmaps, and release-ready criteria to support coordinated
+  development and delivery.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help me prioritize the next set of brain improvements.
-  - What does release readiness look like for this project?
-  - Create a roadmap for the next development cycle.
+  - Help me prioritize the next set of improvements for this brain.
+  - Create a roadmap for upcoming releases and milestones.
+  - What does release readiness mean for this project?
 ---
 

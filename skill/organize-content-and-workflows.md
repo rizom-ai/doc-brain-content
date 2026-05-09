@@ -1,16 +1,16 @@
 ---
 name: Organize content and workflows
 description: >-
-  Structure project content and development workflows so information is easy to
-  maintain, navigate, and update.
+  Create structured content systems and development workflows that keep
+  knowledge organized, maintainable, and easy to contribute to.
 tags:
   - docs
   - development
   - best-practices
-  - planning
+  - onboarding
 examples:
-  - Recommend a content structure for the project documentation.
-  - Outline a workflow for keeping content organized over time.
-  - Suggest best practices for maintaining developer-facing project materials.
+  - Define a content structure for onboarding and contributor docs.
+  - Create a workflow for organizing and updating brain content.
+  - Write best practices for keeping documentation consistent across modules.
 ---
 

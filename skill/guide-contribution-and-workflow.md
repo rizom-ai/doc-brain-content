@@ -1,16 +1,16 @@
 ---
 name: Guide contribution and workflow
 description: >-
-  Write contribution guidance and development workflows that help people
-  collaborate effectively and follow best practices.
+  Create practical guidance for contributing, setting up, and working
+  effectively within the development workflow.
 tags:
-  - best-practices
   - development
-  - docs
+  - best-practices
   - onboarding
+  - getting-started
 examples:
-  - Write contribution best practices for new contributors.
-  - Define a development workflow for reviewing changes.
-  - Create onboarding guidance for someone joining the project.
+  - Write contribution guidelines for new team members.
+  - Create a setup guide for local development.
+  - Outline the development workflow from setup to contribution.
 ---
 

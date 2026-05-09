@@ -1,16 +1,15 @@
 ---
 name: Improve contribution workflows
 description: >-
-  Create clear onboarding, setup, and contribution guidance that helps people
-  start and collaborate effectively.
+  Define contribution best practices and development workflows that make
+  collaboration smoother and more reliable.
 tags:
-  - onboarding
-  - getting-started
-  - best-practices
   - development
+  - best-practices
+  - docs
 examples:
-  - Write a contributor guide for new team members.
-  - Outline the setup steps needed to start contributing.
-  - Create best practices for submitting content updates.
+  - Draft contribution guidelines for this repository.
+  - Streamline the development workflow for new changes.
+  - What best practices should contributors follow?
 ---
 

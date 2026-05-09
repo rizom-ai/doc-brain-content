@@ -1,20 +1,15 @@
 ---
 name: Structure and maintain knowledge
 description: >-
-  Organize, update, and standardize brain content so information stays
-  navigable, reusable, and consistent.
+  Organize, update, and reuse brain content so documentation stays clear,
+  consistent, and easy to navigate.
 tags:
   - docs
   - development
   - best-practices
-  - content-management
 examples:
-  - >-
-    Restructure our brain content so related docs are easier to find and
-    maintain.
-  - >-
-    Create a consistent content organization scheme for onboarding, workflow,
-    and release docs.
-  - Audit the knowledge base and suggest how to improve reuse and consistency.
+  - Refactor this content into a clearer documentation structure.
+  - How should I organize reusable notes for this project?
+  - Suggest a consistent content hierarchy for this brain.
 ---
 

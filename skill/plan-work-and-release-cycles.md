@@ -1,16 +1,17 @@
 ---
 name: Plan work and release cycles
 description: >-
-  Prioritize tasks, define project roadmaps, and assess release readiness across
-  development milestones.
+  Organize project priorities, roadmaps, and release readiness so teams can plan
+  and ship work effectively.
 tags:
   - planning
   - priorities
   - release
   - development
+  - best-practices
 examples:
-  - Help me prioritize the next set of roadmap items.
-  - Create a release readiness checklist for this project.
-  - Turn these goals into a practical development roadmap.
+  - Draft a project roadmap for the next quarter.
+  - Help prioritize features for the upcoming release.
+  - Create a release readiness checklist for contributors.
 ---
 

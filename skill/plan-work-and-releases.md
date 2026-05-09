@@ -1,16 +1,16 @@
 ---
-name: Plan work and releases
+name: Plan Work and Releases
 description: >-
-  Organize priorities, roadmaps, and release readiness guidance to help teams
-  decide what to do next and ship confidently.
+  Prioritize roadmap items, shape development workflow, and assess release
+  readiness for ongoing project work.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
-  - Turn these ideas into a prioritized roadmap.
-  - What should be checked before a release is considered ready?
-  - Help me compare these tasks and decide what to do first.
+  - Help me prioritize these roadmap items for the next release.
+  - Create a workflow for tracking development from idea to release.
+  - What should I check before marking this release as ready?
 ---
 

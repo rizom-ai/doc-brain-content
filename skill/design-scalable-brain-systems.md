@@ -1,18 +1,16 @@
 ---
 name: Design scalable brain systems
 description: >-
-  Design modular, extensible brain architectures with clear boundaries, core
-  services, and plugin-driven growth paths.
+  Design modular brain architectures that support plugins, clear boundaries, and
+  future extensibility.
 tags:
   - architecture
   - design
-  - extensibility
   - plugins
+  - extensibility
 examples:
-  - Design a modular brain architecture for a growing knowledge base.
-  - How should I separate core services from plugins in this system?
-  - >-
-    Propose an extensible architecture that supports future capabilities without
-    rewrites.
+  - Propose a modular architecture for this brain.
+  - How should the plugin system be organized?
+  - Identify extensibility points in this design.
 ---
 

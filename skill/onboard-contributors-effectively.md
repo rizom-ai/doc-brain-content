@@ -1,17 +1,17 @@
 ---
 name: Onboard contributors effectively
 description: >-
-  Write clear onboarding and contribution guidance that helps new users and
-  contributors get started quickly and follow best practices.
+  Create setup and contribution guidance that helps new people get started and
+  contribute successfully.
 tags:
   - onboarding
   - getting-started
-  - best-practices
   - docs
+  - best-practices
   - development
 examples:
-  - Draft a getting-started guide for new contributors.
-  - Write contribution best practices for editing and submitting content.
-  - Create an onboarding checklist for someone joining the project.
+  - Write a contributor onboarding guide for this project.
+  - Create a quick-start setup section for new users.
+  - What best practices should I include for first-time contributors?
 ---
 

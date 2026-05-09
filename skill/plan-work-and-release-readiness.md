@@ -1,16 +1,17 @@
 ---
 name: Plan work and release readiness
 description: >-
-  Prioritize roadmap items, coordinate development workflow, and assess release
-  readiness for a smooth delivery process.
+  Prioritize tasks, define roadmap direction, and assess whether a project is
+  ready to ship.
 tags:
   - planning
   - priorities
-  - development
   - release
+  - development
+  - best-practices
 examples:
-  - Help me prioritize the next roadmap items for this project.
-  - What should I check before declaring a release ready?
-  - Outline a development workflow that supports reliable releases.
+  - Help me prioritize the next set of brain improvements.
+  - Create a roadmap for the next release.
+  - What should I check before considering this ready to ship?
 ---
 

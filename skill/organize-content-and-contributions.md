@@ -1,16 +1,16 @@
 ---
 name: Organize content and contributions
 description: >-
-  Create and maintain content structures, contribution workflows, and content
-  management practices that keep the brain consistent and easy to evolve.
+  Structure documentation and contribution practices so content stays clear,
+  maintainable, and easy to manage over time.
 tags:
   - docs
   - best-practices
   - development
-  - getting-started
+  - design
 examples:
-  - Propose a content structure for a growing brain knowledge base.
-  - Write contribution guidelines for adding and updating content.
-  - Suggest a workflow for managing and reviewing documentation changes.
+  - Define best practices for contributing new content to the brain.
+  - Propose a content structure that keeps documentation easy to navigate.
+  - Review the current documentation organization and suggest improvements.
 ---
 

@@ -1,16 +1,16 @@
 ---
 name: Guide development workflows
 description: >-
-  Define contribution practices and development workflows that make
-  collaboration, maintenance, and iteration smoother.
+  Create practical workflows for setup, onboarding, contribution, and day-to-day
+  development.
 tags:
   - development
+  - onboarding
   - best-practices
-  - plugins
-  - architecture
+  - getting-started
 examples:
-  - Outline a development workflow for adding a new plugin.
-  - Write contribution best practices for reviewing and merging changes.
-  - Recommend how to keep plugin development consistent across teams.
+  - Write a contributor onboarding flow for new developers.
+  - Outline the setup steps for getting started with this project.
+  - Suggest best practices for a smooth development workflow.
 ---
 

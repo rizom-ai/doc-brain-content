@@ -1,16 +1,15 @@
 ---
 name: Organize and manage content
 description: >-
-  Structure knowledge-base content so it is easy to navigate, maintain, and
-  reuse across the brain.
+  Structure, maintain, and improve documentation and content systems for clarity
+  and reuse.
 tags:
   - docs
-  - planning
-  - development
   - best-practices
+  - development
 examples:
-  - Suggest a content organization scheme for a brain knowledge base.
-  - How should markdown content be structured for maintainability?
-  - Create best practices for managing and updating brain docs.
+  - Recommend a content structure for this knowledge base.
+  - How should documentation be organized for easy maintenance?
+  - Draft standards for keeping content consistent across pages.
 ---
 

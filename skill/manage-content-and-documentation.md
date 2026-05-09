@@ -1,16 +1,15 @@
 ---
 name: Manage content and documentation
 description: >-
-  Organize, maintain, and improve markdown-based knowledge content so it stays
-  usable and easy to navigate.
+  Organize, improve, and maintain content structure so information is easy to
+  find, update, and reuse across the project.
 tags:
   - docs
   - development
-  - planning
   - best-practices
 examples:
-  - Propose a content structure for a growing brain knowledge base.
-  - Help me organize documentation into clear sections and pages.
-  - Recommend best practices for keeping markdown content maintainable.
+  - Restructure this documentation for easier navigation.
+  - Identify gaps in the current content organization.
+  - Suggest a better content management approach for this project.
 ---
 

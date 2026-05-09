@@ -1,17 +1,18 @@
 ---
 name: Manage Content and Contributions
 description: >-
-  Organize content workflows and contribution guidance that keep documentation
-  consistent, maintainable, and easy to update.
+  Organize content workflows and contribution practices to keep documentation
+  accurate, maintainable, and easy to improve.
 tags:
   - docs
   - best-practices
   - development
-  - plugins
-  - extensibility
+  - planning
 examples:
-  - Create contribution guidelines for updating brain content safely.
-  - Recommend a content management workflow for a markdown-based knowledge base.
-  - Write best practices for keeping documentation modular and easy to extend.
+  - Suggest best practices for managing project documentation changes.
+  - Create a contribution workflow for reviewing and updating content.
+  - >-
+    Organize the content structure to make it easier for contributors to
+    maintain.
 ---
 

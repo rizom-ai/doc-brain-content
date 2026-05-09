@@ -1,16 +1,16 @@
 ---
 name: Guide contributor workflows
 description: >-
-  Establish contribution best practices and development workflows that make
-  collaboration smoother and more consistent.
+  Document best practices for contributing, onboarding, and day-to-day
+  development workflows.
 tags:
   - best-practices
   - development
+  - onboarding
   - docs
-  - plugins
 examples:
-  - Define contribution guidelines for the project.
-  - Improve the development workflow for plugin contributions.
-  - Write best practices for reviewing and merging changes.
+  - Write a contributor guide for new team members.
+  - Outline the ideal development workflow for this project.
+  - Create a checklist for first-time contributors.
 ---
 

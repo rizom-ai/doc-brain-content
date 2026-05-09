@@ -1,16 +1,16 @@
 ---
-name: Guide new contributors
+name: Guide New Contributors
 description: >-
-  Create onboarding and setup guidance that helps new contributors get started
-  quickly and follow the right workflow.
+  Create onboarding and setup guidance that helps people understand the project
+  and start contributing quickly.
 tags:
   - onboarding
   - getting-started
-  - development
   - docs
+  - best-practices
 examples:
-  - Write an onboarding guide for new contributors to this project.
-  - What should a first-time contributor know before setting up the repo?
-  - Create a quick-start checklist for getting started.
+  - Write a concise onboarding guide for new contributors.
+  - Create a setup checklist for someone joining the project.
+  - What should a getting-started page include for this brain?
 ---
 

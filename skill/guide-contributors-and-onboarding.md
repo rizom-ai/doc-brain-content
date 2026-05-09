@@ -1,16 +1,16 @@
 ---
 name: Guide contributors and onboarding
 description: >-
-  Write and organize setup, onboarding, and contribution guidance that helps new
-  contributors start quickly and follow team standards.
+  Create onboarding and contribution guidance that helps people start quickly
+  and follow team conventions.
 tags:
-  - getting-started
   - onboarding
-  - docs
   - best-practices
+  - development
+  - getting-started
 examples:
-  - Write an onboarding guide for new contributors.
-  - What should a setup doc include for first-time users?
-  - Draft contribution best practices for this repository.
+  - Write a contributor onboarding checklist.
+  - Create best practices for first-time contributors.
+  - Explain how to set up the project and make a first contribution.
 ---
 

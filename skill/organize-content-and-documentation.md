@@ -1,16 +1,18 @@
 ---
 name: Organize content and documentation
 description: >-
-  Create clear content structures, setup guides, and documentation that make a
-  brain easy to understand and maintain.
+  Create clear content structures and documentation workflows that keep
+  knowledge easy to find, maintain, and extend.
 tags:
   - docs
-  - development
-  - getting-started
   - best-practices
+  - development
+  - architecture
 examples:
-  - Draft a getting-started guide for new contributors.
-  - Organize content into a maintainable documentation structure.
-  - Write documentation standards for content management and updates.
+  - 'Propose a content structure for onboarding, setup, and release docs.'
+  - >-
+    How should I organize documentation so it stays maintainable as the brain
+    grows?
+  - Rewrite this knowledge base outline into a clearer information architecture.
 ---
 

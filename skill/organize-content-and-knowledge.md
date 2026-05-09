@@ -1,16 +1,16 @@
 ---
 name: Organize content and knowledge
 description: >-
-  Create clear content structures and management patterns that make information
-  easy to find, maintain, and reuse.
+  Structure, manage, and refine documentation and content so information stays
+  easy to find and maintain.
 tags:
   - docs
+  - planning
   - development
   - best-practices
-  - getting-started
 examples:
-  - How should I organize content so related knowledge stays easy to maintain?
-  - 'Create a content structure for onboarding, architecture, and release docs.'
-  - Suggest best practices for managing a growing knowledge base.
+  - How should I organize the content structure for this brain?
+  - Suggest a better way to manage and maintain documentation.
+  - Create a content model that keeps related topics easy to retrieve.
 ---
 

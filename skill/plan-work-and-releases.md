@@ -1,16 +1,16 @@
 ---
 name: Plan work and releases
 description: >-
-  Prioritize work, define roadmap direction, and assess release readiness for
-  ongoing development.
+  Prioritize tasks, shape roadmaps, and assess readiness for development and
+  release.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help me prioritize the next set of brain improvements.
-  - Create a roadmap for the next three releases.
-  - What criteria should we use to decide if a release is ready?
+  - Prioritize the next set of improvements for this project.
+  - Build a roadmap for the next release cycle.
+  - Assess whether this feature is ready to ship.
 ---
 

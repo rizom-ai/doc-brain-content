@@ -1,16 +1,16 @@
 ---
 name: Organize content and docs
 description: >-
-  Create clear content structures and manage documentation so information is
-  easy to navigate, maintain, and reuse.
+  Structure, maintain, and improve content so knowledge is easy to find,
+  consistent, and reusable.
 tags:
   - docs
-  - best-practices
+  - design
   - development
-  - getting-started
+  - best-practices
 examples:
-  - Restructure my documentation for better clarity and reuse.
-  - What is a good content organization pattern for this brain?
-  - Draft a clean documentation hierarchy for setup and usage.
+  - Restructure the content architecture for easier navigation and reuse.
+  - Suggest a better documentation layout for related topics and guides.
+  - Review this content structure and recommend improvements for clarity.
 ---
 

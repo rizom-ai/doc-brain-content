@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and roadmaps
 description: >-
-  Analyze goals and constraints to prioritize work and build a practical project
-  roadmap.
+  Prioritize work and translate goals into actionable project roadmaps with
+  clear sequencing.
 tags:
   - planning
   - priorities
   - release
-  - design
+  - development
 examples:
-  - Help me prioritize the next set of brain improvements.
-  - Create a roadmap for extending the plugin system.
-  - 'How should I sequence architecture, setup, and release work?'
+  - Help me prioritize these roadmap items for the next release.
+  - Create a project roadmap from these feature requests.
+  - 'How should I sequence work across setup, docs, and plugin support?'
 ---
 

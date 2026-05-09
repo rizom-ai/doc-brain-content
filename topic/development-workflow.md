@@ -1,4 +1,4 @@
 ---
 title: Development Workflow
 ---
-A development workflow is the repeatable process used to set up a project, make changes safely, and move work through implementation, review, testing, and delivery. It defines how contributors start, what steps they follow day to day, and how tasks progress from initial setup or proposal through code changes, pull requests, approval, and release preparation. A clear workflow reduces friction, supports collaboration, and gives new contributors a reliable path to follow. It also helps teams coordinate updates, maintain consistency, and keep the codebase or content system predictable and manageable over time.
+A development workflow is the repeatable process used to move work through the development lifecycle, from setup or initial planning through implementation, review, testing, and delivery. It defines how contributors start, how changes are organized and reviewed, and what steps are followed day to day so work stays predictable and maintainable. A clear workflow reduces confusion, avoids duplicated effort, supports collaboration, and helps teams maintain code quality and consistency as a project grows.

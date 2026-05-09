@@ -1,16 +1,16 @@
 ---
 name: Plan work and set priorities
 description: >-
-  Translate roadmap goals into actionable priorities, release readiness steps,
-  and contribution guidance.
+  Translate goals into an actionable roadmap by prioritizing work, sequencing
+  tasks, and checking release readiness.
 tags:
   - planning
   - priorities
   - release
-  - best-practices
+  - development
 examples:
-  - Help me prioritize these roadmap items for the next release.
-  - What should I check before marking this project release-ready?
-  - Draft contribution guidelines that match this project’s planning process.
+  - Help me prioritize these roadmap items.
+  - What should be included before a release is considered ready?
+  - Turn this project plan into a sequenced development workflow.
 ---
 

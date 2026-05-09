@@ -1,16 +1,16 @@
 ---
 name: Plan releases and priorities
 description: >-
-  Create release plans and prioritize work by balancing readiness, roadmap
-  goals, and development constraints.
+  Define roadmaps, prioritize work, and prepare release readiness materials that
+  align effort with project goals.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help me prioritize the next release milestones.
-  - Assess whether a feature is ready for release.
-  - Create a roadmap-based plan for the next development cycle.
+  - Help me turn the current roadmap into a prioritized release plan.
+  - Create a release readiness checklist for the next milestone.
+  - Suggest how to rank upcoming work by impact and urgency.
 ---
 

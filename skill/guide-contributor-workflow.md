@@ -1,16 +1,16 @@
 ---
 name: Guide contributor workflow
 description: >-
-  Define best practices for contributing, collaborating, and following
-  development processes from first setup through delivery.
+  Write and improve setup, onboarding, and contribution guidance that helps
+  people contribute effectively from day one.
 tags:
-  - best-practices
-  - development
   - onboarding
   - getting-started
+  - development
+  - best-practices
 examples:
-  - Write contributor best practices for a new project.
-  - 'Create a workflow for setup, local development, and submitting changes.'
-  - How can I make onboarding smoother for new contributors?
+  - Create contributor guidelines for this brain project.
+  - Write a getting-started guide for new contributors.
+  - What should a good development workflow look like here?
 ---
 

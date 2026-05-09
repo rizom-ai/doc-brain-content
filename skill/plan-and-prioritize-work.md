@@ -1,16 +1,16 @@
 ---
 name: Plan and prioritize work
 description: >-
-  Define roadmaps, set priorities, and prepare release-ready plans that guide
-  what to do next.
+  Create actionable roadmaps, choose what matters most, and define release-ready
+  priorities across projects and contributions.
 tags:
   - planning
   - priorities
   - release
   - best-practices
 examples:
-  - Create a roadmap for the next three milestones.
-  - Help me prioritize these tasks for the next release.
-  - What should I check before considering this project release-ready?
+  - Help me turn this project roadmap into a prioritized release plan.
+  - What should we work on first given these competing requests?
+  - Draft a release readiness checklist for the next milestone.
 ---
 

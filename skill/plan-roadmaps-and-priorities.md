@@ -1,16 +1,17 @@
 ---
-name: Plan Roadmaps and Priorities
+name: Plan roadmaps and priorities
 description: >-
-  Create and refine development roadmaps by prioritizing work, coordinating
-  releases, and sequencing tasks for readiness.
+  Turn project goals into clear plans by setting priorities, defining release
+  readiness, and sequencing work for execution.
 tags:
   - planning
   - priorities
   - release
   - development
+  - best-practices
 examples:
-  - Turn these initiatives into a prioritized roadmap.
-  - What should be included in a release readiness checklist?
-  - 'Help me sequence setup, development, and release tasks for this project.'
+  - Create a prioritized roadmap for the next quarter.
+  - Assess whether this project is ready for release.
+  - Help me break down goals into an execution plan.
 ---
 

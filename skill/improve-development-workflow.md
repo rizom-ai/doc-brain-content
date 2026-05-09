@@ -1,16 +1,16 @@
 ---
 name: Improve development workflow
 description: >-
-  Define contribution practices, release readiness checks, and day-to-day
-  development processes that keep the brain healthy.
+  Define practical contribution and development practices that make
+  collaboration, review, and maintenance smoother.
 tags:
   - development
   - best-practices
-  - release
   - docs
+  - design
 examples:
-  - Create a contribution guide for this repository.
-  - List the checks needed before a release is considered ready.
-  - Recommend a development workflow for reviewing and shipping changes.
+  - Write contribution guidelines for this repository.
+  - How can we make the development workflow easier to follow?
+  - Suggest best practices for collaborating on this project.
 ---
 

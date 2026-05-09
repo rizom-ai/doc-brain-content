@@ -1,17 +1,16 @@
 ---
 name: Plan work and releases
 description: >-
-  Prioritize work, shape roadmaps, and define release readiness criteria that
-  keep development aligned and shippable.
+  Organize priorities, roadmaps, and release readiness guidance to help teams
+  decide what to do next and ship confidently.
 tags:
   - planning
   - priorities
   - release
-  - development
   - best-practices
 examples:
-  - Help me prioritize these tasks for the next release.
-  - Draft a project roadmap for the upcoming quarter.
-  - What does release readiness mean for this project?
+  - Turn these ideas into a prioritized roadmap.
+  - What should be checked before a release is considered ready?
+  - Help me compare these tasks and decide what to do first.
 ---
 

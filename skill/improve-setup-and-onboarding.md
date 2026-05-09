@@ -1,16 +1,16 @@
 ---
 name: Improve setup and onboarding
 description: >-
-  Create setup and onboarding flows that help new contributors understand,
-  configure, and start using the brain quickly.
+  Create smooth getting-started experiences by documenting setup, onboarding,
+  and contribution workflows clearly.
 tags:
   - onboarding
   - getting-started
-  - docs
   - development
+  - best-practices
 examples:
-  - Write a getting-started guide for new contributors.
-  - What should a first-time setup checklist include?
-  - Create an onboarding flow for someone new to this project.
+  - Write a setup guide for new contributors.
+  - Draft an onboarding flow for developers joining the project.
+  - Recommend improvements to the contribution workflow for first-time users.
 ---
 

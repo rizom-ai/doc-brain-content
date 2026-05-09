@@ -1,16 +1,17 @@
 ---
 name: Guide workflow and contribution
 description: >-
-  Define contribution best practices and development workflows that keep
-  collaboration consistent and efficient.
+  Define practical development workflows and contribution guidelines that help
+  people work effectively in the brain.
 tags:
   - development
   - best-practices
+  - onboarding
   - docs
-  - plugins
+  - getting-started
 examples:
-  - Outline a contribution workflow for this repository.
-  - Write best practices for submitting changes safely.
-  - Create a development workflow for plugin contributors.
+  - Write contribution guidelines for new collaborators.
+  - What workflow should contributors follow for changes and reviews?
+  - Create an onboarding checklist for working in this brain.
 ---
 

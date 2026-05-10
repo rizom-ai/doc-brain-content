@@ -1,16 +1,17 @@
 ---
 name: Plan workflows and releases
 description: >-
-  Define development workflows, prioritization, and release readiness steps that
-  keep work coordinated and shippable.
+  Plan development workflows, roadmaps, priorities, and release readiness so
+  work moves from setup to shipping smoothly.
 tags:
-  - development
   - planning
   - priorities
   - release
+  - development
+  - onboarding
 examples:
-  - 'Create a workflow for reviewing, prioritizing, and shipping updates.'
-  - What checklist should I use before declaring a release ready?
-  - Help me plan the roadmap for the next three milestones.
+  - Create a roadmap that balances priority work with release readiness.
+  - What should be included in a release readiness checklist?
+  - Outline a development workflow for contributors from setup to merge.
 ---
 

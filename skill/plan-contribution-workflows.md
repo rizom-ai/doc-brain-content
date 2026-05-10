@@ -1,16 +1,17 @@
 ---
-name: Plan Contribution Workflows
+name: Plan contribution workflows
 description: >-
-  Create practical workflows for onboarding, contributions, priorities, and
-  release readiness across the project lifecycle.
+  Define practical workflows for onboarding, development, prioritization, and
+  release readiness.
 tags:
-  - planning
+  - development
+  - best-practices
   - onboarding
   - release
-  - priorities
+  - planning
 examples:
-  - Design a contributor onboarding flow from first visit to first pull request.
-  - What should the release readiness checklist include for this project?
-  - Help me prioritize roadmap items for the next development cycle.
+  - Draft a contributor workflow from setup to release.
+  - Create a release readiness checklist for the project.
+  - Help prioritize the next steps in the roadmap.
 ---
 

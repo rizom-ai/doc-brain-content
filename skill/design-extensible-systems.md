@@ -1,8 +1,8 @@
 ---
 name: Design Extensible Systems
 description: >-
-  Design modular brain architectures and plugin-friendly structures that support
-  growth and extension.
+  Design modular brain architectures and plugin-friendly systems that are clear,
+  maintainable, and built for growth.
 tags:
   - architecture
   - design
@@ -10,7 +10,7 @@ tags:
   - extensibility
 examples:
   - Propose a modular architecture for this brain system.
-  - How should the plugin system be structured for future growth?
-  - Design an extensible core with clear boundaries and add-on points.
+  - How should the plugin system be structured for extensibility?
+  - Explain how to design boundaries between core and add-on features.
 ---
 

@@ -1,16 +1,18 @@
 ---
-name: Support setup and onboarding
+name: Support Setup and Onboarding
 description: >-
-  Create getting-started guidance that helps contributors or users set up the
-  brain and work effectively from day one.
+  Write and improve setup and onboarding guidance that helps contributors start
+  quickly and contribute well.
 tags:
-  - onboarding
   - getting-started
+  - onboarding
+  - best-practices
   - docs
-  - development
 examples:
-  - Write an onboarding guide for new contributors.
-  - What setup steps should be included for first-time users?
-  - Create a quickstart for this brain system.
+  - Draft a contributor onboarding guide for this brain.
+  - What setup steps should be included for a new contributor?
+  - >-
+    Create a quick-start section that explains how to begin working on the
+    project.
 ---
 

@@ -1,15 +1,16 @@
 ---
-name: Structure Knowledge Bases
+name: Structure knowledge bases
 description: >-
-  Organize and maintain brain content so information stays consistent,
-  navigable, reusable, and easy to update.
+  Organize and maintain brain content so documentation stays navigable,
+  consistent, and easy to reuse.
 tags:
   - docs
   - development
   - best-practices
+  - getting-started
 examples:
-  - Help me reorganize our brain content into clearer sections.
-  - Suggest a better structure for reusable documentation on this topic.
-  - How should I keep content consistent across related pages?
+  - Reorganize my brain notes into a clearer structure.
+  - Create a content map for onboarding and setup docs.
+  - Suggest a better folder and page structure for this knowledge base.
 ---
 

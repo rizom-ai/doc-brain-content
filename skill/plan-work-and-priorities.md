@@ -1,17 +1,16 @@
 ---
-name: Plan work and priorities
+name: Plan Work and Priorities
 description: >-
-  Turn project goals into an actionable roadmap by organizing tasks, sequencing
-  work, and clarifying priorities and release readiness.
+  Create practical roadmaps, prioritize work, and define release-focused next
+  steps.
 tags:
   - planning
   - priorities
   - release
   - development
-  - best-practices
 examples:
-  - Draft a roadmap for the next release cycle.
-  - Help prioritize features and documentation updates.
-  - Assess whether the project is ready for release.
+  - Build a roadmap for improving the brain content over the next month.
+  - Help me prioritize these documentation tasks by impact and effort.
+  - What should be included in the next release readiness checklist?
 ---
 

@@ -1,16 +1,17 @@
 ---
-name: Plan and Prioritize Work
+name: Plan and prioritize work
 description: >-
-  Create roadmaps, prioritize work, and align content with development workflow
-  and release readiness.
+  Organize roadmaps, release readiness, and priority decisions into actionable
+  plans that keep work aligned and on track.
 tags:
   - planning
   - priorities
   - release
   - development
+  - best-practices
 examples:
-  - Help me turn these topics into a prioritized roadmap.
-  - What should be included to make this release-ready?
-  - Reorder these tasks by importance and dependency.
+  - Build a project roadmap for the next quarter.
+  - Help prioritize the backlog for an upcoming release.
+  - Create a release readiness checklist.
 ---
 

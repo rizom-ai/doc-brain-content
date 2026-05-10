@@ -1,16 +1,16 @@
 ---
 name: Plan workflow and priorities
 description: >-
-  Set priorities, map roadmaps, and define release readiness criteria for
-  development work.
+  Define development workflow, release readiness, and roadmap priorities so work
+  is sequenced and tracked effectively.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Prioritize the current backlog and suggest a practical project roadmap.
-  - Define release readiness criteria for this brain system.
-  - Outline a development workflow that supports steady delivery and planning.
+  - Help me prioritize the next set of brain improvements.
+  - Draft a release-readiness checklist for this project.
+  - Turn this roadmap into an actionable development plan.
 ---
 

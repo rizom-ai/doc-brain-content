@@ -2,45 +2,43 @@
 strengths:
   - title: Extensible architecture
     detail: >-
-      You can confidently shape the core system so it stays modular and open to
-      future growth.
-  - title: Knowledge structure
+      You can confidently shape the brain’s core structure and decide what
+      belongs in the main system versus an extension.
+  - title: Knowledge organization
     detail: >-
-      You are well suited to keep the brain’s content organized, reusable, and
-      easy to navigate over time.
-  - title: Release planning
-    detail: >-
-      You can set priorities and define release-ready work without needing much
-      outside help on the basics.
+      Use this to keep documentation clean, consistent, and easy to navigate as
+      the brain grows.
 weaknesses:
-  - title: Workshop facilitation
-    detail: Do not assume you can lead structured workshops from this profile alone.
-  - title: Video production
+  - title: Video production gap
     detail: >-
-      Video work is not well supported here, so treat it as outside your core
-      strengths unless you add help.
-opportunities:
-  - title: Contributor onboarding
-    detail: >-
-      You can extend your onboarding skills into a clearer contributor
-      enablement practice and borrow stronger workflow ideas from your network.
-  - title: Contribution release flow
-    detail: >-
-      Use your planning skills to turn contribution rules and release checks
-      into a more shippable delivery process.
-  - title: Modular design
-    detail: >-
-      Your network can help you refine plugin-driven structure and extension
-      paths before you change the core design.
-threats:
+      Do not count on the brain to cover video-heavy needs without outside
+      support.
   - title: Visualization gap
     detail: >-
-      Presentation-heavy work may stall if you do not bring in outside help or
-      tools for video and visualization.
-  - title: One-dimensional coordination
+      Keep diagram and presentation-visual work light unless you add a dedicated
+      complement for it.
+opportunities:
+  - title: Planning discipline
     detail: >-
-      Watch for overusing the same planning lens when the work needs stronger
-      operational handoff and coordination.
-derivedAt: '2026-05-09T15:51:33.981Z'
+      Turn this into a tighter habit for sequencing work, milestones, and
+      release checks.
+  - title: Entry-path improvements
+    detail: >-
+      Use this to make setup guidance more consistent and help new contributors
+      get productive faster.
+  - title: Repeatable content process
+    detail: >-
+      Test a more standard process for updating, maintaining, and handing off
+      content.
+threats:
+  - title: Video dependency risk
+    detail: >-
+      If a workflow depends on video explanations, it is not well covered here
+      and needs outside help.
+  - title: Workshop facilitation gap
+    detail: >-
+      For live sessions or workshops, pair this with someone who can actively
+      run the room.
+derivedAt: '2026-05-10T17:17:14.240Z'
 ---
 

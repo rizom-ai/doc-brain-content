@@ -1,16 +1,16 @@
 ---
 name: Support onboarding and contribution
 description: >-
-  Create guidance that helps new contributors set up quickly and follow
-  consistent contribution practices.
+  Create contributor-facing guidance that helps new people get started and
+  follow project standards.
 tags:
   - onboarding
   - getting-started
-  - best-practices
   - docs
+  - best-practices
 examples:
-  - Write a getting-started guide for new contributors.
-  - Draft contribution best practices for working in this brain project.
-  - Create an onboarding checklist for setup and first contributions.
+  - Write onboarding instructions for new contributors.
+  - Draft a getting-started guide for this project.
+  - What should a contribution guide include for first-time users?
 ---
 

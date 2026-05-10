@@ -1,16 +1,16 @@
 ---
 name: Structure and maintain knowledge
 description: >-
-  Create and update organized, reusable documentation so content stays
-  consistent, navigable, and easy to reuse.
+  Organize, update, and standardize content so information stays easy to
+  navigate, reuse, and keep consistent.
 tags:
   - docs
-  - best-practices
   - development
+  - best-practices
   - getting-started
 examples:
-  - How should I reorganize our brain content for easier navigation?
-  - Create a consistent structure for reusable documentation pages.
-  - What are the best practices for maintaining content over time?
+  - Help me reorganize this documentation into a clearer structure.
+  - What content should be standardized so contributors can reuse it easily?
+  - Review this brain page for consistency and maintainability.
 ---
 

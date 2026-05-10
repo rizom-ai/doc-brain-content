@@ -7,10 +7,10 @@ tags:
   - docs
   - development
   - best-practices
-  - content-management
+  - onboarding
 examples:
-  - How should I restructure this documentation so it is easier to navigate?
-  - Create a consistent content model for these brain notes.
-  - Review this section and suggest cleanup for reuse and consistency.
+  - Reorganize these notes into a clearer documentation structure.
+  - What is the best way to maintain consistent content across this brain?
+  - Create a cleanup plan for outdated or duplicated docs.
 ---
 

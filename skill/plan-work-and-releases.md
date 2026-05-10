@@ -1,17 +1,16 @@
 ---
-name: Plan work and releases
+name: Plan Work and Releases
 description: >-
-  Define priorities, roadmaps, and release criteria that keep development
-  focused and delivery predictable.
+  Prioritize roadmap items, manage development workflow, and define release
+  readiness criteria for the project.
 tags:
   - planning
   - priorities
   - release
   - development
-  - best-practices
 examples:
-  - Help me turn these ideas into a practical roadmap.
-  - What should be prioritized for the next release?
-  - Create a release-readiness checklist for this project.
+  - Help me prioritize these roadmap items for the next release.
+  - Define release readiness criteria for this project.
+  - Turn this backlog into a practical development plan.
 ---
 

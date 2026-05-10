@@ -1,17 +1,16 @@
 ---
 name: Guide contributors and workflow
 description: >-
-  Write and improve onboarding, setup, and contribution guidance so people can
-  start and work effectively in the project.
+  Create contribution, setup, and development guidance that helps people onboard
+  and work effectively.
 tags:
+  - development
   - onboarding
   - getting-started
   - best-practices
-  - development
-  - docs
 examples:
-  - Draft a contributor onboarding guide for this project.
-  - What should a new contributor know before making changes?
-  - Create setup instructions for the development workflow.
+  - Write a contributor onboarding guide for this project.
+  - What setup steps should new developers follow?
+  - Draft a development workflow for consistent contributions.
 ---
 

@@ -1,16 +1,16 @@
 ---
 name: Structure and maintain knowledge
 description: >-
-  Create, organize, and keep brain content consistent so documentation is easy
-  to navigate, reuse, and update.
+  Organize, update, and keep brain content consistent so information is easy to
+  navigate, reuse, and maintain.
 tags:
   - docs
   - development
   - best-practices
   - getting-started
 examples:
-  - Restructure our brain content into a cleaner hierarchy.
-  - 'How should I organize onboarding, setup, and contribution docs?'
-  - Review this documentation set for consistency and reuse.
+  - Reorganize the documentation into a clearer structure for new contributors.
+  - Update the content management guidelines so they are easier to follow.
+  - Suggest a better way to keep reusable notes consistent across the brain.
 ---
 

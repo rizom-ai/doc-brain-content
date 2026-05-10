@@ -2,15 +2,15 @@
 name: Guide contributors and onboarding
 description: >-
   Create clear setup, onboarding, and contribution guidance that helps people
-  get started quickly.
+  start quickly and work effectively.
 tags:
   - onboarding
   - getting-started
-  - best-practices
   - docs
+  - best-practices
 examples:
   - Write a contributor onboarding guide for this project.
-  - What should a good setup section include?
-  - Improve the getting-started flow for new users.
+  - What should a new contributor know before making their first change?
+  - Draft setup steps for getting started with the brain.
 ---
 

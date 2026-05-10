@@ -1,16 +1,16 @@
 ---
 name: Plan priorities and roadmap
 description: >-
-  Define priorities, release readiness, and roadmap direction to support project
-  planning decisions.
+  Define project priorities, roadmaps, and release goals to keep work focused
+  and ready for delivery.
 tags:
   - planning
   - priorities
   - release
   - development
 examples:
-  - Help me prioritize the next documentation tasks.
-  - Draft a roadmap for the next release cycle.
-  - What should we check before calling this release ready?
+  - Help me turn these tasks into a prioritized project roadmap.
+  - Create a release readiness checklist for the next milestone.
+  - Recommend how to balance short-term priorities with longer-term goals.
 ---
 

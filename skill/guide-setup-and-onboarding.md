@@ -1,16 +1,16 @@
 ---
 name: Guide setup and onboarding
 description: >-
-  Create clear setup and onboarding flows that help contributors get started
-  quickly and follow the right process.
+  Create clear setup, onboarding, and contribution guidance that helps new users
+  and collaborators get started quickly.
 tags:
-  - getting-started
   - onboarding
+  - getting-started
+  - best-practices
   - development
-  - docs
 examples:
-  - Write an onboarding guide for new contributors.
-  - What should a good setup flow include for this project?
-  - Create a quick-start checklist for getting started.
+  - Write a getting-started guide for new contributors.
+  - What should be included in the onboarding flow for this brain?
+  - Draft setup instructions that reduce friction for first-time users.
 ---
 

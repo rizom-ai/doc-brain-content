@@ -1,14 +1,12 @@
 ---
-title: Package Structure
-section: Architecture
+title: "Package Structure"
+section: "Architecture"
 order: 180
-sourcePath: docs/architecture/package-structure.md
-description: >-
-  The Brains repository is a monorepo with 8 workspace directories (shell/,
-  shared/, entities/, plugins/, interfaces/, sites/, brains/, packages/). Each
-  directory
-slug: package-structure
+sourcePath: "docs/architecture/package-structure.md"
+slug: "package-structure"
+description: "The Brains repository is a monorepo with 8 workspace directories (shell/, shared/, entities/, plugins/, interfaces/, sites/, brains/, packages/). Each directory"
 ---
+
 # Package Structure
 
 ## Overview

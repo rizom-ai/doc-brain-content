@@ -1,18 +1,16 @@
 ---
 name: Organize Knowledge Assets
 description: >-
-  Structure, maintain, and update brain content so documentation stays clear,
-  reusable, and easy to navigate.
+  Structure, maintain, and improve brain content so information stays navigable,
+  consistent, and easy to reuse.
 tags:
   - docs
   - development
   - best-practices
   - getting-started
 examples:
-  - >-
-    How should I reorganize my content so contributors can find the right docs
-    faster?
-  - What structure should I use for onboarding and setup documentation?
-  - Help me clean up duplicated or outdated knowledge base pages.
+  - Reorganize my brain notes into a cleaner structure.
+  - How should I keep documentation consistent across topics?
+  - Help me turn scattered content into reusable documentation.
 ---
 

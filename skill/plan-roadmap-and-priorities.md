@@ -1,17 +1,16 @@
 ---
 name: Plan roadmap and priorities
 description: >-
-  Organize work into prioritized milestones, release goals, and actionable
-  project roadmaps that support delivery decisions.
+  Organize work into a clear roadmap by evaluating priorities, milestones, and
+  release readiness.
 tags:
   - planning
   - priorities
   - release
-  - roadmap
   - best-practices
 examples:
-  - Create a prioritized roadmap for the next three releases.
-  - Help me decide which features should come first for the brain project.
-  - Draft release milestones and readiness criteria for an upcoming version.
+  - Help me prioritize these tasks into a roadmap.
+  - What should be included in a release readiness checklist?
+  - Turn this list of ideas into a phased project plan.
 ---
 

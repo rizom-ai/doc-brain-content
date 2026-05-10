@@ -1,44 +1,40 @@
 ---
 strengths:
-  - title: Extensible architecture
+  - title: Structure brain knowledge
     detail: >-
-      You can confidently shape the brain’s core structure and decide what
-      belongs in the main system versus an extension.
-  - title: Knowledge organization
+      Use this as your main strength for organizing docs, onboarding, and
+      retrieval-friendly content.
+  - title: Shape extensible systems
     detail: >-
-      Use this to keep documentation clean, consistent, and easy to navigate as
-      the brain grows.
+      Lean on this when deciding what belongs in the core versus a plugin, so
+      new capabilities stay modular.
 weaknesses:
-  - title: Video production gap
+  - title: Release readiness
     detail: >-
-      Do not count on the brain to cover video-heavy needs without outside
-      support.
-  - title: Visualization gap
+      Keep release checks and prioritization explicit, because you do not have
+      outside network support shown to back this work up.
+  - title: Development practices
     detail: >-
-      Keep diagram and presentation-visual work light unless you add a dedicated
-      complement for it.
+      Treat contributor workflow guidance as your responsibility unless you add
+      more specialized input.
 opportunities:
-  - title: Planning discipline
+  - title: Improve doc structure
     detail: >-
-      Turn this into a tighter habit for sequencing work, milestones, and
-      release checks.
-  - title: Entry-path improvements
+      Use this strength to test a clearer structure for new contributors and
+      retrieval-heavy documentation.
+  - title: Clarify extension boundaries
     detail: >-
-      Use this to make setup guidance more consistent and help new contributors
-      get productive faster.
-  - title: Repeatable content process
-    detail: >-
-      Test a more standard process for updating, maintaining, and handing off
-      content.
+      Use this to prototype cleaner extension boundaries and check them against
+      real plugin ideas.
 threats:
-  - title: Video dependency risk
+  - title: Release readiness risk
     detail: >-
-      If a workflow depends on video explanations, it is not well covered here
-      and needs outside help.
-  - title: Workshop facilitation gap
+      Make readiness checks explicit before each release, since there is no
+      network skill shown to catch missed concerns.
+  - title: Workflow guidance risk
     detail: >-
-      For live sessions or workshops, pair this with someone who can actively
-      run the room.
-derivedAt: '2026-05-10T17:17:14.240Z'
+      Keep workflow guidance simple and concrete so it does not depend on extra
+      specialist help.
+derivedAt: '2026-05-10T17:53:34.277Z'
 ---
 

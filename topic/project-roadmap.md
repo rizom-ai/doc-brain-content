@@ -1,6 +1,8 @@
 ---
 title: Project Roadmap
 ---
-A project roadmap is a high-level, time-based plan that translates goals and priorities into an ordered delivery path over a defined horizon, release cycle, or planning window. It shows what should be done next and why, organizing major workstreams, milestones, phases, deliverables, dependencies, and release goals so teams can understand what will be delivered and when.
+A project roadmap is a high-level, time-based plan that translates goals and priorities into an ordered path of delivery over a defined horizon, such as a month, quarter, or release cycle. It organizes major workstreams, milestones, phases, deliverables, dependencies, and target outcomes so teams can see what should happen next and when.
 
-Unlike detailed task tracking, a roadmap focuses on strategy, prioritization, and delivery sequencing at a broader level. It is especially useful for near-term planning, such as the next milestone or iteration, where teams need to decide what comes next, stage work effectively, and coordinate execution. A strong roadmap helps align stakeholders, reduce ambiguity, balance new requests with constraints, and connect short-term execution to longer-term direction while remaining flexible as goals and conditions change.
+A roadmap turns a collection of possible tasks or backlog items into a practical sequence of planned work. It emphasizes strategy, prioritization, and sequencing rather than detailed task tracking, making it useful for guiding near-term execution while keeping the plan aligned with broader objectives. Roadmaps help teams stage work, coordinate stakeholders, communicate progress, reduce ambiguity, and connect short-term action to longer-term goals.
+
+A strong project roadmap provides enough structure to support decision-making and accountability without locking every detail too early. It should remain flexible as priorities, constraints, and opportunities change, while still serving as a clear, actionable guide for execution and communication.

@@ -1,12 +1,11 @@
 ---
-title: "Documentation"
-section: "Start here"
+title: Documentation
+section: Start here
 order: 0
-sourcePath: "docs/README.md"
-slug: "index"
-description: "This is the canonical table of contents for brains docs."
+sourcePath: docs/README.md
+description: This is the canonical table of contents for brains docs.
+slug: index
 ---
-
 # brains documentation
 
 This is the canonical table of contents for `brains` docs.

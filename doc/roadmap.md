@@ -73,8 +73,7 @@ The active product track. `brains/relay` is mid-POC: preset split, brain prompts
 
 Plans:
 
-- [relay-poc-review.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/relay-poc-review.md) — POC scope, recommended capability matrix, and what stays out of `core`
-- [relay-presets.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/relay-presets.md) — preset philosophy and what's deferred past the POC
+- [relay-presets.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/relay-presets.md) — preset philosophy, POC readiness, and what's deferred past the POC
 
 ### 2. Public-surface tightening
 
@@ -104,13 +103,11 @@ Independent internal cleanup items — each removes a fragile coupling held toge
 Plans:
 
 - [env-schema-canonical.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/env-schema-canonical.md) — co-locate env declarations next to the consuming service; aggregate via `shellEnvVars()` in `shell/core`; have `brain-cli` consume that single source instead of `bundled-model-env-schemas.ts`.
-- [deploy-scaffolding-consolidation.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/deploy-scaffolding-consolidation.md) — `@brains/deploy-templates` is now the canonical source for shared deploy templates/scripts/env-schema fragments; remaining work is cutting `brain-cli/src/commands/init.ts` from 1400+ lines and keeping `@rizom/ops` fleet-only.
 - [core-env-config.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/core-env-config.md) — move env defaults from core to the app/instance layer.
 - [unify-build-pipeline.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/unify-build-pipeline.md) — collapse the two parallel build pipelines.
 - [brain-cli-declaration-bundler-cleanup.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/brain-cli-declaration-bundler-cleanup.md) — replace the manual allowlist now that the declaration bundler is established.
 - [memory-reduction.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/memory-reduction.md) — registry/lazy-loading optimization phased after profiling.
 - [parallel-eval-workers.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/parallel-eval-workers.md) — subprocess-based multi-model eval parallelization.
-- [topic-auto-merge.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/topic-auto-merge.md) — cleanup around dead schema surface; bring `checkMergeSimilarity` to eval parity.
 
 ### Live-deploy follow-ups
 
@@ -120,15 +117,6 @@ Plans:
 
 - [user-offboarding-plan.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/user-offboarding-plan.md) — explicit offboarding workflow for `rover-pilot` fleets.
 - [generic-cover-image-orchestration.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/generic-cover-image-orchestration.md) — `coverImage` API for `system_create` so per-entity cover sourcing stops being one-off.
-- [content-remote-bootstrap.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/content-remote-bootstrap.md) — directory-sync-owned bootstrap for seeded git content remotes.
-
-### Public repo cleanup
-
-A separate project from version stability. Archive-and-rename the private repo to `rizom-ai/brains` with gitleaks sweep, orphan-commit staging, and clean-machine smoke tests. Only meaningful after the external plugin API story is settled.
-
-Plan:
-
-- [public-release-cleanup.md](/docs/public-release-cleanup)
 
 ### Further long-horizon
 
@@ -139,7 +127,6 @@ Tracked but not sequenced yet. Grouped by theme.
 - [hosted-rovers.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/hosted-rovers.md) — Kubernetes platform for hosted rovers
 - [hosted-rover-discord.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/hosted-rover-discord.md) — DM-only + A2A mesh for hosted rovers
 - [multi-user.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/multi-user.md) — user entities + cross-interface identity
-- [monetization.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/monetization.md) — open core + managed hosting
 
 **New surfaces**
 
@@ -150,19 +137,14 @@ Tracked but not sequenced yet. Grouped by theme.
 **Auth / federation**
 
 - [a2a-request-signing.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/a2a-request-signing.md) — RFC 9421 request signing for inter-rover A2A
-- [brain-oauth-provider.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/brain-oauth-provider.md) — first-party OAuth provider for browser-authored CMS
 
 **CMS evolution**
 
-- [cms-on-core.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/cms-on-core.md) — admin + CMS surface on core
-- [cms-heavy-backend.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/cms-heavy-backend.md) — backend-heavier CMS once the OAuth provider exists
-- [cms-github-oauth.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/cms-github-oauth.md) — explicitly throwaway bridge until `cms-heavy-backend` ships
+- [cms-heavy-backend.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/cms-heavy-backend.md) — backend-heavier CMS using the existing auth-service foundation; includes the GitHub OAuth proxy interim
 
-**Renderer / HTTP surface**
+**Renderer**
 
-- [template-renderer-contracts.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/template-renderer-contracts.md) — renderer-neutral contract extraction
-- [astro-renderer-spike.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/astro-renderer-spike.md) — whether Astro should replace or complement the Preact builder
-- [unified-http-surface.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/unified-http-surface.md) — consolidate MCP/A2A/webserver HTTP surface
+- [template-renderer-contracts.md](https://github.com/rizom-ai/brains/blob/main/docs/plans/template-renderer-contracts.md) — renderer-neutral contract extraction, including the Astro renderer spike
 
 **Local AI**
 

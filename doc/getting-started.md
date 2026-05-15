@@ -4,23 +4,23 @@ section: "Start here"
 order: 10
 sourcePath: "packages/brain-cli/docs/getting-started.md"
 slug: "getting-started"
-description: "A brain is an AI-powered knowledge agent built around markdown content, MCP-native tooling, and a plugin-based runtime. A brain can be personal, team-oriented, "
+description: "A brain is an AI assistant that works with markdown files you own. It can search and update those files, expose tools to MCP clients such as Claude or Cursor, a"
 ---
 
 # Getting Started
 
 ## What is a Brain?
 
-A brain is an AI-powered knowledge agent built around markdown content, MCP-native tooling, and a plugin-based runtime. A brain can be personal, team-oriented, or community-oriented depending on the brain model you choose.
+A brain is an AI assistant that works with markdown files you own. It can search and update those files, expose tools to MCP clients such as Claude or Cursor, and optionally publish a website from the same content.
 
 Out of the box, a brain can:
 
-- store durable content as markdown entities
+- keep content as markdown files in `brain-data/`
 - expose tools and resources over MCP
 - serve a static site and CMS
 - sync content to git
 - talk to AI providers through one runtime
-- expose additional interfaces such as Discord or A2A
+- connect to additional surfaces such as Discord or A2A
 
 Brains currently come in three model flavors:
 
@@ -64,7 +64,7 @@ On first start, Rover and other models that include `auth-service` print a one-s
 
 ## What `brain init` creates
 
-A new brain instance is a **lightweight instance package**. It is not a workspace package, but it does carry conventional support files for local execution and optional deploy scaffolding.
+A new brain instance is a small project directory. It carries the files needed for local execution and optional deploy scaffolding.
 
 Typical scaffold:
 

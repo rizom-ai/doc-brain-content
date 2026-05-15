@@ -4,72 +4,61 @@ section: "Start here"
 order: 0
 sourcePath: "docs/README.md"
 slug: "index"
-description: "This is the canonical table of contents for brains docs."
+description: "Start here if you want to install brains, create a local brain, connect it to tools, or deploy it."
 ---
 
 # brains documentation
 
-This is the canonical table of contents for `brains` docs.
+Start here if you want to install `brains`, create a local brain, connect it to tools, or deploy it.
 
-If you are new, start with the quickstart and then read the content, interface, and customization guides in that order.
+If you are new, read these in order:
 
-## Start here
+1. [Getting Started](/docs/getting-started)
+2. [Content Management](/docs/content-management)
+3. [Interface Setup](/docs/interface-setup)
+4. [Customization Guide](/docs/customization-guide)
+5. [Deployment Guide](/docs/deployment-guide)
+
+## Setup and operation
 
 - [Getting Started](/docs/getting-started) — install the CLI, create a brain, and start it locally
-- [CLI Reference](/docs/cli-reference) — `brain init`, `brain start`, `brain chat`, `brain tool`, remote mode, deploy helpers
-- [brain.yaml Reference](/docs/brain-yaml-reference) — instance config, presets, plugin config, permissions, secrets
-- [Deployment Guide](/docs/deployment-guide) — standalone deployment, Docker/Kamal flow, domains, secrets
+- [CLI Reference](/docs/cli-reference) — commands such as `brain init`, `brain start`, `brain chat`, and `brain tool`
+- [brain.yaml Reference](/docs/brain-yaml-reference) — the main configuration file
+- [Deployment Guide](/docs/deployment-guide) — deploy to a server with the generated Docker/Kamal workflow
 
-## Content and entities
+## Content
 
-- [Content Management Guide](/docs/content-management) — create/edit content through chat/MCP tools, CMS, markdown files, directory sync, and generation jobs
-- [Entity Types Reference](/docs/entity-types-reference) — built-in entity types, model availability, frontmatter fields, and publishing entities
-- [Entity Model](/docs/entity-model) — architecture of schema-backed markdown entities and adapters
+- [Content Management](/docs/content-management) — create, edit, sync, and publish markdown content
+- [Entity Types Reference](/docs/entity-types-reference) — built-in content types and their fields
+- [Entity Model](/docs/entity-model) — how markdown files, frontmatter, and schemas fit together
 
-## Interfaces
+## Connecting clients and services
 
-- [Interface Setup Guide](/docs/interface-setup) — MCP, webserver, Discord, A2A, and chat REPL setup
-- [MCP Inspector Guide](/docs/mcp-inspector-guide) — inspect and debug MCP behavior
+- [Interface Setup](/docs/interface-setup) — MCP, web, Discord, A2A, and local chat setup
+- [MCP Inspector Guide](/docs/mcp-inspector-guide) — debug MCP connections and tool calls
 
 ## Customization
 
-- [Customization Guide](/docs/customization-guide) — configure instances, customize content, themes, sites/layouts, and plugin boundaries
-- [Theming Guide](/docs/theming-guide) — theme tokens, dark mode, CSS layering, and theme package patterns
-- [Plugin System](/docs/plugin-system) — high-level entity/service/interface plugin model
-- [External Plugin Authoring](/docs/external-plugin-authoring) — packaging, factory contract, registration model, lifecycle, and `brain.yaml` loading for external plugin packages
-- [Plugin Quick Reference](/docs/plugin-quick-reference) — concise plugin reference
+- [Customization Guide](/docs/customization-guide) — change presets, content, themes, sites, and plugins
+- [Theming Guide](/docs/theming-guide) — theme tokens, CSS layers, and custom themes
+- [Plugin System](/docs/plugin-system) — how built-in and custom plugins are organized
+- [Plugin Quick Reference](/docs/plugin-quick-reference) — concise plugin API reference
+- [External Plugin Authoring](/docs/external-plugin-authoring) — package and load external plugins
 
 ## Architecture
 
-- [Architecture Overview](/docs/architecture-overview) — repository architecture and runtime flow
-- [Brain Models](/docs/brain-model) — brain models, presets, instances, and capability composition
-- [Tech Stack](/docs/tech-stack) — major libraries and package roles
-- [Package Structure](/docs/package-structure) — package layout and boundaries
-- [Hydration Pattern](/docs/hydration-pattern) — frontend hydration conventions
-- [Development Workflow](/docs/development-workflow) — local development commands and expectations
+These are useful once you are extending or contributing to the framework:
 
-## Planning and release readiness
+- [Architecture Overview](/docs/architecture-overview)
+- [Brain Models](/docs/brain-model)
 
-- [Roadmap](/docs/roadmap) — current status, recently completed work, near-term priorities, and long-term direction
-- [Docs Manifest](https://github.com/rizom-ai/brains/blob/main/docs/docs-manifest.yaml) — curated source docs list for docs-site sync
-- [Planning Docs Index](https://github.com/rizom-ai/brains/tree/main/docs/plans/) — active implementation plans and cleanup policy
-- [Codebase Map](https://github.com/rizom-ai/brains/blob/main/docs/codebase-map.html) — interactive package/dependency map (open in a browser)
-- [Roadmap (visual)](https://github.com/rizom-ai/brains/blob/main/docs/roadmap-visual.html) — visual companion to the roadmap
-- [`doc-brain` Remaining Work](https://github.com/rizom-ai/doc-brain/blob/main/docs/remaining-work.md) — standalone docs app/deploy follow-up
-- [Custom Brain Definitions Plan](https://github.com/rizom-ai/brains/blob/main/docs/plans/custom-brain-definitions.md) — `brain.ts` programmatic-mode escape hatch over the public `@rizom/brain` surface
+## Status and contributing
 
-## Generated and prototype docs
-
-The repository also contains design/prototype HTML files and planning notes that are useful for maintainers but are not the primary user documentation path:
-
-- [`docs/design/`](https://github.com/rizom-ai/brains/tree/main/docs/design/)
-- [`docs/prototypes/`](https://github.com/rizom-ai/brains/tree/main/docs/prototypes/)
-- [`docs/plans/`](https://github.com/rizom-ai/brains/tree/main/docs/plans/)
-
-## External status files
-
-- [Stability Policy](https://github.com/rizom-ai/brains/blob/main/STABILITY.md)
+- [Roadmap](https://github.com/rizom-ai/brains/blob/main/docs/roadmap.md) — maintainer roadmap and release priorities
+- [Stability Policy](https://github.com/rizom-ai/brains/blob/main/STABILITY.md) — what is stable during the `0.x` series
 - [Changelog](https://github.com/rizom-ai/brains/blob/main/CHANGELOG.md)
 - [Known Issues](https://github.com/rizom-ai/brains/blob/main/KNOWN-ISSUES.md)
 - [Contributing](https://github.com/rizom-ai/brains/blob/main/CONTRIBUTING.md)
 - [Security](https://github.com/rizom-ai/brains/blob/main/SECURITY.md)
+
+Maintainer planning notes, prototypes, and design mockups still live under `docs/plans/`, `docs/prototypes/`, and `docs/design/`, but they are not part of the primary documentation path.

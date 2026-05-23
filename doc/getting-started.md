@@ -1,14 +1,12 @@
 ---
-title: Getting Started
-section: Start here
+title: "Getting Started"
+section: "Start here"
 order: 10
-sourcePath: packages/brain-cli/docs/getting-started.md
-description: >-
-  A brain is an AI assistant that works with markdown files you own. It can
-  search and update those files, expose tools to MCP clients such as Claude or
-  Cursor, a
-slug: getting-started
+sourcePath: "packages/brain-cli/docs/getting-started.md"
+slug: "getting-started"
+description: "A brain is an AI assistant that works with markdown files you own. It can search and update those files, expose tools to MCP clients such as Claude or Cursor, a"
 ---
+
 # Getting Started
 
 ## What is a Brain?

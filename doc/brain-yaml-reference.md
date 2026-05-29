@@ -1,12 +1,14 @@
 ---
-title: "brain.yaml Reference"
-section: "Start here"
+title: brain.yaml Reference
+section: Start here
 order: 20
-sourcePath: "packages/brain-cli/docs/brain-yaml-reference.md"
-slug: "brain-yaml-reference"
-description: "brain.yaml is the instance-level configuration file for a brain. It selects the brain model, chooses a preset, overrides deployment settings, and passes config "
+sourcePath: packages/brain-cli/docs/brain-yaml-reference.md
+description: >-
+  brain.yaml is the instance-level configuration file for a brain. It selects
+  the brain model, chooses a preset, overrides deployment settings, and passes
+  config 
+slug: brain-yaml-reference
 ---
-
 # brain.yaml Reference
 
 `brain.yaml` is the instance-level configuration file for a brain. It selects the brain model, chooses a preset, overrides deployment settings, and passes config to plugins and interfaces.

@@ -1,12 +1,13 @@
 ---
-title: "ATProto Lexicons"
-section: "Interfaces"
+title: ATProto Lexicons
+section: Interfaces
 order: 85
-sourcePath: "docs/atproto-lexicons.md"
-slug: "atproto-lexicons"
-description: "Rizom publishes AT Protocol custom lexicons under the ai.rizom.brain. NSID namespace."
+sourcePath: docs/atproto-lexicons.md
+description: >-
+  Rizom publishes AT Protocol custom lexicons under the ai.rizom.brain. NSID
+  namespace.
+slug: atproto-lexicons
 ---
-
 # ATProto Lexicons
 
 Rizom publishes AT Protocol custom lexicons under the `ai.rizom.brain.*` NSID namespace.

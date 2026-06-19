@@ -130,6 +130,8 @@ plugins:
       authToken: ${GIT_SYNC_TOKEN}
 ```
 
+For the git-command-oriented lifecycle and conflict policy, see [Directory Sync Git Overview](/docs/directory-sync-git).
+
 `directory-sync` also handles seed content on first run for shipped brain models. Seed content is copied only when the target `brain-data/` directory is effectively empty. For local `file://` git remotes, `git.bootstrapFromSeed` defaults to `true` and can create/seed a missing or empty bare remote from `seedContentPath`.
 
 ### Generation jobs
@@ -147,15 +149,15 @@ Create requests use the standard confirmation flow before anything is persisted 
 
 Publishing-oriented entities usually use status fields.
 
-| Entity type   | Status values                                       |
-| ------------- | --------------------------------------------------- |
-| `post`        | `draft`, `queued`, `published`                      |
-| `deck`        | `draft`, `queued`, `published`                      |
-| `project`     | `draft`, `published`                                |
-| `link`        | `pending`, `draft`, `published`                     |
-| `social-post` | `draft`, `queued`, `published`, `failed`            |
-| `newsletter`  | `draft`, `queued`, `published`, `failed`            |
-| `wish`        | `new`, `planned`, `in-progress`, `done`, `declined` |
+| Entity type   | Status values                                          |
+| ------------- | ------------------------------------------------------ |
+| `post`        | `generating`, `draft`, `queued`, `published`, `failed` |
+| `deck`        | `generating`, `draft`, `queued`, `published`, `failed` |
+| `project`     | `generating`, `draft`, `published`, `failed`           |
+| `link`        | `pending`, `draft`, `published`                        |
+| `social-post` | `generating`, `draft`, `queued`, `published`, `failed` |
+| `newsletter`  | `generating`, `draft`, `queued`, `published`, `failed` |
+| `wish`        | `new`, `planned`, `in-progress`, `done`, `declined`    |
 
 The site builder renders the entities and routes enabled by the active site package, preset, and entity display config. For app/site verification, start the app and trigger a rebuild on the running app before inspecting generated output.
 
@@ -233,6 +235,7 @@ Before publishing or deploying content:
 ## Related docs
 
 - [Entity Types Reference](/docs/entity-types-reference)
+- [Directory Sync Git Overview](/docs/directory-sync-git)
 - [Extensible Entity Model](/docs/entity-model)
 - [brain.yaml Reference](/docs/brain-yaml-reference)
 - [CLI Reference](/docs/cli-reference)

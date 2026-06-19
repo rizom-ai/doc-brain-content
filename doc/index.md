@@ -29,6 +29,7 @@ If you are new, read these in order:
 ## Content
 
 - [Content Management](/docs/content-management) — create, edit, sync, and publish markdown content
+- [Directory Sync Git Overview](/docs/directory-sync-git) — git-style lifecycle and conflict policy for synced content directories
 - [Entity Types Reference](/docs/entity-types-reference) — built-in content types and their fields
 - [Entity Model](/docs/entity-model) — how markdown files, frontmatter, and schemas fit together
 

@@ -162,7 +162,7 @@ Key frontmatter:
 - `capturedAt`
 - `source`: `{ ref, label }`
 
-Creating a link with `system_create` and a `url` uses the standard confirmation flow, then can enqueue the link-capture workflow instead of requiring hand-written frontmatter.
+Creating a link with `system_create` and `source: { kind: "url", url }` uses the standard confirmation flow, then can enqueue the link-capture workflow instead of requiring hand-written frontmatter.
 
 ### `wish`
 

@@ -25,10 +25,10 @@ Use this as a compact checklist for choosing and authoring plugins. For full ext
 External packages:
 
 ```ts
+import { z } from "@rizom/brain";
 import { ServicePlugin, type PluginFactory } from "@rizom/brain/plugins";
 import type { BaseEntity, EntityAdapter } from "@rizom/brain/entities";
 import type { WebRouteDefinition } from "@rizom/brain/interfaces";
-import { z } from "zod";
 ```
 
 Do not import internal `@brains/*` packages from external plugins.
@@ -46,6 +46,7 @@ Do not start long-running work before registration is complete. Daemons and job 
 ## Service plugin skeleton
 
 ```ts
+import { z } from "@rizom/brain";
 import {
   ServicePlugin,
   createTool,
@@ -53,15 +54,15 @@ import {
   type PluginFactory,
   type Tool,
 } from "@rizom/brain/plugins";
-import { z } from "zod";
 
 const packageJson = { name: "@acme/brain-plugin-demo", version: "0.1.0" };
 const configSchema = z.object({ greeting: z.optional(z.string()) });
 
-type Config = z.infer<typeof configSchema>;
+type Config = z.output<typeof configSchema>;
+type ConfigInput = z.input<typeof configSchema>;
 
-class DemoServicePlugin extends ServicePlugin<Config> {
-  constructor(config: Partial<Config> = {}) {
+class DemoServicePlugin extends ServicePlugin<Config, ConfigInput> {
+  constructor(config: ConfigInput = {}) {
     super("demo", packageJson, config, configSchema);
   }
 
@@ -84,9 +85,9 @@ export default plugin;
 ## Entity plugin skeleton
 
 ```ts
+import { z } from "@rizom/brain";
 import { EntityPlugin, type PluginFactory } from "@rizom/brain/plugins";
 import type { BaseEntity, EntityAdapter } from "@rizom/brain/entities";
-import { z } from "zod";
 
 interface NoteEntity extends BaseEntity<{ title: string }> {
   entityType: "note";
@@ -135,12 +136,12 @@ export const plugin: PluginFactory = () => new NotePlugin();
 ## Message interface skeleton
 
 ```ts
+import { z } from "@rizom/brain";
 import {
   MessageInterfacePlugin,
   type JobProgressEvent,
   type PluginFactory,
 } from "@rizom/brain/plugins";
-import { z } from "zod";
 
 class ChatPlugin extends MessageInterfacePlugin {
   constructor() {
@@ -186,7 +187,7 @@ The package version belongs in the instance `package.json`. The factory receives
 
 - Package exports a default or named `plugin` factory.
 - Package declares `@rizom/brain` as a peer dependency.
-- Package imports `zod` directly if it needs schemas.
+- Package imports the blessed `z` from `@rizom/brain` if it needs schemas; do not declare or import `zod` directly.
 - Published declarations do not reference `@brains/*`.
 - Examples typecheck against `@rizom/brain/*`, not monorepo paths.
 - Smoke tests can use `brain start --startup-check` to prove `onRegister`/`onReady` without starting daemons or job workers.

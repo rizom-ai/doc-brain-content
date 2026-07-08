@@ -29,6 +29,7 @@ Use the smallest base class that matches the job:
 External plugin packages must import from `@rizom/brain/*` public subpaths, not internal `@brains/*` workspaces.
 
 ```ts
+import { z } from "@rizom/brain";
 import {
   ServicePlugin,
   createTool,
@@ -37,7 +38,6 @@ import {
   type ServicePluginContext,
   type Tool,
 } from "@rizom/brain/plugins";
-import { z } from "zod";
 ```
 
 Useful public subpaths:
@@ -67,6 +67,7 @@ Plugins register capabilities through a hybrid: override class methods (`getTool
 External packages export a default or named `plugin` factory. Exporting both is fine.
 
 ```ts
+import { z } from "@rizom/brain";
 import {
   ServicePlugin,
   createTool,
@@ -75,15 +76,13 @@ import {
   type ServicePluginContext,
   type Tool,
 } from "@rizom/brain/plugins";
-import { z } from "zod";
-
-interface CalendarConfig {
-  timezone?: string;
-}
 
 const configSchema = z.object({
   timezone: z.optional(z.string()),
 });
+
+type CalendarConfig = z.output<typeof configSchema>;
+type CalendarConfigInput = z.input<typeof configSchema>;
 
 const packageJson = {
   name: "@rizom/brain-plugin-calendar",
@@ -91,8 +90,11 @@ const packageJson = {
   description: "Calendar integration",
 };
 
-class CalendarPlugin extends ServicePlugin<CalendarConfig> {
-  constructor(config: Partial<CalendarConfig> = {}) {
+class CalendarPlugin extends ServicePlugin<
+  CalendarConfig,
+  CalendarConfigInput
+> {
+  constructor(config: CalendarConfigInput = {}) {
     super("calendar", packageJson, config, configSchema);
   }
 

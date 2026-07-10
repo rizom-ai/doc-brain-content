@@ -63,3 +63,8 @@ These are useful once you are extending or contributing to the framework:
 - [Security](https://github.com/rizom-ai/brains/blob/main/SECURITY.md)
 
 Maintainer planning notes, prototypes, and design mockups still live under `docs/plans/`, `docs/prototypes/`, and `docs/design/`, but they are not part of the primary documentation path.
+
+### Console design references
+
+- [Console unification mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-unification-mockups.html) — preserved desktop reference for the shared console sheet and chrome
+- [Responsive console mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-responsive-mockups.html) — canonical desktop, tablet, and phone compositions for Dashboard, Chat, and CMS

@@ -37,12 +37,12 @@ If you are new, read these in order:
 
 ## Connecting clients and services
 
-- [Interface Setup](/docs/interface-setup) — MCP, web, Discord, A2A, and local chat setup
+- [Interface Setup](/docs/interface-setup) — MCP, web, Discord/Slack platform chat, A2A, and local chat setup
 - [MCP Inspector Guide](/docs/mcp-inspector-guide) — debug MCP connections and tool calls
 
 ## Customization
 
-- [Customization Guide](/docs/customization-guide) — change presets, content, themes, sites, and plugins
+- [Customization Guide](/docs/customization-guide) — change bundles, content, themes, sites, and plugins
 - [Theming Guide](/docs/theming-guide) — theme tokens, CSS layers, and custom themes
 - [Plugin System](/docs/plugin-system) — how built-in and custom plugins are organized
 - [Plugin Quick Reference](/docs/plugin-quick-reference) — concise plugin API reference

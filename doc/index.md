@@ -14,14 +14,16 @@ Start here if you want to install `brains`, create a local brain, connect it to 
 If you are new, read these in order:
 
 1. [Getting Started](/docs/getting-started)
-2. [Content Management](/docs/content-management)
-3. [Interface Setup](/docs/interface-setup)
-4. [Customization Guide](/docs/customization-guide)
-5. [Deployment Guide](/docs/deployment-guide)
+2. [Feature Overview](/docs/feature-overview)
+3. [Content Management](/docs/content-management)
+4. [Interface Setup](/docs/interface-setup)
+5. [Customization Guide](/docs/customization-guide)
+6. [Deployment Guide](/docs/deployment-guide)
 
 ## Setup and operation
 
 - [Getting Started](/docs/getting-started) — install the CLI, create a brain, and start it locally
+- [Feature Overview](/docs/feature-overview) — user-facing guide to the knowledge, publishing, interface, integration, and operational features available today
 - [CLI Reference](/docs/cli-reference) — commands such as `brain init`, `brain start`, `brain chat`, and `brain tool`
 - [brain.yaml Reference](/docs/brain-yaml-reference) — the main configuration file
 - [Deployment Guide](/docs/deployment-guide) — deploy to a server with the generated Docker/Kamal workflow

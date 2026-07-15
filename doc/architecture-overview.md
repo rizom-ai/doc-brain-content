@@ -53,6 +53,8 @@ Effect `Layer` is adopted only for complete vertical slices. Wrapping process-gl
 
 The first layer-owned slice is the job-service stack. The private `@brains/job-queue/effect` subpath owns its `Context.Tag` contracts and scoped queue/runtime layers; core composes those layers across the package boundary instead of rebuilding job-queue lifecycle ownership locally. Separate runtime and database scopes preserve shutdown order: workers and cleanup fibers stop before plugin teardown, while the queue database remains available until dependent shell resources have closed. Existing Promise interfaces and dependency-injected test implementations remain unchanged, and Effect types do not cross the public authoring boundary.
 
+Core also composes package-owned scoped layers for runtime state, conversations, and entities through each package's private `/effect` subpath. These layers own fresh or injected services and their database connections for exactly one shell lifetime, replacing manual core finalizers while preserving Promise service contracts. Pure registries, adapters, schemas, and configuration remain normal TypeScript services rather than Layer dependencies.
+
 Future layers must meet the same criteria:
 
 1. construct fresh service instances without static singleton state;
@@ -101,6 +103,8 @@ A running brain is driven by an _instance directory_ centered on `brain.yaml` pl
 | `shell/mcp-service`          | MCP tool/resource/prompt/template registration                          |
 | `shell/messaging-service`    | Typed event bus used across plugins                                     |
 | `shell/runtime-state`        | Runtime state store service (`RuntimeStateService`/`RuntimeStateStore`) |
+| `shell/scheduler`            | Shared scheduler contracts and deterministic test backend               |
+| `shell/recurring-checks`     | Recurring cadence, retries, dedupe, and alert delivery orchestration    |
 | `shell/plugins`              | Base plugin classes, contexts, harnesses                                |
 | `shell/templates`            | Template registry and resolution                                        |
 | `shell/ai-evaluation`        | Eval runner, test cases, judges, reporting                              |

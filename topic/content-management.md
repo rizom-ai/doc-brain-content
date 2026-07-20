@@ -1,0 +1,4 @@
+---
+title: Content Management
+---
+Content management is the ongoing stewardship of documentation and knowledge assets so they remain organized, current, consistent, and easy to reuse over time. It treats content as a living resource rather than a static archive. This includes deciding where content lives, maintaining structure, labels, links, naming conventions, and standards, and keeping information coherent as the knowledge base grows. Core practices include reviewing, editing, updating, refactoring, versioning, consolidating, reorganizing scattered notes, and removing outdated, duplicate, or conflicting material. Strong content management preserves terminology consistency, supports clear navigation, reduces fragmentation, and makes it easier to evolve content without losing clarity or structure. It is especially important for knowledge bases, documentation, onboarding materials, and other systems that need to stay trustworthy, durable, and scalable.

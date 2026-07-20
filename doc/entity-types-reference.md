@@ -1,0 +1,516 @@
+---
+title: "Entity Types Reference"
+section: "Content and entities"
+order: 60
+sourcePath: "docs/entity-types-reference.md"
+slug: "entity-types-reference"
+description: "brains stores durable knowledge as typed markdown entities. Each entity type is registered by an entity plugin, validated with Zod, indexed for search, exposed "
+---
+
+# Entity Types Reference
+
+`brains` stores durable knowledge as typed markdown entities. Each entity type is registered by an entity plugin, validated with Zod, indexed for search, exposed through system tools, and optionally rendered by the site builder.
+
+## Storage conventions
+
+Directory sync maps files in `brain-data/` to entities by path:
+
+- root markdown files are note entities with `entityType: "note"`
+- files under `brain-data/<entity-type>/` use that directory name as the entity type
+- nested paths below the entity-type directory become colon-separated ids: `site-content/home/hero.md` becomes entity type `site-content` with id `home:hero`
+- image files are supported under `brain-data/image/`
+
+Most content entities use YAML frontmatter plus a markdown body:
+
+```markdown
+---
+title: My first post
+status: draft
+---
+
+Markdown body goes here.
+```
+
+Core fields such as `id`, `entityType`, `created`, `updated`, and the markdown body are managed by the runtime and adapters. Frontmatter fields are the user-editable fields for each type.
+
+## Model availability
+
+| Entity type         | Registered by                 | Rover         | Relay       | Ranger      | Notes                                                                            |
+| ------------------- | ----------------------------- | ------------- | ----------- | ----------- | -------------------------------------------------------------------------------- |
+| `anchor-profile`    | identity service              | all presets   | all presets | all presets | Singleton identity/profile for the person, team, or collective behind the brain. |
+| `brain-character`   | identity service              | all presets   | all presets | all presets | Singleton persona/instructions source for the brain.                             |
+| `note`              | `@brains/note`                | all presets   | all presets | default     | Root-level notes and general markdown knowledge.                                 |
+| `prompt`            | `@brains/prompt`              | all presets   | all presets | default     | Prompt/template overrides.                                                       |
+| `link`              | `@brains/link`                | all presets   | all presets | default     | Captured links and extracted summaries.                                          |
+| `wish`              | `@brains/wishlist`            | all presets   | —           | default     | User requests and roadmap wishes.                                                |
+| `topic`             | `@brains/topics`              | all presets   | all presets | —           | Derived topic clusters from source content.                                      |
+| `agent`             | `@brains/agent-discovery`     | all presets   | all presets | —           | Saved peer-brain / A2A contacts.                                                 |
+| `skill`             | `@brains/agent-discovery`     | all presets   | all presets | —           | Derived advertised skills for agent cards.                                       |
+| `swot`              | `@brains/assessment`          | all presets   | all presets | —           | Derived assessment output from agent/skill evidence.                             |
+| `image`             | `@brains/image-plugin`        | default, full | default     | —           | Uploaded or generated image assets.                                              |
+| `document`          | `@brains/document-plugin`     | full          | —           | default     | Generated PDF documents, including saved deck carousel artifacts.                |
+| `site-info`         | `@brains/site-info`           | default, full | default     | default     | Singleton site metadata and CTA settings.                                        |
+| `site-content`      | `@brains/site-content`        | —             | default     | default     | Route/section content blocks for configurable sites.                             |
+| `doc`               | `@brains/doc`                 | —             | full        | —           | Documentation pages for full Relay knowledge hubs.                               |
+| `post`              | `@brains/blog`                | default, full | —           | —           | Blog posts.                                                                      |
+| `series`            | `@brains/series`              | default, full | —           | —           | Blog/content series pages.                                                       |
+| `deck`              | `@brains/decks`               | default, full | full        | —           | Presentation decks.                                                              |
+| `project`           | `@brains/portfolio`           | full          | —           | —           | Portfolio/case-study projects.                                                   |
+| `social-post`       | `@brains/social-media`        | full          | —           | default     | Social publishing drafts and history.                                            |
+| `newsletter`        | `@brains/newsletter`          | full          | —           | —           | Newsletter drafts, schedules, and send records.                                  |
+| `ecosystem-section` | `@brains/rizom-ecosystem`     | all presets   | all presets | —           | Rizom ecosystem section content block (eyebrow, headline, cards).                |
+| `product`           | `@brains/products`            | —             | —           | default     | Product detail pages.                                                            |
+| `products-overview` | `@brains/products`            | —             | —           | default     | Products landing/overview page.                                                  |
+| `summary`           | `@brains/conversation-memory` | —             | all presets | —           | Narrative conversation summaries for Relay team memory.                          |
+| `decision`          | `@brains/conversation-memory` | —             | all presets | —           | First-class decisions derived from team conversations.                           |
+| `action-item`       | `@brains/conversation-memory` | —             | all presets | —           | First-class follow-up items derived from team conversations.                     |
+
+`all presets` means the entity type is available in every preset currently declared by that model. A type marked `opt-in` is registered as a capability but is not included in the model's preset list by default.
+
+## Common authoring surfaces
+
+You can create and update entities through several paths:
+
+- chat or MCP clients using `system_create`, `system_update`, `system_delete`, `system_get`, `system_list`, `system_search`, `system_extract`, and `system_insights`
+- the generated CMS when the CMS plugin is active
+- direct edits to markdown files in `brain-data/` when `directory-sync` is active
+- generation jobs owned by entity plugins, for example link capture, image generation, newsletter generation, and social-post generation
+
+## Identity entities
+
+### `brain-character`
+
+Singleton file: `brain-data/brain-character/brain-character.md`
+
+Defines the brain's display identity and behavioral center of gravity.
+
+Key fields:
+
+- `name`
+- `role`
+- `purpose`
+- `values`
+
+### `anchor-profile`
+
+Singleton file: `brain-data/anchor-profile/anchor-profile.md`
+
+Defines the public identity behind the brain. A2A and site surfaces can use this as profile data.
+
+Key fields:
+
+- `name`
+- `kind`: `professional`, `team`, or `collective`
+- `organization`
+- `description`
+- `avatar`
+- `website`
+- `email`
+- `socialLinks`
+
+## Core knowledge entities
+
+### `note` — notes
+
+Root-level markdown files in `brain-data/` become note entities.
+
+Example paths:
+
+```text
+brain-data/README.md          # id: README, entityType: note
+brain-data/research/idea.md   # id: research:idea, entityType: note
+```
+
+Key frontmatter:
+
+- `title` optional; falls back to the first H1 or filename
+
+Use notes for general knowledge, imported markdown, scratch material, and content that does not need a specialized workflow.
+
+### `prompt`
+
+Prompt entities customize named generation templates.
+
+Example path:
+
+```text
+brain-data/prompt/blog-generation.md
+```
+
+Key frontmatter:
+
+- `title`
+- `target`: template name, such as `blog:generation` or `link:extraction`
+
+### `link`
+
+Link entities store captured web URLs and their extracted summaries.
+
+Example path:
+
+```text
+brain-data/link/example-com-article.md
+```
+
+Key frontmatter:
+
+- `status`: `pending`, `draft`, or `published`
+- `title`
+- `url`
+- `description`
+- `domain`
+- `capturedAt`
+- `source`: `{ ref, label }`
+
+Creating a link with `system_create` and `source: { kind: "url", url }` uses the standard confirmation flow, then can enqueue the link-capture workflow instead of requiring hand-written frontmatter.
+
+### `wish`
+
+Wish entities capture requested capabilities or deferred user intents.
+
+Key frontmatter:
+
+- `title`
+- `status`: `new`, `planned`, `in-progress`, `done`, or `declined`
+- `priority`: `low`, `medium`, `high`, or `critical`
+- `requested`: count of repeated requests
+- `declinedReason`
+
+## Derived knowledge entities
+
+### `topic`
+
+Topic entities are usually derived from published/source content. Rover extracts topics from posts, decks, projects, links, and the anchor profile by default. Relay extracts topics from its source corpus.
+
+Key frontmatter/body:
+
+- frontmatter `title`
+- body `content`
+- metadata `aliases` for canonicalization and merge reuse
+
+### `skill`
+
+Skill entities are derived from topic evidence and advertised through agent/A2A surfaces.
+
+Key fields follow the shared skill data shape used by the plugin system.
+
+### `swot`
+
+SWOT entities are derived assessment outputs.
+
+Key frontmatter:
+
+- `strengths`
+- `weaknesses`
+- `opportunities`
+- `threats`
+- `derivedAt`
+
+Each SWOT item has a `title` and optional `detail`.
+
+### `summary`
+
+Summary entities store narrative conversation memory when the conversation-memory plugin is enabled.
+
+Key metadata:
+
+- `conversationId`
+- `channelName`
+- `channelId`
+- `interfaceType`
+- `entryCount`
+- `messageCount`
+
+The body contains chronological summary log entries.
+
+### `decision`
+
+Decision entities store explicit decisions derived from team conversations.
+
+Key metadata:
+
+- `conversationId`
+- `channelId`
+- `interfaceType`
+- `spaceId`
+- `timeRange`
+- `sourceSummaryId`
+- `sourceMessageCount`
+- `status`: `active` or `superseded`
+
+### `action-item`
+
+Action item entities store explicit follow-up work derived from team conversations.
+
+Key metadata:
+
+- `conversationId`
+- `channelId`
+- `interfaceType`
+- `spaceId`
+- `timeRange`
+- `sourceSummaryId`
+- `sourceMessageCount`
+- `status`: `open`, `done`, or `dropped`
+
+## Publishing entities
+
+### `site-info`
+
+Singleton file: `brain-data/site-info/site-info.md`
+
+Defines site-wide metadata.
+
+Key body fields:
+
+- `title`
+- `description`
+- `copyright`
+- `logo`
+- `themeMode`: `light` or `dark`
+- `cta`: `{ heading, buttonText, buttonLink }`
+
+### `site-content`
+
+Route/section content used by configurable site packages.
+
+Example path:
+
+```text
+brain-data/site-content/home/hero.md # id: home:hero
+```
+
+Key metadata:
+
+- `routeId`
+- `sectionId`
+- optional `template`
+
+### `doc`
+
+Doc entities render documentation list/detail pages.
+
+Key frontmatter:
+
+- `title`
+- `section`
+- `order`
+- `sourcePath`
+- `description`
+- `slug`
+
+The body contains the documentation markdown.
+
+### `image`
+
+Image entities store binary image assets as data URLs in the database and as image files in `brain-data/image/` when synced.
+
+Key metadata:
+
+- `title`
+- `alt`
+- `format`: `png`, `jpg`, `jpeg`, `webp`, `gif`, or `svg`
+- `width`
+- `height`
+- `sourceUrl`
+
+Images are non-embeddable and are commonly referenced by `coverImageId` fields on posts, decks, projects, and social posts.
+
+### `document`
+
+Document entities store generated PDF assets as data URLs in the database and, when synced, as document files under `brain-data/document/`.
+
+Key metadata:
+
+- `title`
+- `mimeType`: currently `application/pdf`
+- `filename`
+- `pageCount`
+- `sourceEntityType`
+- `sourceEntityId`
+- `attachmentType`, such as `carousel`
+- `dedupKey`
+
+Documents are non-embeddable publishable artifacts. A common flow is rendering a deck carousel into a durable PDF document, attaching it to `social-post.documents[]`, and publishing it as a native LinkedIn document/carousel post.
+
+### `ecosystem-section`
+
+Rizom ecosystem section content blocks, rendered as a site section by Rover and Relay.
+
+Key metadata:
+
+- `title`
+- `slug`
+- `status`: `draft` or `published`
+
+Structured body fields:
+
+- `eyebrow`
+- `headline`
+- `cards`: array of `{ suffix, title, body, linkLabel, linkHref }` (each card's `suffix` is one of `ai`, `foundation`, or `work`)
+
+## Content and marketing entities
+
+### `post`
+
+Blog post entities render through the blog/site packages.
+
+Key frontmatter:
+
+- `title`
+- `slug`
+- `status`: `generating`, `draft`, `queued`, `published`, or `failed`
+- `publishedAt`
+- `excerpt`
+- `author`
+- `coverImageId`
+- `seriesName`
+- `seriesIndex`
+- SEO fields: `ogImage`, `ogDescription`, `twitterCard`, `canonicalUrl`
+
+### `series`
+
+Series entities group related posts/content.
+
+Key frontmatter/body:
+
+- `title`
+- `slug`
+- `coverImageId`
+- body `description`
+
+### `deck`
+
+Deck entities store presentation content.
+
+Key frontmatter:
+
+- `title`
+- `slug`
+- `description`
+- `author`
+- `status`: `generating`, `draft`, `queued`, `published`, or `failed`
+- `publishedAt`
+- `event`
+- `coverImageId`
+
+### `project`
+
+Project entities power portfolio or case-study pages.
+
+Key frontmatter:
+
+- `title`
+- `slug`
+- `status`: `generating`, `draft`, `published`, or `failed`
+- `publishedAt`
+- `description`
+- `year`
+- `coverImageId`
+- `url`
+
+Structured body sections:
+
+- `context`
+- `problem`
+- `solution`
+- `outcome`
+
+### `social-post`
+
+Social post entities store platform-ready post drafts and publishing results.
+
+Key frontmatter:
+
+- `title`
+- `platform`: currently `linkedin`
+- `status`: `generating`, `draft`, `queued`, `published`, or `failed`
+- `coverImageId`
+- `documents`: array of `{ id }` references to `document` entities for native document/PDF posts
+- `publishedAt`
+- `platformPostId`
+- `sourceEntityId`
+- `sourceEntityType`: `post` or `deck`
+
+For LinkedIn, social posts support text-only posts, image posts via `coverImageId`, and native PDF/document posts via `documents[]`.
+
+### `newsletter`
+
+Newsletter entities store email drafts and delivery metadata. The entity type is defined by the compound `@brains/newsletter` package (`plugins/newsletter`) alongside the generation and Buttondown send workflows.
+
+Key frontmatter:
+
+- `subject`
+- `status`: `generating`, `draft`, `queued`, `published`, or `failed`
+- `entityIds`
+- `scheduledFor`
+- `sentAt`
+- `buttondownId`
+- `sourceEntityType`
+
+## Product entities
+
+### `products-overview`
+
+Singleton-ish overview content for Ranger-style product pages.
+
+Key frontmatter:
+
+- `headline`
+- `tagline`
+
+Structured body sections:
+
+- `vision`
+- `pillars`
+- `approach`
+- `productsIntro`
+- `technologies`
+- `benefits`
+- `cta`
+
+### `product`
+
+Product detail pages.
+
+Key frontmatter:
+
+- `name`
+- `availability`: `available`, `early access`, `coming soon`, or `planned`
+- `order`
+
+Structured body sections:
+
+- `tagline`
+- `promise`
+- `role`
+- `purpose`
+- `audience`
+- `values`
+- `features`
+- `story`
+
+## Agent directory entities
+
+### `agent`
+
+Agent entities are saved peer-brain contacts. They are created from A2A agent cards and can be discovered or explicitly approved.
+
+Key frontmatter:
+
+- `name`
+- `kind`
+- `organization`
+- `brainName`
+- `url`
+- `did`
+- `status`: `discovered` or `approved`
+- `discoveredAt`
+
+Parsed body sections include:
+
+- `about`
+- `skills`
+- `notes`
+
+URL-based creation through `system_create` uses the standard confirmation flow, then can fetch the agent card and create an approved saved agent entry.

@@ -1,0 +1,4 @@
+---
+title: AI Research Funding
+---
+This topic focuses on grant support directed toward AI-related research and builder projects. The page lists many past grantees working across reinforcement learning, model management, drug design, medical imaging, generative art, and privacy tools, showing that the program supports a wide range of applied and foundational AI efforts. The description suggests the grants are not limited to one narrow subfield but instead back diverse technical exploration. By highlighting both researchers and builders, the content positions the funding as useful for early-stage experimentation as well as product-oriented work. The presence of specific grantees reinforces the program’s role in advancing the AI ecosystem. This makes AI research funding the central reusable theme beyond the general open source grant framing.

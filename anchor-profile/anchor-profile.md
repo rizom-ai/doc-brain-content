@@ -1,6 +1,6 @@
 ---
 kind: team
-name: Rizom Brain Docs
+name: Rizom Docs
 description: >-
   Maintains the Brains documentation and helps developers understand, run, and
   extend the @rizom/brain runtime.
@@ -10,4 +10,3 @@ socialLinks:
     url: 'https://github.com/rizom-ai/brains'
     label: Brains repository
 ---
-

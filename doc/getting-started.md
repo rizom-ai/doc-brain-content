@@ -129,9 +129,11 @@ Minimal example:
 
 ```yaml
 brain: rover
+anchor: person
 domain: mybrain.example.com
 preset: core
 
+admins: []
 anchors: []
 
 plugins:

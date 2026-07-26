@@ -17,9 +17,11 @@ Secrets should live in `.env` and be referenced with `${ENV_VAR}` interpolation.
 
 ```yaml
 brain: rover
+anchor: person
 domain: mybrain.example.com
 preset: core
 
+admins: []
 anchors: []
 
 site:
@@ -40,6 +42,7 @@ plugins:
 
 ```yaml
 brain: rover
+anchor: person
 site:
   package: "@acme/brain-site"
   theme: "@acme/brain-theme"
@@ -57,6 +60,8 @@ add:
   - stock-photo
 remove:
   - discord
+admins:
+  - "discord:123456789"
 anchors:
   - "discord:123456789"
 trusted:
@@ -66,7 +71,7 @@ plugins:
   # mcp:
   #   authToken: ${MCP_AUTH_TOKEN}
 permissions:
-  anchors:
+  admins:
     - "cli:*"
   trusted:
     - "discord:123456789"
@@ -77,11 +82,11 @@ permissions:
     "*":
       create: trusted
       update: trusted
-      delete: anchor
+      delete: admin
     summary:
-      create: anchor
-      update: anchor
-      delete: anchor
+      create: admin
+      update: admin
+      delete: admin
 ```
 
 ## Fields
@@ -95,6 +100,20 @@ Accepted forms:
 - bare built-in name, such as `rover`, `relay`, or `ranger`
 - scoped package name, such as `@my-org/my-brain`
 - legacy `@brains/rover`-style refs are still accepted for compatibility
+
+### `anchor`
+
+The Anchor profile flavor—the person, team, or organization this brain represents.
+
+```yaml
+anchor: person # person | team | organization
+```
+
+- `person` uses personal ownership. The represented person is also an active Admin.
+- `team` and `organization` both use collective, impersonal ownership. No member has `isAnchor`; any active Admin administers the brain.
+- `team` and `organization` differ only in profile shape and Admin-console vocabulary.
+
+The value is configuration, not an Admin-console mutation. The Anchor's public name and profile remain CMS content in `anchor-profile/anchor-profile`; `/admin` displays that profile read-only and links to its CMS editor. Brain models provide backward-compatible defaults (`rover` → `person`, `relay` → `team`, `ranger` → `organization`), while generated instance configs declare the value explicitly.
 
 ### `site`
 
@@ -222,14 +241,18 @@ remove:
 
 These entries refer to capability/interface ids from the brain model.
 
-### `anchors`
+### `admins`
 
-Top-level shorthand for full-access identities.
+Top-level shorthand for caller identities with administrative permission.
 
 ```yaml
-anchors:
+admins:
   - "discord:000000000000000000"
 ```
+
+### `anchors`
+
+Top-level shorthand for caller identities established as the brain's owner or subject in chat. Anchor identity does not grant permissions; list the same caller under `admins` as well when a personal Anchor should administer the brain.
 
 ### `trusted`
 
@@ -239,7 +262,7 @@ Top-level shorthand for elevated-access identities.
 
 Permission overrides.
 
-`anchors`, `trusted`, and `rules` control the caller permission level. `entityActions` controls which permission level is required to mutate each entity type through central system tools and publish pipeline commitments.
+`admins`, `trusted`, and `rules` control the caller permission level. `anchors` independently identifies callers who represent the brain's owner/subject in chat. `entityActions` controls which permission level is required to mutate each entity type through central system tools and publish pipeline commitments.
 
 ```yaml
 permissions:
@@ -247,25 +270,25 @@ permissions:
     "*":
       create: trusted
       update: trusted
-      delete: anchor
+      delete: admin
       extract: trusted
-      publish: anchor
+      publish: admin
     post:
       update: trusted # collaborators may edit drafts
-      publish: anchor # only owners may publish/queue/schedule
+      publish: admin # only admins may publish/queue/schedule
     social-post:
       update: trusted
-      publish: anchor
+      publish: admin
     summary:
-      create: anchor
-      update: anchor
-      delete: anchor
+      create: admin
+      update: admin
+      delete: admin
 ```
 
 Rules:
 
 - supported actions are `create`, `update`, `delete`, `extract`, and `publish`;
-- supported levels are `public`, `trusted`, `anchor`, and `never`;
+- supported levels are `public`, `trusted`, `admin`, and `never`;
 - `publish` gates publication commitments: publish-aware status transitions, direct publish calls, queue adds, scheduled execution, and send/publish handlers;
 - `publish` must be at least as restrictive as `update` for the same entity type after wildcard inheritance and entity-specific overrides are merged;
 - `never` forbids the action through system tools for every caller — useful for singleton identity/config entities that should not be deletable via the agent; internal plugin code can still mutate them directly;
@@ -286,6 +309,12 @@ plugins:
     git:
       repo: your-org/brain-data
       authToken: ${GIT_SYNC_TOKEN}
+  # Optional private libSQL primary for auth backup and provider-managed PITR:
+  # auth-service:
+  #   replica:
+  #     syncUrl: ${AUTH_DATABASE_URL}
+  #     authToken: ${AUTH_DATABASE_AUTH_TOKEN}
+  #     syncIntervalMs: 60000
   # Optional deprecated fallback for MCP clients that cannot use OAuth:
   # mcp:
   #   authToken: ${MCP_AUTH_TOKEN}
@@ -294,6 +323,8 @@ plugins:
 ```
 
 These values are merged into the selected capability or interface config. When `auth-service` is enabled, HTTP MCP uses the built-in OAuth/passkey provider by default; set `plugins.mcp.authToken` only for non-OAuth clients or emergency static-token access.
+
+`auth-service.replica` keeps `./data/auth/auth.db` as an embedded replica of a private remote libSQL primary. Startup performs an initial sync before migrations, and libSQL then syncs at the configured interval (60 seconds by default). Configure backup retention and point-in-time recovery on the remote provider. For an existing local database, stop the brain and import that database into the remote primary before enabling the replica; never point populated local auth state at an empty primary. The URL and token belong in secret-backed environment variables, never Git or `brain-data`.
 
 External plugin packages use the same keyed map with a reserved `package` field and optional nested `config` object:
 
@@ -328,12 +359,14 @@ External plugin packages should declare their compatible runtime with a peer dep
 
 ### `permissions`
 
-Explicit permission configuration.
+Explicit permission and Anchor identity configuration.
 
 ```yaml
 permissions:
+  admins:
+    - "mcp:stdio"
   anchors:
-    - "cli:*"
+    - "discord:000000000000000000"
   trusted:
     - "discord:123456789"
   rules:
@@ -345,13 +378,14 @@ permissions:
 
 Fields:
 
-- `anchors` — full-access identities
-- `trusted` — elevated-access identities
+- `admins` — identities with administrative permission
+- `anchors` — identities established as the brain's owner/subject in chat; this grants no permission
+- `trusted` — identities with elevated collaboration permission
 - `rules` — pattern-based permission rules
 
 Allowed rule levels:
 
-- `anchor`
+- `admin`
 - `trusted`
 - `public`
 
@@ -360,10 +394,12 @@ Allowed rule levels:
 Permission config is merged in this order:
 
 1. brain-model defaults
-2. top-level `anchors` / `trusted`
+2. top-level `admins` / `anchors` / `trusted`
 3. nested `permissions` block
 
 So the nested `permissions` block wins over the top-level shorthand.
+
+On first auth initialization, exact `admins`, `trusted`, and `anchors` entries are normalized, hashed, and seeded into private `auth.db`. Ordinary restarts load those DB rows and do not reapply later config edits. Use the Admin console Overview to manage labeled standalone exact grants; the supplied subject is hashed on write and never displayed again. Use `brain auth reinitialize-access --yes` for deliberate access recovery. Connected accounts take precedence over standalone exact grants. Pattern `rules` and shared-space selectors remain request-context configuration; the deprecated static MCP token remains a transport-level Admin fallback and never establishes Anchor identity.
 
 ## Environment variable interpolation
 
@@ -418,6 +454,7 @@ These are not usually interpolated directly inside `brain.yaml`, but they show u
 brain: rover
 preset: core
 
+admins: []
 anchors: []
 
 plugins: {}
@@ -435,6 +472,8 @@ preset: full
 site:
   package: "@acme/brain-site"
 
+admins:
+  - "discord:000000000000000000"
 anchors:
   - "discord:000000000000000000"
 
@@ -458,7 +497,7 @@ domain: team.example.com
 preset: default
 
 permissions:
-  anchors:
+  admins:
     - "cli:*"
   rules:
     - pattern: "a2a:*"

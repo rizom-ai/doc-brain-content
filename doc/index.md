@@ -48,6 +48,7 @@ If you are new, read these in order:
 - [Plugin System](/docs/plugin-system) — how built-in and custom plugins are organized
 - [Plugin Quick Reference](/docs/plugin-quick-reference) — concise plugin API reference
 - [External Plugin Authoring](/docs/external-plugin-authoring) — package and load external plugins
+- [External Site and Theme Authoring](/docs/external-site-authoring) — publish independently hosted site and theme packages through the public npm contract
 
 ## Architecture
 

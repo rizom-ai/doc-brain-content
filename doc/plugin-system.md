@@ -4,12 +4,12 @@ section: "Customization"
 order: 120
 sourcePath: "docs/plugin-system.md"
 slug: "plugin-system"
-description: "brains is composed from plugin packages. A brain model declares a set of built-in capabilities and interfaces; a brain instance selects from them and can also l"
+description: "brains is composed from plugin packages. The canonical definition declares an ordered catalog and fixed bundles; an instance selects explicit bundles and may lo"
 ---
 
 # Plugin System
 
-`brains` is composed from plugin packages. A brain model declares a set of built-in capabilities and interfaces; a brain instance selects from them and can also load external plugin packages from `node_modules`.
+`brains` is composed from plugin packages. The canonical definition declares an ordered catalog and fixed bundles; an instance selects explicit bundles and may load external plugin packages from `node_modules`.
 
 ## Plugin families
 

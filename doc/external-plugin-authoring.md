@@ -54,6 +54,7 @@ The runtime owns:
 | -------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Store typed content or derive another type   | `@rizom/brain/entities`   | [`defineEntity()`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/entity/src/index.ts)                      |
 | Add tools, resources, or durable work        | `@rizom/brain/services`   | [`defineServicePlugin()`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/service/src/index.ts)              |
+| Add Account settings, Dashboard, or CMS      | `@rizom/brain/services`   | [`operator-surface`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/src/index.ts)          |
 | Add HTTP routes or a supervised event feed   | `@rizom/brain/interfaces` | [`defineInterface()`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/interface/src/index.ts)                |
 | Connect a conversational/outbound transport  | `@rizom/brain/interfaces` | [`defineMessageInterface()`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/message-interface/src/index.ts) |
 | Define layouts, routes, sections, and assets | `@rizom/site`             | [`defineSite()`](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/site/src/index.tsx)                         |
@@ -205,7 +206,7 @@ configuration/environment interpolation, not in package defaults.
 
 ## How the complete reference fits together
 
-All six golden packages form one reading-library example:
+The eight golden packages form one reading-library example:
 
 ```text
 bookmark entity ──projection──▶ reading-digest entity
@@ -237,6 +238,12 @@ Read them in this order:
    head scripts, and assets.
 6. [Brain definition](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/brain-definition/src/index.ts)
    — typed `use()`, bundles, identity, and site composition.
+7. [Operator surface](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/src/index.ts)
+   — encrypted Account settings, Dashboard semantics, CMS query state,
+   catalogs, typed actions, and prepared confirmation.
+8. [Account-settings interface](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/account-settings-interface/src/index.ts)
+   — the same settings contract in an interface with runtime-owned per-account
+   daemon supervision.
 
 These are standalone packages with their own manifests and TypeScript configs.
 CI builds, packs, installs, imports, boots, and exercises them outside the
@@ -333,6 +340,37 @@ tool and call `jobs.enqueue(job, input)`. The runtime owns retries, deadlines,
 worker execution, cancellation, progress storage, restart recovery, and result
 validation.
 
+### Account settings and operator surfaces
+
+A service or interface can declare `defineAccountSettings()`. Secret fields are
+encrypted by the host and full values enter only the principal-specific
+`forAccounts` callback. Dashboard and CMS callbacks receive only the current
+caller's redacted settings.
+
+A service can independently declare `defineDashboardWidget()` and
+`defineCmsWorkspace()`. Both return schema-validated semantic data: authors do
+not provide React/Preact, HTML, CSS, scripts, renderer names, or browser bundles.
+Use `DashboardOperatorView` blocks for Dashboard data and `CmsWorkspaceView`
+blocks for authenticated CMS operations. CMS-only capabilities include:
+
+- a Zod query schema read through `query.get(schema)`, with the host owning URL
+  parsing and controls; the schema must accept `{}` and provide its initial
+  defaults so the workspace has a canonical base URL state;
+- immutable caller-filtered action and entity catalogs;
+- bounded host-rendered plain text for authenticated source detail;
+- typed `defineWorkspaceAction()` inputs/outputs and permission floors;
+- static confirmation text or prepared confirmation bound to caller, action,
+  input, revision, expiry, and one use; and
+- closed external, entity, Account, Admin, Inbox, Publishing, and Site launch
+  intents resolved by the host, including Inbox detail, Chat discussion, and
+  note-capture handoffs without author-supplied URLs.
+
+Widgets and workspaces do not reference or discover each other. A missing
+optional host is a true no-op, and execution-only workers do not bind operator
+callbacks. See the checked [operator fixture](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/src/index.ts)
+for a complete cast-free package and its [capability inventory](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/CAPABILITY_INVENTORY.md)
+for the built-in equivalence evidence.
+
 ### Generic interfaces
 
 Use `{ kind: "public" }` only for genuinely unauthenticated routes. For a
@@ -385,6 +423,8 @@ Before publishing an external package:
 | An interface manually constructs permission facts     | Return the authenticated transport identity and use the runtime-supplied `caller`           |
 | A listener never shuts down                           | Subscribe cleanup to the supplied `AbortSignal`                                             |
 | Durable work runs inside an HTTP handler              | Import a `defineJob()` contract and enqueue it                                              |
+| A widget or workspace returns JSX, HTML, or a URL     | Return a closed semantic view and typed host launch intent                                  |
+| CMS filters are parsed manually                       | Declare a query schema and read it with `query.get(schema)`                                 |
 | A site needs backend behavior                         | Compose a separate focused plugin package; do not put `plugin` in `defineSite()`            |
 | Types leak `@brains/*` in generated declarations      | Replace private types with public family contracts before publishing                        |
 

@@ -11,7 +11,7 @@ description: "Alpha preview for collaborators. This candidate is under final API
 
 > **Alpha preview for collaborators.** This candidate is under final API review
 > and is not yet stable `0.2.0`. The last exact registry-tested combination was
-> `@rizom/brain@0.2.0-alpha.272` with `@rizom/site@0.2.0-alpha.233`; the final
+> `@rizom/brain@0.2.0-alpha.304` with `@rizom/site@0.2.0-alpha.233`; the final
 > candidate may advance after review. Do not widen peer ranges to stable `0.2.x`
 > until the stable release is published.
 
@@ -98,10 +98,10 @@ calendar-plugin/
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@rizom/brain": ">=0.2.0-alpha.272 <0.3.0"
+    "@rizom/brain": ">=0.2.0-alpha.304 <0.3.0"
   },
   "devDependencies": {
-    "@rizom/brain": "0.2.0-alpha.272",
+    "@rizom/brain": "0.2.0-alpha.304",
     "typescript": "^7.0.2"
   }
 }

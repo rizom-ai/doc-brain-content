@@ -400,7 +400,7 @@ the host; packages do not ship browser components, HTML, CSS, scripts, renderer
 names, or private routes. Typed query state, dynamic catalogs, workspace
 actions, and prepared confirmations cover the current first-party surfaces
 ([authoring guide](/docs/external-plugin-authoring),
-[architecture plan](https://github.com/rizom-ai/brains/blob/main/docs/plans/public-operator-surface-authoring.md)).
+[stable authoring ledger](https://github.com/rizom-ai/brains/blob/main/docs/public-release/AUTHORING_API_0.2.md)).
 
 ## Current boundaries
 

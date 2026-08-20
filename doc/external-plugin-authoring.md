@@ -11,7 +11,7 @@ description: "Alpha preview for collaborators. This candidate is under final API
 
 > **Alpha preview for collaborators.** This candidate is under final API review
 > and is not yet stable `0.2.0`. The last exact registry-tested combination was
-> `@rizom/brain@0.2.0-alpha.304` with `@rizom/site@0.2.0-alpha.233`; the final
+> `@rizom/brain@0.2.0-alpha.313` with `@rizom/site@0.2.0-alpha.233`; the final
 > candidate may advance after review. Do not widen peer ranges to stable `0.2.x`
 > until the stable release is published.
 
@@ -98,10 +98,10 @@ calendar-plugin/
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@rizom/brain": ">=0.2.0-alpha.304 <0.3.0"
+    "@rizom/brain": ">=0.2.0-alpha.313 <0.3.0"
   },
   "devDependencies": {
-    "@rizom/brain": "0.2.0-alpha.304",
+    "@rizom/brain": "0.2.0-alpha.313",
     "typescript": "^7.0.2"
   }
 }
@@ -373,8 +373,8 @@ optional host is a true no-op, and execution-only workers do not bind operator
 callbacks. See the checked [operator fixture](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/src/index.ts)
 for a complete cast-free package and its [capability inventory](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/operator-surface/CAPABILITY_INVENTORY.md)
 for the built-in equivalence evidence. The local packed operator consumer also
-checks the additive card/columns type exports; exact registry evidence advances
-only after the candidate containing them is published.
+checks the additive card/columns type exports; exact registry evidence covers
+their first published release in `@rizom/brain@0.2.0-alpha.313`.
 
 ### Generic interfaces
 

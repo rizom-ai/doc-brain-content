@@ -313,8 +313,10 @@ Themes are resolved by brain instances, not embedded in site packages. A site de
 
 ```yaml
 brain: brain
+bundleContract: capability-bundles-v1
 bundles:
   - core
+  - web
   - site
 site:
   package: "@brains/site-mytheme"
@@ -397,8 +399,10 @@ Each brain instance picks a structural site package and a theme in `brain.yaml`:
 ```yaml
 # brain.yaml
 brain: brain
+bundleContract: capability-bundles-v1
 bundles:
   - core
+  - web
   - site
 site:
   package: "@brains/site-default"
@@ -408,8 +412,10 @@ site:
 ```yaml
 # brain.yaml in a standalone Rizom app repo
 brain: brain
+bundleContract: capability-bundles-v1
 bundles:
   - core
+  - web
   - site
 site:
   theme: "@brains/theme-rizom"

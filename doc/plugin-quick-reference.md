@@ -1,6 +1,6 @@
 ---
-title: Plugin Quick Reference
-section: Customization
+title: "Plugin Quick Reference"
+section: "Customization"
 order: 130
 sourcePath: "docs/plugin-quick-reference.md"
 slug: "plugin-quick-reference"

@@ -1,6 +1,6 @@
 ---
-title: External Plugin Authoring
-section: Customization
+title: "External Plugin Authoring"
+section: "Customization"
 order: 135
 sourcePath: "docs/external-plugin-authoring.md"
 slug: "external-plugin-authoring"

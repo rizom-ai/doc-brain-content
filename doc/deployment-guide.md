@@ -1,11 +1,12 @@
 ---
-title: Deployment Guide
-section: Start here
+title: "Deployment Guide"
+section: "Start here"
 order: 40
-sourcePath: packages/brain-cli/docs/deployment-guide.md
-description: Deploy a brain to a server using the scaffolded GitHub Actions + Kamal flow.
-slug: deployment-guide
+sourcePath: "packages/brain-cli/docs/deployment-guide.md"
+slug: "deployment-guide"
+description: "Deploy a brain to a server using the scaffolded GitHub Actions + Kamal flow."
 ---
+
 # Deployment Guide
 
 Deploy a brain to a server using the scaffolded GitHub Actions + Kamal flow.

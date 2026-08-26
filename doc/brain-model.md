@@ -1,6 +1,6 @@
 ---
-title: Brain Models
-section: Architecture
+title: "Brain Models"
+section: "Architecture"
 order: 160
 sourcePath: "docs/brain-model.md"
 slug: "brain-model"

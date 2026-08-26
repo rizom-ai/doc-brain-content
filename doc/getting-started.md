@@ -1,11 +1,12 @@
 ---
-title: Getting Started
-section: Start here
+title: "Getting Started"
+section: "Start here"
 order: 10
 sourcePath: "packages/brain-cli/docs/getting-started.md"
 slug: "getting-started"
 description: "A brain is a private AI runtime whose durable knowledge is markdown. One canonical definition supplies the capability catalog; each instance selects explicit bu"
 ---
+
 # Getting Started
 
 ## What is a Brain?

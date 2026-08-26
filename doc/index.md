@@ -44,10 +44,12 @@ If you are new, read these in order:
 ## Customization
 
 - [Customization Guide](/docs/customization-guide) — change bundles, content, themes, sites, and plugins
+- [Site Mockup Migration](/docs/site-mockup-migration) — prototype a site in an AI coding tool, then move it into Brain routes, sections, content, and themes
 - [Theming Guide](/docs/theming-guide) — theme tokens, CSS layers, and custom themes
 - [Plugin System](/docs/plugin-system) — how built-in and custom plugins are organized
 - [Plugin Quick Reference](/docs/plugin-quick-reference) — concise plugin API reference
 - [External Plugin Authoring](/docs/external-plugin-authoring) — package and load external plugins
+- [External Site and Theme Authoring](/docs/external-site-authoring) — publish independently hosted site and theme packages through the public npm contract
 
 ## Architecture
 

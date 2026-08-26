@@ -306,12 +306,17 @@ shared/theme-mytheme/
 
 **3. Reference from `brain.yaml`**:
 
-Themes are resolved by brain instances, not embedded in site packages. A `SitePackage` is structural-only: layouts, routes, site plugin, entity display, and static assets. Theme packages live under `shared/theme-*` and export raw CSS; the resolver loads `site.package` and `site.theme` independently, then composes the chosen theme exactly once before handing it to site-builder.
+Themes are resolved by brain instances, not embedded in site packages. A site definition is structural-only: layouts, routes, sections, initial content, entity display, head scripts, and static assets. Theme packages live under `shared/theme-*` and export raw CSS; the resolver loads `site.package` and `site.theme` independently, then composes the chosen theme exactly once before handing it to site-builder.
 
 **4. Pick the site package and theme in `brain.yaml`**:
 
 ```yaml
-brain: rover
+brain: brain
+bundleContract: capability-bundles-v1
+bundles:
+  - core
+  - web
+  - site
 site:
   package: "@brains/site-mytheme"
   theme: "@brains/theme-mytheme"
@@ -392,20 +397,30 @@ Each brain instance picks a structural site package and a theme in `brain.yaml`:
 
 ```yaml
 # brain.yaml
-brain: rover
+brain: brain
+bundleContract: capability-bundles-v1
+bundles:
+  - core
+  - web
+  - site
 site:
   package: "@brains/site-default"
-  theme: "@brains/theme-default"
+  theme: "@rizom/theme-default"
 ```
 
 ```yaml
 # brain.yaml in a standalone Rizom app repo
-brain: ranger
+brain: brain
+bundleContract: capability-bundles-v1
+bundles:
+  - core
+  - web
+  - site
 site:
   theme: "@brains/theme-rizom"
 ```
 
-The brain resolver loads `site.package` and `site.theme` independently. App-specific composition belongs in the standalone app repo's local `src/site.ts`; the shared `sites/rizom` package and `shared/theme-rizom` stay single-sourced in this repo. The resolver validates the theme package, composes it once with `composeTheme(...)`, and injects the resulting CSS into site-builder.
+The brain resolver loads `site.package` and `site.theme` independently. App-specific composition belongs in the standalone app repo's local `src/site.tsx`; when `site.package` is explicit, the local file layers over that structural base instead of replacing its plugin, templates, or datasources. The shared `sites/rizom` package and `shared/theme-rizom` stay single-sourced in this repo. The resolver validates the theme package, composes it once with `composeTheme(...)`, and injects the resulting CSS into site-builder.
 
 ### Site Builder Integration
 

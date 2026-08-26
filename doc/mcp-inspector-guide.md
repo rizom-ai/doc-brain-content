@@ -49,7 +49,7 @@ In Inspector:
 - **Server URL**: `http://localhost:8080/mcp`
 - **Authentication**: use the OAuth flow when offered by Inspector
 
-The brain advertises OAuth metadata, dynamically registers the client, opens a browser/passkey authorization flow, and issues an access token with the `mcp` scope.
+The brain advertises OAuth metadata, opens a browser/passkey authorization flow, and issues an access token with the `mcp` scope. Current clients can identify themselves through an HTTPS Client ID Metadata Document; deprecated Dynamic Client Registration remains available as a compatibility fallback.
 
 Once connected, you can list tools/resources. In the default `basic` mode, raw write tools are intentionally hidden: use read-only tools such as `system_search`, `system_get`, `system_list`, and `job_status` for structured queries, and use `chat` for any create/update/delete or reasoning request.
 
@@ -57,7 +57,7 @@ If `chat` returns `needsConfirmation`, call `confirm` with the returned `approva
 
 ## Debug mode
 
-For local/operator inspection, configure MCP with `mode: debug` to advertise raw tools. Debug mode requires `anchor` permissions and is refused for unauthenticated HTTP.
+For local/operator inspection, configure MCP with `mode: debug` to advertise raw tools. Debug mode requires `admin` permissions and is refused for unauthenticated HTTP.
 
 ```yaml
 plugins:
@@ -110,7 +110,7 @@ Always use HTTPS in production. Preserve the deployment volume that backs `/app/
 
 ### Connection refused
 
-- Check the server is running: `curl http://localhost:8080/health`
+- Check the server is ready: `curl http://localhost:8080/health/ready`
 - Verify port 8080 is not blocked
 
 ### OAuth loop or authorization failed

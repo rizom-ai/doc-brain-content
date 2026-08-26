@@ -2,489 +2,284 @@
 title: brain.yaml Reference
 section: Start here
 order: 20
-sourcePath: packages/brain-cli/docs/brain-yaml-reference.md
-description: >-
-  brain.yaml is the instance-level configuration file for a brain. It selects
-  the brain model, chooses a preset, overrides deployment settings, and passes
-  config 
-slug: brain-yaml-reference
+sourcePath: "packages/brain-cli/docs/brain-yaml-reference.md"
+slug: "brain-yaml-reference"
+description: "brain.yaml is the instance-owned configuration for the canonical brain. It selects fixed capability bundles and applies explicit instance overrides. It does not"
 ---
 # brain.yaml Reference
 
-`brain.yaml` is the instance-level configuration file for a brain. It selects the brain model, chooses a preset, overrides deployment settings, and passes config to plugins and interfaces.
-
-Secrets should live in `.env` and be referenced with `${ENV_VAR}` interpolation.
+`brain.yaml` is the instance-owned configuration for the canonical brain. It selects fixed capability bundles and applies explicit instance overrides. It does not select a built-in model or preset.
 
 ## Example
 
 ```yaml
-brain: rover
-domain: mybrain.example.com
-preset: core
+brain: brain
+bundleContract: capability-bundles-v1
+anchor: person
+kind: professional
+domain: example.com
 
-anchors: []
+bundles:
+  - core
+  - media
+  - automation
+  - web
+  - chat
+  - site
+  - publishing
+  - federation
 
-site:
-  package: "@acme/brain-site"
-
-plugins:
-  # Uncomment to enable git-backed sync of brain content:
-  # directory-sync:
-  #   git:
-  #     repo: your-org/brain-data
-  #     authToken: ${GIT_SYNC_TOKEN}
-  # Optional deprecated fallback for MCP clients that cannot use OAuth:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
-```
-
-## Supported top-level fields
-
-```yaml
-brain: rover
-site:
-  package: "@acme/brain-site"
-  theme: "@acme/brain-theme"
-name: "My Brain"
-logLevel: info
-logFile: ./brain.log
-port: 4321
-domain: mybrain.example.com
-database: file:./data/brain.db
-model: gpt-5.6-luna
-reasoningEffort: low
-preset: core
-mode: eval
 add:
-  - stock-photo
+  - obsidian-vault
 remove:
-  - discord
+  - newsletter
+
+site:
+  package: "@brains/site-default"
+  theme: "@rizom/theme-default"
+
+admins:
+  - "discord:123456789"
 anchors:
   - "discord:123456789"
-trusted:
-  - "discord:987654321"
+
 plugins:
-  # Optional deprecated fallback for MCP clients that cannot use OAuth:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
-permissions:
-  anchors:
-    - "cli:*"
-  trusted:
-    - "discord:123456789"
-  rules:
-    - pattern: "a2a:*"
-      level: public
-  entityActions:
-    "*":
-      create: trusted
-      update: trusted
-      delete: anchor
-    summary:
-      create: anchor
-      update: anchor
-      delete: anchor
+  directory-sync:
+    seedContentPath: ./seed-content
+    git:
+      repo: your-org/brain-data
+      authToken: ${GIT_SYNC_TOKEN}
 ```
 
-## Fields
+## Canonical selection
 
-### `brain` (required)
+### `brain`
 
-The brain model to run.
-
-Accepted forms:
-
-- bare built-in name, such as `rover`, `relay`, or `ranger`
-- scoped package name, such as `@my-org/my-brain`
-- legacy `@brains/rover`-style refs are still accepted for compatibility
-
-### `site`
-
-Optional site override.
+Optional for the canonical definition. These are equivalent:
 
 ```yaml
-site:
-  package: "@acme/brain-site"
-  theme: "@acme/brain-theme"
+brain: brain
 ```
-
-Fields:
-
-- `package` — site package to load
-- `variant` — optional site-specific flavor string for packages that support it
-- `theme` — base theme package or inline CSS string to use for styling
-- `themeOverride` — extra CSS or a theme CSS package ref to append after the base theme
-
-`site.package`, `site.theme`, and `site.themeOverride` are resolved independently. The site package stays structural-only; the theme is validated separately and injected into site-builder. `themeOverride` is additive, which lets an app-local `src/theme.css` extend a shared base theme without replacing it.
-
-Use this when the brain model's built-in site package is not the one you want, when you want to pair the same site package with a different base theme, or when you want to layer local theme overrides on top of a shared theme.
-
-### `name`
-
-Optional instance name override.
-
-### `logLevel`
-
-Logging verbosity.
-
-Allowed values:
-
-- `debug`
-- `info`
-- `warn`
-- `error`
-
-### `logFile`
-
-Optional log file path.
-
-When set, logs are also written to disk. This is useful for usage tracking and postmortem debugging.
-
-### `port`
-
-Optional production port override.
-
-### `domain`
-
-Production domain for the instance.
-
-Used for:
-
-- canonical site URLs
-- preview URL derivation
-- A2A endpoint discovery
-- CMS and webserver identity
-
-### `database`
-
-Database URL, usually SQLite.
-
-Example:
 
 ```yaml
-database: file:./data/brain.db
+brain: "@rizom/brain/model"
 ```
 
-### `model`
+When omitted, the runtime uses the canonical definition. Explicitly scoped external definition packages remain an advanced authoring surface. Bare legacy names and internal `@brains/*` definition packages are rejected.
 
-Override the default AI model.
+### `bundleContract`
 
-Examples:
+Required by the canonical definition:
 
 ```yaml
-model: gpt-5.6-luna
-model: claude-haiku-4-5
-model: openai:gpt-4o-mini
+bundleContract: capability-bundles-v1
 ```
 
-The provider is inferred from the model name unless you prefix it explicitly.
+The contract is separate from the bundle IDs because names such as `core` and `site` existed before the capability taxonomy with different meanings. The runtime rejects a missing or different contract before bundle resolution, preventing an old `brain.yaml` from silently changing behavior under a new image.
 
-### `reasoningEffort`
+### `bundles`
 
-Set OpenAI reasoning effort. Supported values are `none`, `low`, `medium`,
-`high`, `xhigh`, and `max`. Other providers ignore this setting.
+Required for the canonical definition. Select one or more fixed bundles:
+
+- `core` — identity, markdown knowledge, Inbox, MCP stdio, A2A, and agent discovery;
+- `media` — documents and images;
+- `automation` — playbooks and onboarding;
+- `web` — HTTP, auth, account/admin, Dashboard, and CMS;
+- `chat` — platform chat, web chat, email, notifications, and conversation memory;
+- `site` — site metadata, content, building, and analytics;
+- `publishing` — blog, series, portfolio, decks, pipeline, newsletter, and social publishing;
+- `federation` — AT Protocol publication and registry capabilities;
+- `team` — policy-only shared-memory and trusted-collaboration defaults.
+
+Bundle effects compose in canonical definition order, not YAML list order.
 
 ```yaml
-reasoningEffort: low
+bundles:
+  - core
+  - media
+  - automation
+  - web
+  - chat
+  - site
+  - team
+add:
+  - docs
 ```
-
-### `preset`
-
-Select a curated subset of capabilities and interfaces defined by the brain model.
-
-Current built-in presets:
-
-| Brain model | Presets                   |
-| ----------- | ------------------------- |
-| `rover`     | `core`, `default`, `full` |
-| `relay`     | `core`, `default`, `full` |
-| `ranger`    | `default`                 |
-
-If omitted, resolution falls back to the brain model's default preset behavior. In practice, it is best to set this explicitly.
-
-### `mode`
-
-Runtime mode override.
-
-Currently supported:
-
-- `eval` — disables side-effectful capabilities listed by the brain model's `evalDisable`
 
 ### `add` / `remove`
 
-Refine the selected preset.
+Adjust individual catalog members after bundle composition. `remove` closes that member's config, permissions, instructions, and eval contributions.
 
 ```yaml
-preset: default
 add:
-  - stock-photo
+  - products
 remove:
-  - discord
+  - analytics
 ```
 
-These entries refer to capability/interface ids from the brain model.
+Arrays are replaced explicitly; the runtime does not generically merge arrays.
 
-### `anchors`
+## Identity and runtime fields
 
-Top-level shorthand for full-access identities.
+### `anchor`
+
+Select the instance's anchor profile flavor:
 
 ```yaml
-anchors:
-  - "discord:000000000000000000"
+anchor: person # person | team | organization
 ```
 
-### `trusted`
+### `name`
 
-Top-level shorthand for elevated-access identities.
+Override the runtime instance name.
 
-### `permissions`
+### `kind`
 
-Permission overrides.
+Select an optional semantic profile kind from the composed catalog. The standard specialized recipes select `professional`, `team`, or `organization`; omit `kind` only when the base profile fields are sufficient. `anchor` controls ownership flavor, while `kind` selects the validated profile field extension.
 
-`anchors`, `trusted`, and `rules` control the caller permission level. `entityActions` controls which permission level is required to mutate each entity type through central system tools and publish pipeline commitments.
+### `domain`, `port`, `database`
+
+Override deployment domain, production port, or database URL.
+
+### `model`
+
+Select the AI text model. This field is unrelated to the retired built-in brain models.
 
 ```yaml
-permissions:
-  entityActions:
-    "*":
-      create: trusted
-      update: trusted
-      delete: anchor
-      extract: trusted
-      publish: anchor
-    post:
-      update: trusted # collaborators may edit drafts
-      publish: anchor # only owners may publish/queue/schedule
-    social-post:
-      update: trusted
-      publish: anchor
-    summary:
-      create: anchor
-      update: anchor
-      delete: anchor
+model: anthropic:claude-haiku-4-5-20251001
+reasoningEffort: low
 ```
 
-Rules:
+### `embedding`
 
-- supported actions are `create`, `update`, `delete`, `extract`, and `publish`;
-- supported levels are `public`, `trusted`, `anchor`, and `never`;
-- `publish` gates publication commitments: publish-aware status transitions, direct publish calls, queue adds, scheduled execution, and send/publish handlers;
-- `publish` must be at least as restrictive as `update` for the same entity type after wildcard inheritance and entity-specific overrides are merged;
-- `never` forbids the action through system tools for every caller — useful for singleton identity/config entities that should not be deletable via the agent; internal plugin code can still mutate them directly;
-- `"*"` is the default for entity types without an explicit entry;
-- entity-specific entries override `"*"` per action;
-- omitted actions inherit from `"*"`;
-- if no `entityActions` policy is configured by the brain model or instance, existing mutation-tool behavior is preserved.
+Provider-backed semantic indexing is enabled by default. Disable it explicitly for offline or hermetic instances; lexical full-text search remains available.
 
-This policy is enforced by `system_create`, `system_update`, `system_delete`, topic extraction, and publish pipeline tools/handlers. It does not control read/search/list visibility; use entity visibility for read access.
+```yaml
+embedding:
+  enabled: false
+```
 
-### `plugins`
+Semantic-only operations fail clearly while indexing is disabled.
 
-Per-plugin config overrides keyed by plugin/interface id.
+### `mode`
+
+`mode: eval` disables definition-owned side-effect members for evaluation runs.
+
+### `logLevel`, `logFile`
+
+Configure logging. Levels are `debug`, `info`, `warn`, and `error`.
+
+## Site and theme
+
+```yaml
+site:
+  package: "@brains/site-default"
+  variant: professional
+  theme: "@rizom/theme-default"
+  themeOverride: ":root { --brand: rebeccapurple; }"
+```
+
+All fields are optional. Local `src/site.tsx` is always the effective site package when present; an explicit `site.package` becomes its base and the local file layers structural overrides over it. Local `src/theme.css` and `src/site-content.ts` apply when `site.themeOverride` or `plugins.site-content.definitions` is absent, respectively.
+
+## Plugins
+
+Built-in member config is keyed by canonical member ID:
 
 ```yaml
 plugins:
   directory-sync:
-    git:
-      repo: your-org/brain-data
-      authToken: ${GIT_SYNC_TOKEN}
-  # Optional deprecated fallback for MCP clients that cannot use OAuth:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
-  discord:
-    botToken: ${DISCORD_BOT_TOKEN}
+    seedContentPath: ./seed-content
+    initialSync: true
 ```
 
-These values are merged into the selected capability or interface config. When `auth-service` is enabled, HTTP MCP uses the built-in OAuth/passkey provider by default; set `plugins.mcp.authToken` only for non-OAuth clients or emergency static-token access.
-
-External plugin packages use the same keyed map with a reserved `package` field and optional nested `config` object:
+External plugins use a scoped package plus nested config:
 
 ```yaml
 plugins:
   calendar:
-    package: "@rizom/brain-plugin-calendar"
+    package: "@acme/brain-plugin-calendar"
     config:
-      apiKey: ${CALENDAR_API_KEY}
       timezone: UTC
+      apiKey: ${CALENDAR_API_KEY}
 ```
 
-The package version belongs in the instance `package.json`; `brain.yaml` only declares and configures the plugin. List-form `plugins:` is not supported.
+External packages do not create policy bundles. They remain instance additions governed by the normal permission surface.
 
-```json
-{
-  "dependencies": {
-    "@rizom/brain-plugin-calendar": "^0.1.0"
-  }
-}
+## Principals and permissions
+
+Top-level principal seeds:
+
+```yaml
+admins:
+  - "discord:123"
+anchors:
+  - "discord:123"
+trusted:
+  - "discord:456"
+spaces:
+  - "discord:guild:channel"
 ```
 
-External plugin packages should declare their compatible runtime with a peer dependency:
-
-```json
-{
-  "peerDependencies": {
-    "@rizom/brain": "^0.2.0-alpha.47"
-  }
-}
-```
-
-### `permissions`
-
-Explicit permission configuration.
+Structured permissions:
 
 ```yaml
 permissions:
-  anchors:
-    - "cli:*"
+  admins:
+    - "discord:123"
   trusted:
-    - "discord:123456789"
+    - "discord:456"
   rules:
-    - pattern: "a2a:friendbrain"
-      level: trusted
-    - pattern: "a2a:*"
+    - pattern: "mcp:http"
       level: public
+  entityActions:
+    note:
+      create: trusted
+      update: trusted
+      delete: admin
+      extract: admin
+      publish: admin
 ```
 
-Fields:
+Principal seeds are unioned. Effective policy follows plugin, definition, bundle, then instance precedence, subject to validation that publishing cannot be looser than updating.
 
-- `anchors` — full-access identities
-- `trusted` — elevated-access identities
-- `rules` — pattern-based permission rules
+## Environment interpolation
 
-Allowed rule levels:
-
-- `anchor`
-- `trusted`
-- `public`
-
-### Permission precedence
-
-Permission config is merged in this order:
-
-1. brain-model defaults
-2. top-level `anchors` / `trusted`
-3. nested `permissions` block
-
-So the nested `permissions` block wins over the top-level shorthand.
-
-## Environment variable interpolation
-
-String values support `${ENV_VAR}` syntax.
+`${NAME}` references are resolved from the environment. Unset values are removed rather than converted to the string `"undefined"`.
 
 ```yaml
 plugins:
-  # Optional deprecated fallback for MCP clients that cannot use OAuth:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
-```
-
-Notes:
-
-- values are resolved from the environment at startup
-- unset env vars are stripped out rather than left as literal strings
-- empty YAML fields like `anchors:` are treated as absent values, not errors
-
-## Common environment variables
-
-| Variable            | Typical use                               |
-| ------------------- | ----------------------------------------- |
-| `AI_API_KEY`        | Main AI provider key                      |
-| `AI_IMAGE_KEY`      | Separate image-generation key             |
-| `GIT_SYNC_TOKEN`    | Git-backed content sync                   |
-| `MCP_AUTH_TOKEN`    | Deprecated MCP HTTP static-token fallback |
-| `DISCORD_BOT_TOKEN` | Discord bot interface                     |
-
-## Deploy/bootstrap environment variables
-
-These are not usually interpolated directly inside `brain.yaml`, but they show up in the deploy and bootstrap docs for `brain init <dir> --deploy` + `brain cert:bootstrap`.
-
-| Variable                     | Typical use                                             |
-| ---------------------------- | ------------------------------------------------------- |
-| `KAMAL_REGISTRY_PASSWORD`    | GHCR auth for Kamal                                     |
-| `HCLOUD_TOKEN`               | Hetzner provisioning                                    |
-| `HCLOUD_SSH_KEY_NAME`        | Hetzner SSH key registration name                       |
-| `HCLOUD_SERVER_TYPE`         | Hetzner server type                                     |
-| `HCLOUD_LOCATION`            | Hetzner location                                        |
-| `KAMAL_SSH_PRIVATE_KEY_FILE` | Local source path for `brain ssh-key:bootstrap`         |
-| `KAMAL_SSH_PRIVATE_KEY`      | Deploy SSH private key stored in GitHub Actions secrets |
-| `CF_API_TOKEN`               | Cloudflare API token for Origin CA bootstrap            |
-| `CF_ZONE_ID`                 | Cloudflare zone ID for Origin CA bootstrap              |
-| `CERTIFICATE_PEM`            | Origin CA certificate secret                            |
-| `PRIVATE_KEY_PEM`            | Origin CA private key secret                            |
-
-## Examples
-
-### Minimal rover instance
-
-```yaml
-brain: rover
-preset: core
-
-anchors: []
-
-plugins: {}
-```
-
-HTTP MCP uses the built-in OAuth/passkey provider when the model includes `auth-service`. Add `plugins.mcp.authToken` only as a deprecated fallback for non-OAuth clients.
-
-### Public rover instance with site + sync
-
-```yaml
-brain: rover
-domain: mybrain.example.com
-preset: full
-
-site:
-  package: "@acme/brain-site"
-
-anchors:
-  - "discord:000000000000000000"
-
-plugins:
-  directory-sync:
-    git:
-      repo: your-org/brain-data
-      authToken: ${GIT_SYNC_TOKEN}
-  # Optional deprecated fallback for non-OAuth MCP clients:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
   discord:
     botToken: ${DISCORD_BOT_TOKEN}
 ```
 
-### Relay instance with explicit permissions
+Common variables include `AI_API_KEY`, `AI_IMAGE_KEY`, `GIT_SYNC_TOKEN`, `DISCORD_BOT_TOKEN`, and provider/integration-specific secrets declared by `.env.schema`.
 
-```yaml
-brain: relay
-domain: team.example.com
-preset: default
+## Recipes
 
-permissions:
-  anchors:
-    - "cli:*"
-  rules:
-    - pattern: "a2a:*"
-      level: public
+Recipes are scaffold-time conveniences only. `brain init --recipe` expands them into explicit YAML; recipe names have no runtime meaning.
 
-plugins:
-  # Optional deprecated fallback for non-OAuth MCP clients:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
+| Recipe         | Expansion                                                                 |
+| -------------- | ------------------------------------------------------------------------- |
+| `headless`     | `core`                                                                    |
+| `personal`     | `core + media + web + chat`                                               |
+| `professional` | `core + media + automation + web + chat + site + publishing + federation` |
+| `team`         | `core + media + automation + web + chat + site + team`, plus `docs`       |
+| `commerce`     | `core + media + web + site`, plus `products`                              |
+
+Identity, seed content, site, theme, permissions, and secret references remain visible instance-owned choices.
+
+## Legacy migration
+
+Preview an old built-in model/preset config without writing it:
+
+```bash
+brain config migrate
 ```
 
-### Ranger instance using the shared Rizom site core
+An unversioned canonical file already containing explicit overlapping bundle IDs is ambiguous and requires an explicit reviewed target:
 
-```yaml
-brain: ranger
-preset: default
-domain: rizom.ai
-
-site:
-  package: "@acme/rizom-site"
-  theme: "@acme/rizom-theme"
-
-plugins:
-  # Optional deprecated fallback for non-OAuth MCP clients:
-  # mcp:
-  #   authToken: ${MCP_AUTH_TOKEN}
+```bash
+brain config migrate --recipe professional
 ```
+
+Review the output, then apply it deliberately with the matching runtime version. The command never writes `brain.yaml`, and the active runtime does not parse either the retired preset contract or unmarked canonical bundle selections.

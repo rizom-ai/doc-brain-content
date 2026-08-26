@@ -17,14 +17,14 @@ Interfaces are selected by the active capability bundles, then refined with `add
 
 ## Quick reference
 
-| Interface | Plugin id   | Local surface                        | Common use                                 |
-| --------- | ----------- | ------------------------------------ | ------------------------------------------ |
-| MCP       | `mcp`       | `http://localhost:8080/mcp` or stdio | Claude Desktop, Cursor, CLI remote/tooling |
-| Webserver | `webserver` | `http://localhost:8080`              | Site, CMS, dashboard, shared HTTP routes   |
-| Web chat  | `web-chat`  | `http://localhost:8080/chat`         | Operator browser chat                      |
-| Chat      | `chat`      | Discord and/or Slack                 | Community, team, and operator chat         |
-| A2A       | `a2a`       | `http://localhost:8080/a2a`          | Agent-to-agent communication               |
-| Chat REPL | command     | `brain chat`                         | Local terminal chat                        |
+| Interface | Plugin id   | Local surface                        | Common use                                      |
+| --------- | ----------- | ------------------------------------ | ----------------------------------------------- |
+| MCP       | `mcp`       | `http://localhost:8080/mcp` or stdio | Claude Desktop, Cursor, CLI remote/tooling      |
+| Webserver | `webserver` | `http://localhost:8080`              | Site, CMS, dashboard, Admin, shared HTTP routes |
+| Web chat  | `web-chat`  | `http://localhost:8080/chat`         | Authenticated browser chat                      |
+| Chat      | `chat`      | Discord and/or Slack                 | Community, team, and authenticated chat         |
+| A2A       | `a2a`       | `http://localhost:8080/a2a`          | Agent-to-agent communication                    |
+| Chat REPL | command     | `brain chat`                         | Local terminal chat                             |
 
 ## Shared setup
 
@@ -70,7 +70,7 @@ permissions:
       level: public
 ```
 
-Use `anchor` access for identities that can administer the brain. Use `public` for surfaces that should be able to ask ordinary questions but not perform privileged actions.
+Use `admin` access for identities that can administer the brain. Configure `anchors` separately for caller identities that represent the brain's owner/subject in chat. Use `public` for surfaces that should be able to ask ordinary questions but not perform privileged actions.
 
 ## MCP
 
@@ -101,9 +101,9 @@ https://your-domain.com/mcp
 When `auth-service` is enabled, HTTP MCP is protected by the brain's built-in OAuth provider:
 
 1. First boot prints a one-shot `/setup` URL.
-2. The operator opens that URL locally and registers a passkey.
-3. OAuth-capable MCP clients discover metadata from the brain, open a browser authorization flow, and request the `mcp` scope.
-4. The brain verifies the passkey-backed operator session and issues MCP-scoped bearer tokens.
+2. The first Admin opens that URL locally and registers a passkey; on a personal brain, that person's subject becomes the Anchor.
+3. OAuth-capable MCP clients discover metadata from the brain, identify themselves through a Client ID Metadata Document (or deprecated Dynamic Client Registration fallback), open a browser authorization flow, and request the `mcp` scope.
+4. The brain verifies the passkey-backed auth session and issues MCP-scoped bearer tokens.
 
 `MCP_AUTH_TOKEN` is still supported as a deprecated static fallback. Use it only for older clients that cannot complete OAuth. If `plugins.mcp.authToken` or `MCP_AUTH_TOKEN` is set, clients must send that value as `Authorization: Bearer <token>` and the OAuth path is bypassed for MCP.
 
@@ -124,7 +124,7 @@ MCP defaults to `basic` mode. In `basic`, clients see:
 
 Raw write tools are not advertised in `basic`. After a write, `chat`/`confirm` responses may include `toolResults` and `readYourWrites` handles with entity IDs and job IDs; use `system_get` or `system_job_status` to observe those results.
 
-Use `debug` mode only for local/operator inspection when you intentionally need raw tool access. It requires `anchor` permissions and is refused for unauthenticated HTTP.
+Use `debug` mode only for local/operator inspection when you intentionally need raw tool access. It requires `admin` permissions and is refused for unauthenticated HTTP.
 
 ```yaml
 plugins:
@@ -177,7 +177,7 @@ brain --remote https://your-domain.com --token "$MCP_AUTH_TOKEN" status
 
 ## Webserver
 
-The webserver is the shared HTTP surface for the site, CMS, dashboard, MCP HTTP, A2A, health routes, and plugin API routes.
+The webserver is the shared HTTP surface for the site, CMS, dashboard, Admin console, MCP HTTP, A2A, health routes, and plugin API routes.
 
 Common local URLs:
 
@@ -185,7 +185,8 @@ Common local URLs:
 http://localhost:8080/           # public site or dashboard route, depending on bundle/config
 http://localhost:8080/cms        # CMS when enabled
 http://localhost:8080/dashboard  # dashboard when enabled
-http://localhost:8080/chat       # operator web chat when enabled
+http://localhost:8080/admin      # administration console; People section when enabled
+http://localhost:8080/chat       # authenticated web chat when enabled
 http://localhost:8080/mcp        # MCP HTTP when enabled
 http://localhost:8080/a2a        # A2A when enabled
 ```
@@ -287,7 +288,7 @@ Recommended production settings:
 - keep `requireMention: true` unless all channel messages should reach the brain;
 - restrict `allowedChannels` where appropriate;
 - disable `allowDMs` unless direct messages are intentional;
-- grant `trusted` or `anchor` only to users who may supply reusable uploads or perform writes.
+- grant `trusted` or `admin` only to users who may supply reusable uploads or perform writes.
 
 Public users can chat, but their platform attachments are not downloaded or passed to the agent. Discord and Slack keep subscriptions and uploads in separate runtime namespaces.
 

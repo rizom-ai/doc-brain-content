@@ -26,7 +26,7 @@ Scaffold a new brain instance.
 
 ```bash
 brain init mybrain
-brain init mybrain --model relay
+brain init mybrain --recipe team
 brain init mybrain --domain mybrain.example.com
 brain init mybrain --content-repo github:user/brain-data
 brain init mybrain --backend none         # default: env vars only, no secret store
@@ -37,16 +37,16 @@ brain init mybrain --no-interactive
 
 **Options**
 
-| Flag                    | Default            | Description                                                                                                                                                                                                                                                                                              |
-| ----------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--model <name>`        | `rover`            | Brain model: `rover`, `relay`, `ranger`                                                                                                                                                                                                                                                                  |
-| `--domain <domain>`     | `{model}.rizom.ai` | Production domain                                                                                                                                                                                                                                                                                        |
-| `--content-repo <repo>` | —                  | Git repo for content sync                                                                                                                                                                                                                                                                                |
-| `--backend <name>`      | `none`             | Secret backend. `none` (default) emits no `@plugin` directive — varlock load resolves every value from `process.env` (in CI, usually GitHub Actions secrets). Bitwarden-backed apps are migrated with `brain secrets:push --push-to bitwarden`, which rewrites `.env.schema` with pinned Bitwarden refs. |
-| `--deploy`              | `false`            | Include `config/deploy.yml`, Kamal hook, `deploy/Dockerfile`, and publish/deploy GitHub workflows                                                                                                                                                                                                        |
-| `--regen`               | `false`            | Regenerate generated scaffold artifacts for an existing instance instead of scaffolding from scratch                                                                                                                                                                                                     |
-| `--ai-api-key <key>`    | —                  | Pre-fill `.env` with `AI_API_KEY=<key>`                                                                                                                                                                                                                                                                  |
-| `--no-interactive`      | `false`            | Skip interactive prompts and use only supplied flags                                                                                                                                                                                                                                                     |
+| Flag                    | Default                | Description                                                                                                                                                                                                                                                                                              |
+| ----------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--recipe <name>`       | `personal`             | Scaffold recipe: `headless`, `personal`, `professional`, `team`, or `commerce`                                                                                                                                                                                                                           |
+| `--domain <domain>`     | `{directory}.rizom.ai` | Production domain                                                                                                                                                                                                                                                                                        |
+| `--content-repo <repo>` | —                      | Git repo for content sync                                                                                                                                                                                                                                                                                |
+| `--backend <name>`      | `none`                 | Secret backend. `none` (default) emits no `@plugin` directive — varlock load resolves every value from `process.env` (in CI, usually GitHub Actions secrets). Bitwarden-backed apps are migrated with `brain secrets:push --push-to bitwarden`, which rewrites `.env.schema` with pinned Bitwarden refs. |
+| `--deploy`              | `false`                | Include `config/deploy.yml`, Kamal hook, `deploy/Dockerfile`, and publish/deploy GitHub workflows                                                                                                                                                                                                        |
+| `--regen`               | `false`                | Regenerate generated scaffold artifacts for an existing instance instead of scaffolding from scratch                                                                                                                                                                                                     |
+| `--ai-api-key <key>`    | —                      | Pre-fill `.env` with `AI_API_KEY=<key>`                                                                                                                                                                                                                                                                  |
+| `--no-interactive`      | `false`                | Skip interactive prompts and use only supplied flags                                                                                                                                                                                                                                                     |
 
 **Generated files**
 
@@ -117,15 +117,30 @@ Generated deploy workflows resolve `.env.schema` with Varlock, retry compact res
 
 ### `brain auth reset-passkeys`
 
-Break-glass recovery for lost or compromised operator passkeys. This is a local-only destructive command that clears passkey credentials, operator sessions, authorization codes, and refresh tokens from runtime auth storage. It preserves OAuth clients and the OAuth signing key.
+Break-glass recovery for lost or compromised auth passkeys. This is a local-only destructive command that atomically clears passkey credentials and claims, WebAuthn challenges, auth sessions, authorization codes, refresh tokens, and active global setup links from `auth.db`. It preserves users, non-passkey identities, OAuth clients, and signing keys. Legacy JSON/JWK backup files are never read or modified.
 
 ```bash
 cd mybrain
+# Stop the running brain first.
 brain auth reset-passkeys --yes
 brain auth reset-passkeys --yes --storage-dir ./data/auth
 ```
 
 After running it, restart the brain. On boot, the auth service detects that no passkeys remain and logs a fresh one-shot `/setup` URL. Auth storage must stay outside `brain-data`; the command refuses to modify paths under `brain-data`.
+
+### `brain auth reinitialize-access`
+
+Break-glass recovery for exact interface access. It replaces DB-backed Admin/trusted grants and Anchor bindings from the current `brain.yaml`, revokes active browser sessions and refresh tokens, and records the recovery in auth audit history. It preserves users, people, identities, passkeys, OAuth clients, signing keys, and external-peer links.
+
+```bash
+cd mybrain
+# Stop the running brain first.
+brain auth reinitialize-access --yes
+brain auth reinitialize-access --yes --storage-dir ./data/auth
+# Restart to load the new DB projection.
+```
+
+Ordinary startup seeds exact `admins`, `trusted`, and `anchors` entries only on first initialization and never reapplies changed configuration. Use this explicit command when access recovery must deliberately make the current configuration authoritative again. Pattern rules and shared-space selectors remain contextual configuration policy; the command handles exact principal entries only. Auth storage must stay outside `brain-data`.
 
 ### `brain ssh-key:bootstrap`
 
@@ -209,6 +224,23 @@ Currently documented subcommands:
 - `search` — inspect search distance distribution for threshold tuning
 - `usage` — aggregate `ai:usage` events from the configured log file
 
+### `brain config migrate`
+
+Preview the deterministic migration from a legacy built-in model/preset configuration to
+the canonical explicit-bundle format.
+
+```bash
+cd mybrain
+brain config migrate
+```
+
+The command reads `brain.yaml`, prints the proposed canonical YAML, and never writes the
+file. It preserves instance-owned site/theme choices, seed paths, capability additions
+and removals, external plugin declarations, permission overrides, secret references, and
+comments where the YAML syntax permits. Review and apply the output only during the
+coordinated crossover; the canonical runtime path remains inactive during migration
+preparation.
+
 ### `brain pin`
 
 Create a local `package.json` that pins `@rizom/brain` to the current version and then run `bun install`.
@@ -247,7 +279,7 @@ brain sync
 brain status
 ```
 
-These are resolved from the running brain's tool registry. Available commands depend on the selected brain model, preset, and enabled plugins.
+These are resolved from the running brain's tool registry. Available commands depend on selected bundles, additions/removals, and enabled plugins.
 
 ## Remote mode
 

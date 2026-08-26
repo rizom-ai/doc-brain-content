@@ -69,24 +69,26 @@ All entity CRUD goes through shared system tools. Entity plugins intentionally d
 
 Common tools:
 
-| Tool              | Purpose                                                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `system_create`   | Create an entity from existing material. Use `source.kind` (`text`, `url`, `upload`, or `prior-response`) to select the concrete source. |
-| `system_update`   | Update fields or replace full content. Requires confirmation for writes.                                                                 |
-| `system_delete`   | Delete an entity. Requires confirmation.                                                                                                 |
-| `system_get`      | Fetch one entity by id, slug, or title.                                                                                                  |
-| `system_list`     | List entities by type, optionally filtered by status.                                                                                    |
-| `system_search`   | Search across entities, optionally filtered by type.                                                                                     |
-| `system_extract`  | Run derivation/extraction for entity types that support it.                                                                              |
-| `system_insights` | Return aggregate insights registered by the runtime or plugins.                                                                          |
+| Tool              | Purpose                                                                                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `system_create`   | Create an entity from existing material. Use `source.kind` (`text`, `url`, `upload`, or `prior-response`) to select the concrete source, and `visibility` to set access. |
+| `system_update`   | Update fields or replace full content. Requires confirmation for writes.                                                                                                 |
+| `system_delete`   | Delete an entity. Requires confirmation.                                                                                                                                 |
+| `system_get`      | Fetch one entity by id, slug, or title.                                                                                                                                  |
+| `system_list`     | List entities by type, optionally filtered by status.                                                                                                                    |
+| `system_search`   | Search across entities, optionally filtered by type.                                                                                                                     |
+| `system_insights` | Return aggregate insights registered by the runtime or plugins.                                                                                                          |
 
 Examples:
 
 ```bash
 brain tool system_create '{"entityType":"note","title":"Idea","source":{"kind":"text","content":"# Idea\n\nA short note."}}'
+brain tool system_create '{"entityType":"note","visibility":"restricted","source":{"kind":"text","content":"Private operating note."}}'
 brain tool system_search '{"query":"recent published posts","entityType":"post"}'
 brain tool system_list '{"entityType":"post","status":"draft"}'
 ```
+
+For creation, omit `visibility` for public content, use `shared` for content readable by Trusted and Admin callers, and use `restricted` for Admin-only content. Visibility is a sibling of `source`; do not add policy frontmatter to exact source text merely to select access.
 
 Use `fields` for frontmatter/metadata changes:
 
@@ -110,7 +112,7 @@ brain start
 # open http://localhost:8080/cms
 ```
 
-The CMS is most useful for frontmatter-driven content such as posts, decks, projects, site-info, site-content, products, and newsletters. Exact CMS collections depend on the selected brain model, preset, and active entity plugins.
+The CMS is most useful for frontmatter-driven content such as posts, decks, projects, site-info, site-content, products, and newsletters. Exact CMS collections depend on selected bundles, additions/removals, and active entity plugins.
 
 ### Direct markdown edits
 
@@ -134,7 +136,7 @@ plugins:
 
 For the git-command-oriented lifecycle and conflict policy, see [Directory Sync Git Overview](/docs/directory-sync-git).
 
-`directory-sync` also handles seed content on first run for shipped brain models. Seed content is copied only when the target `brain-data/` directory is effectively empty. For local `file://` git remotes, `git.bootstrapFromSeed` defaults to `true` and can create/seed a missing or empty bare remote from `seedContentPath`.
+`directory-sync` also handles recipe-owned seed content on first run. Seed content is copied only when the target `brain-data/` directory is effectively empty. For local `file://` git remotes, `git.bootstrapFromSeed` defaults to `true` and can create/seed a missing or empty bare remote from `seedContentPath`.
 
 ### Generation jobs
 
@@ -161,7 +163,7 @@ Publishing-oriented entities usually use status fields.
 | `newsletter`  | `generating`, `draft`, `queued`, `published`, `failed` |
 | `wish`        | `new`, `planned`, `in-progress`, `done`, `declined`    |
 
-The site builder renders the entities and routes enabled by the active site package, preset, and entity display config. For app/site verification, start the app and trigger a rebuild on the running app before inspecting generated output.
+The site builder renders the entities and routes enabled by active bundles/members, the site package, and entity display config. For app/site verification, start the app and trigger a rebuild on the running app before inspecting generated output.
 
 Preview output defaults to:
 

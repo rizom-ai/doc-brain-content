@@ -121,7 +121,7 @@ proxy:
     - <%= ENV['PREVIEW_DOMAIN'] %>
   app_port: 8080
   healthcheck:
-    path: /health
+    path: /health/ready
 
 registry:
   server: ghcr.io
@@ -306,6 +306,23 @@ docker run -d \
   ghcr.io/<owner>/<repo>:latest
 ```
 
-## Health Check
+## Health checks and recovery
 
-The brain exposes `/health` on the webserver port. Kamal uses this for zero-downtime deploys — the new container must pass the health check before traffic switches over.
+The webserver exposes three health surfaces:
+
+- `/health/live` is a dependency-free event-loop liveness probe;
+- `/health/ready` checks web-critical database and routing readiness;
+- `/health/operate` checks worker sessions, queue leases, projection circuits,
+  daemons, and operational app metadata in addition to routing dependencies.
+
+Kamal uses `/health/ready` for zero-downtime rollout, so worker-only degradation
+does not replace a web-serving container. Configure the deployment's external
+uptime monitor to alert an operator when `/health/operate` returns 503. The
+image's Docker `HEALTHCHECK` uses `/health/live`. Generated deploy workflows
+install a host systemd watchdog that restarts containers only after Docker's
+consecutive liveness failures, saves inspect output and recent logs under
+`/var/log/brains-health-watchdog`, and limits automatic recovery to three
+restarts per hour for each container. On shared Docker hosts, the watchdog
+only manages containers carrying the image label
+`ai.rizom.brain.watchdog=true`; unrelated Kamal services are not inspected,
+logged, state-tracked, or restarted.

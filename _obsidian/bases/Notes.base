@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.folder == "/"
+views:
+  - name: All Notes
+    order:
+      - file.name
+      - title
+      - status
+      - error
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - title
+      - status
+      - error
+    type: table

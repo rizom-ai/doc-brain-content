@@ -1,0 +1,45 @@
+filters:
+  and:
+    - file.inFolder("post")
+views:
+  - name: All Posts
+    order:
+      - file.name
+      - title
+      - slug
+      - status
+      - publishedAt
+      - excerpt
+      - author
+      - coverImageId
+      - ogImageId
+      - seriesName
+      - seriesIndex
+      - ogImage
+      - ogDescription
+      - twitterCard
+      - canonicalUrl
+      - atprotoUri
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - title
+      - slug
+      - status
+      - publishedAt
+      - excerpt
+      - author
+      - coverImageId
+      - ogImageId
+      - seriesName
+      - seriesIndex
+      - ogImage
+      - ogDescription
+      - twitterCard
+      - canonicalUrl
+      - atprotoUri
+    type: table

@@ -1,0 +1,21 @@
+filters:
+  and:
+    - or:
+        - file.inFolder("playbook")
+        - file.inFolder("post")
+        - file.inFolder("deck")
+        - file.inFolder("note")
+        - file.inFolder("link")
+        - file.inFolder("wish")
+        - file.inFolder("agent")
+    - status != "published"
+views:
+  - groupBy:
+      direction: ASC
+      property: status
+    name: Pipeline
+    order:
+      - file.name
+      - file.folder
+      - status
+    type: table

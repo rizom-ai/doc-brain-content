@@ -1,12 +1,13 @@
 ---
-title: "External Plugin Authoring"
-section: "Customization"
+title: External Plugin Authoring
+section: Customization
 order: 135
-sourcePath: "docs/external-plugin-authoring.md"
-slug: "external-plugin-authoring"
-description: "External plugin packages use the public @rizom/brain authoring API and are loaded by brain instances from brain.yaml."
+sourcePath: docs/external-plugin-authoring.md
+description: >-
+  External plugin packages use the public @rizom/brain authoring API and are
+  loaded by brain instances from brain.yaml.
+slug: external-plugin-authoring
 ---
-
 # External Plugin Authoring
 
 External plugin packages use the public `@rizom/brain` authoring API and are loaded by brain instances from `brain.yaml`.

@@ -1,12 +1,13 @@
 ---
-title: "Documentation"
-section: "Start here"
+title: Documentation
+section: Start here
 order: 0
-sourcePath: "docs/README.md"
-slug: "index"
-description: "Start here if you want to install brains, create a local brain, connect it to tools, or deploy it."
+sourcePath: docs/README.md
+description: >-
+  Start here if you want to install brains, create a local brain, connect it to
+  tools, or deploy it.
+slug: index
 ---
-
 # brains documentation
 
 Start here if you want to install `brains`, create a local brain, connect it to tools, or deploy it.

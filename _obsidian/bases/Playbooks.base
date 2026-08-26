@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.inFolder("playbook")
+views:
+  - name: All Playbooks
+    order:
+      - file.name
+      - title
+      - status
+      - audience
+      - trigger
+      - lifecycle
+      - once
+      - starterText
+      - description
+      - starterPrompt
+      - completionMode
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - title
+      - status
+      - audience
+      - trigger
+      - lifecycle
+      - once
+      - starterText
+      - description
+      - starterPrompt
+      - completionMode
+    type: table

@@ -1,0 +1,64 @@
+2026-07-26T10:47:06.264Z - /app/brain-data/agent/yeehaa.io.md: Invalid entity data for agent: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "person",
+      "team",
+      "organization"
+    ],
+    "path": [
+      "kind"
+    ],
+    "message": "Invalid option: expected one of \"person\"|\"team\"|\"organization\""
+  }
+]
+→ /app/brain-data/agent/yeehaa.io.md.invalid
+
+2026-07-26T10:47:06.385Z - /app/brain-data/agent/sam.rizom.ai.md: Invalid entity data for agent: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "person",
+      "team",
+      "organization"
+    ],
+    "path": [
+      "kind"
+    ],
+    "message": "Invalid option: expected one of \"person\"|\"team\"|\"organization\""
+  }
+]
+→ /app/brain-data/agent/sam.rizom.ai.md.invalid
+
+2026-07-28T15:06:37.134Z - /app/brain-data/agent/jo.rizom.ai.md: Invalid entity data for agent: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "person",
+      "team",
+      "organization"
+    ],
+    "path": [
+      "kind"
+    ],
+    "message": "Invalid option: expected one of \"person\"|\"team\"|\"organization\""
+  }
+]
+→ /app/brain-data/agent/jo.rizom.ai.md.invalid
+
+2026-07-28T15:06:37.259Z - /app/brain-data/agent/rizom.ai.md: Invalid entity data for agent: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "person",
+      "team",
+      "organization"
+    ],
+    "path": [
+      "kind"
+    ],
+    "message": "Invalid option: expected one of \"person\"|\"team\"|\"organization\""
+  }
+]
+→ /app/brain-data/agent/rizom.ai.md.invalid
+

@@ -1,12 +1,14 @@
 ---
-title: "Plugin Quick Reference"
-section: "Customization"
+title: Plugin Quick Reference
+section: Customization
 order: 130
-sourcePath: "docs/plugin-quick-reference.md"
-slug: "plugin-quick-reference"
-description: "Use this as a compact checklist for choosing and authoring plugins. For full external package guidance, see External Plugin Authoring. For minimal standalone re"
+sourcePath: docs/plugin-quick-reference.md
+description: >-
+  Use this as a compact checklist for choosing and authoring plugins. For full
+  external package guidance, see External Plugin Authoring. For minimal
+  standalone re
+slug: plugin-quick-reference
 ---
-
 # Plugin Development Quick Reference
 
 Use this as a compact checklist for choosing and authoring plugins. For full external package guidance, see [External Plugin Authoring](/docs/external-plugin-authoring). For minimal standalone references, see [`rizom-ai/brain-plugin-hello`](https://github.com/rizom-ai/brain-plugin-hello) and [`rizom-ai/brain-plugin-recipes`](https://github.com/rizom-ai/brain-plugin-recipes).

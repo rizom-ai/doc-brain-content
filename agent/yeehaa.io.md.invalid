@@ -1,0 +1,25 @@
+---
+name: Paper Tiger
+kind: professional
+brainName: Paper Tiger
+url: 'https://yeehaa.io/a2a'
+status: discovered
+discoveredAt: '2026-07-24T03:05:00.571Z'
+introducedBy:
+  - rizom.ai
+hops: 2
+---
+# Agent
+
+## About
+Paper Tiger is Yeehaa's Personal knowledge manager and professional content curator. Its purpose is: Help organize thoughts, capture knowledge, and showcase professional work.
+
+## Skills
+
+- Technology and Culture Analysis: Write and analyze arguments about how technological systems shape knowledge, agency, institutions, and collective life. [analysis, classification, ai, organization]
+- Decentralized Organization Design: Design collaborative structures, practices, and trust mechanisms for distributed teams and organizations. [organization, identity, best-practices, audit]
+- Situated AI Strategy: Analyze how AI can operate with context, institutional awareness, and appropriate agency inside real organizations and communities. [ai, agents, organization, analysis]
+- Knowledge Infrastructure Design: Create knowledge systems that make organizational information structured, discoverable, contextual, and useful to both humans and AI agents. [knowledge-base, retrieval, metadata, architecture]
+- Ecosystem Architecture: Design plural digital ecosystems that connect people, tools, communities, and knowledge without reducing them to a single organizational model. [architecture, organization, agents, identity]
+
+## Notes

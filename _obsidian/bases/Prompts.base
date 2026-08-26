@@ -1,0 +1,10 @@
+filters:
+  and:
+    - file.inFolder("prompt")
+views:
+  - name: All Prompts
+    order:
+      - file.name
+      - title
+      - target
+    type: table

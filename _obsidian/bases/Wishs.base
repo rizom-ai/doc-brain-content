@@ -1,0 +1,25 @@
+filters:
+  and:
+    - file.inFolder("wish")
+views:
+  - name: All Wishs
+    order:
+      - file.name
+      - title
+      - status
+      - priority
+      - requested
+      - declinedReason
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - title
+      - status
+      - priority
+      - requested
+      - declinedReason
+    type: table

@@ -1,0 +1,13 @@
+filters:
+  and:
+    - file.inFolder("swot")
+views:
+  - name: All Swots
+    order:
+      - file.name
+      - strengths
+      - weaknesses
+      - opportunities
+      - threats
+      - derivedAt
+    type: table

@@ -1,12 +1,14 @@
 ---
-title: "Content Management"
-section: "Content and entities"
+title: Content Management
+section: Content and entities
 order: 50
-sourcePath: "docs/content-management.md"
-slug: "content-management"
-description: "brains treats content as typed markdown entities. You can work with those entities through chat/MCP tools, the CMS, direct markdown edits, or plugin-owned gener"
+sourcePath: docs/content-management.md
+description: >-
+  brains treats content as typed markdown entities. You can work with those
+  entities through chat/MCP tools, the CMS, direct markdown edits, or
+  plugin-owned gener
+slug: content-management
 ---
-
 # Content Management Guide
 
 `brains` treats content as typed markdown entities. You can work with those entities through chat/MCP tools, the CMS, direct markdown edits, or plugin-owned generation jobs. The same content graph powers search, agent context, CMS editing, and static-site publishing.

@@ -1,12 +1,14 @@
 ---
-title: "Entity Types Reference"
-section: "Content and entities"
+title: Entity Types Reference
+section: Content and entities
 order: 60
-sourcePath: "docs/entity-types-reference.md"
-slug: "entity-types-reference"
-description: "brains stores durable knowledge as typed markdown entities. Each entity type is registered by an entity plugin, validated with Zod, indexed for search, exposed "
+sourcePath: docs/entity-types-reference.md
+description: >-
+  brains stores durable knowledge as typed markdown entities. Each entity type
+  is registered by an entity plugin, validated with Zod, indexed for search,
+  exposed 
+slug: entity-types-reference
 ---
-
 # Entity Types Reference
 
 `brains` stores durable knowledge as typed markdown entities. Each entity type is registered by an entity plugin, validated with Zod, indexed for search, exposed through system tools, and optionally rendered by the site builder.

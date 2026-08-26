@@ -1,0 +1,14 @@
+filters:
+  and:
+    - file.inFolder("doc")
+views:
+  - name: All Docs
+    order:
+      - file.name
+      - title
+      - section
+      - order
+      - sourcePath
+      - description
+      - slug
+    type: table

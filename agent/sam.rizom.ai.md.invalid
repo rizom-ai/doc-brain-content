@@ -1,0 +1,28 @@
+---
+name: Brain
+kind: professional
+brainName: Brain
+url: 'https://sam.rizom.ai/a2a'
+status: discovered
+discoveredAt: '2026-07-24T03:05:00.295Z'
+introducedBy:
+  - rizom.ai
+hops: 2
+---
+# Agent
+
+## About
+Brain is Sam's Knowledge assistant. Its purpose is: Help organize, understand, and retrieve information from your knowledge base.
+
+## Skills
+
+- chat: Talk to the brain to make changes or get reasoned answers. Use this for any create/update/delete request or questions requiring reasoning across content. For simple lookups, use search/get/list directly.
+- confirm: Resolve a pending confirmation returned by chat. Use this only after chat returns needsConfirmation with an approvalId.
+- system_search: Search entities using semantic search. For broad search, make one system_search call with scope.kind all. Use scope.kind type only when the user asks for a specific entity type. Applies a default minScore of 0.5 to reduce weak matches; lower minScore only for exploratory or loose recall. Search results are candidates; do not present weak or unrelated candidates as exact matches.
+- system_get: Retrieve a specific entity by type and identifier (ID, slug, or title). If retrieval fails, report the entity as not found rather than describing related generation work as pending.
+- system_list: List entities by a known entity type. Returns metadata only — use system_get for full content. Use system_search, not system_list, for broad or vague lookup requests. Use system_list to inspect metadata dates such as publishedAt when the user asks for the latest item of a known type, such as latest blog post.
+- system_job_status: Inspect runtime job status for ready checks only when the prior operation created a job, or for status disputes. With a known batch ID, pass batchId. Without an ID, call this tool with no arguments to list active jobs and batches; do not ask the user for an ID first. Do not argue from the transcript alone.
+- system_status: Get system status including model, version, interfaces, and tools
+- system_insights: Get aggregate content insights and analytics only. For a general overview of actual content, use system_list instead. Available types: overview, publishing-cadence, content-health, topic-distribution.
+
+## Notes

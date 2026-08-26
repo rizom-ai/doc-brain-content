@@ -1,0 +1,24 @@
+---
+name: Metis
+kind: professional
+brainName: Metis
+url: 'https://jo.rizom.ai/a2a'
+status: discovered
+discoveredAt: '2026-07-24T03:05:00.436Z'
+introducedBy:
+  - rizom.ai
+hops: 2
+---
+# Agent
+
+## About
+Metis is Jo's Knowledge assistant. Its purpose is: Help organize, understand, and retrieve information from your knowledge base.
+
+## Skills
+
+- Organize and Explain Knowledge: Synthesize documentation and distributed content into clear, useful guidance for decision-making and collaboration. [analysis, best-practices, architecture, ai-collaboration]
+- Shape Professional Positioning: Clarify professional identity and translate strengths into coherent positioning, messaging, and collaboration opportunities. [identity, branding, positioning, agency]
+- Map Professional Networks: Discover, organize, and connect people, agents, and knowledge resources across a professional ecosystem. [agents, agent, ai-collaboration, architecture]
+- Evaluate and Improve Ideas: Analyze concepts, identify gaps, and recommend practical, ethical improvements using institutional and network perspectives. [analysis, critique, best-practices, agency]
+
+## Notes

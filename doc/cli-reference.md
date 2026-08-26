@@ -1,12 +1,13 @@
 ---
-title: "CLI Reference"
-section: "Start here"
+title: CLI Reference
+section: Start here
 order: 30
-sourcePath: "packages/brain-cli/docs/cli-reference.md"
-slug: "cli-reference"
-description: "The brain CLI scaffolds brain instances, boots them, runs diagnostics and evals, and can proxy commands to local or remote brains."
+sourcePath: packages/brain-cli/docs/cli-reference.md
+description: >-
+  The brain CLI scaffolds brain instances, boots them, runs diagnostics and
+  evals, and can proxy commands to local or remote brains.
+slug: cli-reference
 ---
-
 # CLI Reference
 
 The `brain` CLI scaffolds brain instances, boots them, runs diagnostics and evals, and can proxy commands to local or remote brains.

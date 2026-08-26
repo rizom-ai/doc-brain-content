@@ -1,12 +1,14 @@
 ---
-title: "Interface Setup"
-section: "Interfaces"
+title: Interface Setup
+section: Interfaces
 order: 80
-sourcePath: "docs/interface-setup.md"
-slug: "interface-setup"
-description: "Interfaces are how users, tools, web clients, and peer agents talk to a running brain. Built-in interfaces include MCP, the webserver and operator web chat, mul"
+sourcePath: docs/interface-setup.md
+description: >-
+  Interfaces are how users, tools, web clients, and peer agents talk to a
+  running brain. Built-in interfaces include MCP, the webserver and operator web
+  chat, mul
+slug: interface-setup
 ---
-
 # Interface Setup Guide
 
 Interfaces are how users, tools, web clients, and peer agents talk to a running brain. Built-in interfaces include MCP, the webserver and operator web chat, multi-platform chat through Discord or Slack, A2A, and the local chat REPL.

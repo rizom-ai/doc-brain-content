@@ -1,0 +1,10 @@
+filters:
+  and:
+    - file.inFolder("site-content")
+views:
+  - name: All Site Contents
+    order:
+      - file.name
+      - routeId
+      - sectionId
+    type: table

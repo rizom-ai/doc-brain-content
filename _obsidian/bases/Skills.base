@@ -1,0 +1,12 @@
+filters:
+  and:
+    - file.inFolder("skill")
+views:
+  - name: All Skills
+    order:
+      - file.name
+      - name
+      - description
+      - tags
+      - examples
+    type: table

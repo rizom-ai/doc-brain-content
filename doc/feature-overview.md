@@ -1,12 +1,14 @@
 ---
-title: "Feature Overview"
-section: "Start here"
+title: Feature Overview
+section: Start here
 order: 15
-sourcePath: "docs/feature-overview.md"
-slug: "feature-overview"
-description: "brains is a self-hosted AI knowledge system built around content you own. A brain can collect and search knowledge, help create new material, expose that knowle"
+sourcePath: docs/feature-overview.md
+description: >-
+  brains is a self-hosted AI knowledge system built around content you own. A
+  brain can collect and search knowledge, help create new material, expose that
+  knowle
+slug: feature-overview
 ---
-
 # Feature Overview
 
 `brains` is a self-hosted AI knowledge system built around content you own. A brain can collect and search knowledge, help create new material, expose that knowledge to people and other agents, and publish selected content.

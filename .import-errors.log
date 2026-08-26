@@ -62,8 +62,7 @@
 ]
 → /app/brain-data/agent/rizom.ai.md.invalid
 
-2026-08-26T05:55:40.938Z - anchor-profile/anchor-profile.md: [
-  {
+2026-08-26T06:55:55.167Z - [RECOVERED] anchor-profile/anchor-profile.md
     "code": "unrecognized_keys",
     "keys": [
       "kind"
@@ -72,5 +71,4 @@
     "message": "Unrecognized key: \"kind\""
   }
 ]
-→ anchor-profile/anchor-profile.md.invalid
-
+2026-08-26T06:55:55.167Z - [RECOVERED] anchor-profile/anchor-profile.md

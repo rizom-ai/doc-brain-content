@@ -1,17 +1,17 @@
 ---
 name: Improve Development and Contributions
 description: >-
-  Plan and execute development work using contribution practices,
-  prioritization, workflow guidance, and roadmap context.
+  Organize contribution practices and development workflows so changes are
+  consistent, reviewable, and aligned with project conventions.
 tags:
-  - development
   - contributions
-  - prioritization
-  - roadmap
-  - workflow
+  - development-workflow
+  - best-practices
+  - documentation
+  - quality
 examples:
-  - How should I contribute a feature to the project?
-  - Help prioritize these proposed improvements against the roadmap.
-  - What development workflow should I follow for a change?
+  - What is the recommended workflow for contributing a feature?
+  - How should I organize a change so it follows repository conventions?
+  - Help me prepare documentation and code for review.
 ---
 

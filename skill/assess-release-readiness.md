@@ -1,17 +1,17 @@
 ---
 name: Assess Release Readiness
 description: >-
-  Evaluate implementation progress, operational status, tooling, documentation,
-  and risks before releasing or extending the system.
+  Evaluate implementation status, documentation completeness, tool availability,
+  and operational risks before releasing changes.
 tags:
   - release
-  - quality-assurance
   - status
-  - tooling
-  - risk
+  - operations
+  - documentation
+  - quality
 examples:
-  - Is this feature ready for release?
-  - What checks should I run before deploying a brain update?
-  - Identify release risks from the current architecture and tool availability.
+  - Is this brain ready for release?
+  - Create a release-readiness checklist for a new platform capability.
+  - What operational and documentation gaps should we resolve before launch?
 ---
 

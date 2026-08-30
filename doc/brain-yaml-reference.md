@@ -113,7 +113,7 @@ Adjust individual catalog members after bundle composition. `remove` closes that
 
 ```yaml
 add:
-  - products
+  - assessment
 remove:
   - analytics
 ```
@@ -265,7 +265,6 @@ Recipes are scaffold-time conveniences only. `brain init --recipe` expands them 
 | `personal`     | `core + media + web + chat`                                               |
 | `professional` | `core + media + automation + web + chat + site + publishing + federation` |
 | `team`         | `core + media + automation + web + chat + site + team`, plus `docs`       |
-| `commerce`     | `core + media + web + site`, plus `products`                              |
 
 Identity, seed content, site, theme, permissions, and secret references remain visible instance-owned choices.
 

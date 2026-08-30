@@ -37,7 +37,6 @@ brain init headless-brain --recipe headless
 brain init personal-brain --recipe personal
 brain init professional-brain --recipe professional
 brain init team-brain --recipe team
-brain init shop-brain --recipe commerce
 ```
 
 | Recipe         | Canonical selection                                                              |
@@ -46,7 +45,6 @@ brain init shop-brain --recipe commerce
 | `personal`     | `core`, `media`, `web`, `chat`                                                   |
 | `professional` | `core`, `media`, `automation`, `web`, `chat`, `site`, `publishing`, `federation` |
 | `team`         | `core`, `media`, `automation`, `web`, `chat`, `site`, `team`, plus `docs`        |
-| `commerce`     | `core`, `media`, `web`, `site`, plus `products`                                  |
 
 Each recipe also copies instance-owned starter content into `seed-content/`.
 
@@ -63,7 +61,7 @@ Each recipe also copies instance-owned starter content into `seed-content/`.
 ## Init options
 
 ```text
---recipe <name>        headless | personal | professional | team | commerce
+--recipe <name>        headless | personal | professional | team
 --domain <domain>      defaults to {directory}.rizom.ai
 --content-repo <repo>  owner/name or github:owner/name
 --backend <name>       secret backend; default none

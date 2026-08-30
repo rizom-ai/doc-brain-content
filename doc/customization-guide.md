@@ -56,7 +56,7 @@ See [brain.yaml Reference](/docs/brain-yaml-reference).
 
 ## Content customization
 
-Use `brain-data/` for site copy, posts, decks, products, profile data, prompt overrides, and other durable content.
+Use `brain-data/` for site copy, posts, decks, profile data, prompt overrides, and other durable content.
 
 Common singleton content:
 
@@ -266,7 +266,7 @@ export function MyLayout({ sections }: LayoutProps): JSX.Element {
 Use existing layouts as references:
 
 - `sites/professional/src/layouts/ProfessionalLayout.tsx`
-- `sites/rizom/src/runtime/default-layout.tsx`
+- `sites/rizom-ai/src/rizom/runtime/default-layout.tsx`
 
 ### Static assets
 

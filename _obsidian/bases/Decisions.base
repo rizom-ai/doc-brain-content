@@ -1,0 +1,39 @@
+filters:
+  and:
+    - file.inFolder("decision")
+views:
+  - name: All Decisions
+    order:
+      - file.name
+      - conversationId
+      - channelId
+      - channelName
+      - interfaceType
+      - spaceId
+      - timeRange
+      - sourceSummaryId
+      - sourceMessageCount
+      - projectionVersion
+      - status
+      - decidedBy
+      - mentionedBy
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - conversationId
+      - channelId
+      - channelName
+      - interfaceType
+      - spaceId
+      - timeRange
+      - sourceSummaryId
+      - sourceMessageCount
+      - projectionVersion
+      - status
+      - decidedBy
+      - mentionedBy
+    type: table

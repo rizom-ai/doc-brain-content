@@ -1,0 +1,18 @@
+filters:
+  and:
+    - file.inFolder("summary")
+views:
+  - name: All Summaries
+    order:
+      - file.name
+      - conversationId
+      - channelId
+      - channelName
+      - interfaceType
+      - timeRange
+      - messageCount
+      - entryCount
+      - participants
+      - sourceHash
+      - projectionVersion
+    type: table

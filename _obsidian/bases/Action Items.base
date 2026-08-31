@@ -1,0 +1,39 @@
+filters:
+  and:
+    - file.inFolder("action-item")
+views:
+  - name: All Action Items
+    order:
+      - file.name
+      - conversationId
+      - channelId
+      - channelName
+      - interfaceType
+      - spaceId
+      - timeRange
+      - sourceSummaryId
+      - sourceMessageCount
+      - projectionVersion
+      - status
+      - assignedTo
+      - requestedBy
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - conversationId
+      - channelId
+      - channelName
+      - interfaceType
+      - spaceId
+      - timeRange
+      - sourceSummaryId
+      - sourceMessageCount
+      - projectionVersion
+      - status
+      - assignedTo
+      - requestedBy
+    type: table

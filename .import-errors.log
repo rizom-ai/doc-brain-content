@@ -72,3 +72,17 @@
   }
 ]
 2026-08-26T06:55:55.167Z - [RECOVERED] anchor-profile/anchor-profile.md
+2026-08-31T06:45:05.305Z - summary/discord-1503073726105915392.md: Invalid entity data for summary: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "path": [
+      "participants",
+      0,
+      "identity"
+    ],
+    "message": "Invalid input: expected object, received undefined"
+  }
+]
+→ summary/discord-1503073726105915392.md.invalid
+

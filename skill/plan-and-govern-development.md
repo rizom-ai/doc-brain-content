@@ -1,17 +1,17 @@
 ---
 name: Plan and Govern Development
 description: >-
-  Turn priorities, contributions, roadmap goals, and release criteria into
-  coordinated development decisions and workflows.
+  Prioritize contributions, coordinate development workflows, and align
+  implementation decisions with project goals and roadmap constraints.
 tags:
+  - development
+  - contribution
   - prioritization
   - roadmap
-  - contributions
-  - development-workflow
-  - release-readiness
+  - best-practices
 examples:
-  - Help prioritize these proposed platform changes.
-  - Create a development plan from the current roadmap.
-  - What checks are needed before releasing this feature?
+  - How should we prioritize these proposed features?
+  - What is the recommended contribution workflow?
+  - How does this change fit the project roadmap?
 ---
 

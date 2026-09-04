@@ -70,5 +70,6 @@ Maintainer planning notes, prototypes, and design mockups still live under `docs
 
 ### Console design references
 
-- [Console unification mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-unification-mockups.html) — preserved desktop reference for the shared console sheet and chrome
-- [Responsive console mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-responsive-mockups.html) — canonical desktop, tablet, and phone compositions for Dashboard, Chat, and Studio
+- [Studio chrome mockup](https://github.com/rizom-ai/brains/blob/main/docs/studio-chrome-mockups.html) — current single-shell authenticated Studio and anonymous Dashboard direction
+- [Console unification mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-unification-mockups.html) — historical desktop reference for the retired cross-product strip
+- [Responsive console mockups](https://github.com/rizom-ai/brains/blob/main/docs/console-responsive-mockups.html) — historical desktop, tablet, and phone compositions before Studio consolidation

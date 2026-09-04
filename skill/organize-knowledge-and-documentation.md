@@ -1,17 +1,16 @@
 ---
 name: Organize Knowledge and Documentation
 description: >-
-  Structure documentation and knowledge entities using consistent categories,
-  types, storage conventions, and contribution practices.
+  Create and maintain coherent documentation structures, contribution practices,
+  entity conventions, and storage workflows.
 tags:
   - documentation
-  - knowledge-management
-  - entity-types
+  - contribution
+  - entities
   - storage
-  - contributions
+  - workflow
 examples:
-  - How should I organize a new documentation section?
-  - Which entity type and storage convention should I use for this content?
-  - What are the best practices for contributing documentation?
+  - Where should I document a new feature and how should it be organized?
+  - What conventions should contributors follow when adding knowledge entities?
 ---
 

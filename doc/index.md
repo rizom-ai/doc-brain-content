@@ -11,6 +11,8 @@ description: "Start here if you want to install brains, create a local brain, co
 
 Start here if you want to install `brains`, create a local brain, connect it to tools, or deploy it.
 
+Current release status: `0.2.0` alpha; stable nomination is pending the final authoring, live/eval, and deployment evidence listed in the [roadmap](https://github.com/rizom-ai/brains/blob/main/docs/roadmap.md).
+
 If you are new, read these in order:
 
 1. [Getting Started](/docs/getting-started)
@@ -55,7 +57,7 @@ If you are new, read these in order:
 These are useful once you are extending or contributing to the framework:
 
 - [Architecture Overview](/docs/architecture-overview)
-- [Brain Models](/docs/brain-model)
+- [Brain Model](/docs/brain-model)
 
 ## Status and contributing
 

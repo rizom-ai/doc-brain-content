@@ -10,8 +10,9 @@ tags:
   - storage
   - integrations
 examples:
-  - How should I extend the brain model with a new entity type?
-  - Design an architecture for adding agent tools and external integrations.
-  - Explain how canonical models and storage conventions should work together.
+  - How should I design an extensible architecture for a new brain capability?
+  - >-
+    How should entities and storage conventions fit into the overall brain
+    architecture?
 ---
 

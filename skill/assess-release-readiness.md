@@ -1,16 +1,17 @@
 ---
 name: Assess Release Readiness
 description: >-
-  Evaluate development progress, operational requirements, and platform
-  stability to determine whether a brain feature or release is ready.
+  Evaluate implementation progress, operational health, documentation quality,
+  and dependencies before releasing brain changes.
 tags:
   - release
-  - readiness
-  - development
-  - operations
   - quality
+  - readiness
+  - testing
+  - operations
 examples:
-  - What should we check before releasing a new brain capability?
-  - How do we assess whether the current brain is ready for production?
+  - Is this brain ready for release?
+  - Create a release-readiness checklist for a new integration.
+  - Identify gaps between the roadmap and the current implementation.
 ---
 

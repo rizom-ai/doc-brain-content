@@ -6,13 +6,12 @@ description: >-
 tags:
   - architecture
   - extensibility
-  - entities
-  - storage
+  - data-modeling
   - integrations
+  - storage
 examples:
-  - How should I design an extensible architecture for a new brain capability?
-  - >-
-    How should entities and storage conventions fit into the overall brain
-    architecture?
+  - How should brains represent entities and their relationships?
+  - Design an extensible architecture for adding agents and integrations.
+  - Compare storage conventions for canonical brain content.
 ---
 

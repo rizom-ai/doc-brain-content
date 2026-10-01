@@ -5,12 +5,13 @@ description: >-
   development workflows so brain content remains discoverable and maintainable.
 tags:
   - documentation
-  - organization
-  - entities
+  - knowledge-management
   - contributions
   - workflow
+  - taxonomy
 examples:
-  - How should I organize documentation and entity types for this brain?
-  - What contribution practices will keep the knowledge base consistent?
+  - How should I organize documentation and entity categories?
+  - Create contribution guidelines for maintaining brain content.
+  - Recommend a development workflow for documenting new capabilities.
 ---
 

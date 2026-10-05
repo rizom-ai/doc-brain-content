@@ -1,0 +1,27 @@
+filters:
+  and:
+    - file.inFolder("faq")
+views:
+  - name: All Faqs
+    order:
+      - file.name
+      - question
+      - status
+      - asked
+      - sources
+      - review
+      - rank
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - question
+      - status
+      - asked
+      - sources
+      - review
+      - rank
+    type: table

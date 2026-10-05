@@ -15,11 +15,14 @@ fields:
   - id: contactNote
     name: contactNote
     type: Input
-  - id: attribution
-    name: attribution
-    type: Input
   - id: mapCaption
     name: mapCaption
+    type: Input
+  - id: refusal
+    name: refusal
+    type: Input
+  - id: faqHeading
+    name: faqHeading
     type: Input
 filesPaths: ask-content
 ---

@@ -1,0 +1,18 @@
+filters:
+  and:
+    - file.inFolder("network-piece")
+views:
+  - name: All Network Pieces
+    order:
+      - file.name
+      - title
+      - kind
+      - status
+      - brain
+      - origin
+      - collection
+      - rkey
+      - cid
+      - recordedAt
+      - excerpt
+    type: table

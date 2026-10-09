@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 1
+asked: 2
 sources:
   - id: 'doc:getting-started'
     title: Getting Started
@@ -391,3 +391,20 @@ After recovery, restart the instance. Authentication storage must remain outside
 6. Deployment Guide
 
 The current release is in the pre-stable `0.x` series, so configuration and extension APIs may change between minor releases.
+
+## Alternative answers
+
+### Alternative 1
+
+A brain is a private AI runtime whose durable knowledge is Markdown.
+
+**Setup:**
+1. Install Bun 1.4+ and obtain an API key.
+2. Install the CLI: `bun add -g @rizom/brain`
+3. Scaffold an instance: `brain init my-brain --recipe personal`
+4. Enter the directory, set `AI_API_KEY` in `.env`, and run `brain start`.
+5. Customize `brain.yaml`, starter content, site/theme files, and integrations as needed.
+
+Choose a recipe—`headless`, `personal`, `professional`, or `team`—to select the initial capability bundles. For deployment, bootstrap certificates and push secrets before launching.
+
+**Source:** [Getting Started](https://docs.rizom.ai/docs/getting-started) (public documentation).

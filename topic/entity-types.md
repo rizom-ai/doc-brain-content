@@ -1,4 +1,0 @@
----
-title: Entity Types and Storage Conventions
----
-Brains represents durable knowledge as typed Markdown entities stored in the filesystem. Each entity type is registered by a plugin, validated with Zod, indexed for search, exposed through system tools, and optionally rendered by the site builder. Files under `brain-data/` are mapped to entity types through directory-based synchronization: root Markdown files become base note entities, while paths such as `brain-data/<entity-type>/` determine an entity’s type. Nested directories are converted into colon-separated IDs, allowing hierarchical content to be represented consistently. Entities use YAML frontmatter with Markdown bodies, and image files are supported under `brain-data/image/`. These conventions define how knowledge is persisted, synchronized, interpreted, and made available throughout the runtime.

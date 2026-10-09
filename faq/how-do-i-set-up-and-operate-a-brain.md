@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 3
+asked: 4
 sources:
   - id: 'doc:getting-started'
     title: Getting Started
@@ -423,3 +423,9 @@ A Brain is a private AI runtime whose durable knowledge is Markdown. To set one 
 Operate it through the CLI—especially `brain start`, `brain chat`, diagnostics, configuration, content synchronization, and deployment commands. The recommended documentation path is **Getting Started → Feature Overview → Content Management → Interface Setup → Deployment Guide**.
 
 **Sources:** [Getting Started](https://docs.rizom.ai/docs/getting-started); [Documentation index](https://docs.rizom.ai/docs).
+
+### Alternative 3
+
+Setting up a brain is a staged process: install the CLI, initialize a brain, configure its `brain.yaml`, connect interfaces and tools, then start it locally or deploy it. Operating one means maintaining content, checking diagnostics and services, managing authentication and secrets, and monitoring deployment health.
+
+**Sources:** [Documentation index](https://docs.rizom.ai/docs/index) (public `doc`, “Documentation”); **Brain Operations** (public `topic`).

@@ -86,3 +86,267 @@
 ]
 → summary/discord-1503073726105915392.md.invalid
 
+2026-10-20T09:38:17.550Z - doc/site-mockup-migration.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/site-mockup-migration.md.invalid
+
+2026-10-20T09:38:17.555Z - doc/customization-guide.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/customization-guide.md.invalid
+
+2026-10-20T09:38:17.559Z - doc/brain-model.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/brain-model.md.invalid
+
+2026-10-20T09:38:17.565Z - doc/external-site-authoring.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/external-site-authoring.md.invalid
+
+2026-10-20T09:38:17.575Z - doc/cli-reference.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/cli-reference.md.invalid
+
+2026-10-20T09:38:17.580Z - doc/mcp-inspector-guide.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/mcp-inspector-guide.md.invalid
+
+2026-10-20T09:38:17.583Z - doc/plugin-system.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/plugin-system.md.invalid
+
+2026-10-20T09:38:17.586Z - doc/entity-types-reference.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/entity-types-reference.md.invalid
+
+2026-10-20T09:38:17.590Z - doc/entity-model.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/entity-model.md.invalid
+
+2026-10-20T09:38:17.593Z - doc/theming-guide.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/theming-guide.md.invalid
+
+2026-10-20T09:38:17.596Z - doc/brain-yaml-reference.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/brain-yaml-reference.md.invalid
+
+2026-10-20T09:38:17.599Z - doc/architecture-overview.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/architecture-overview.md.invalid
+
+2026-10-20T09:38:17.601Z - doc/deployment-guide.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/deployment-guide.md.invalid
+
+2026-10-20T09:38:17.603Z - doc/atproto-lexicons.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/atproto-lexicons.md.invalid
+
+2026-10-20T09:38:17.605Z - doc/index.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/index.md.invalid
+
+2026-10-20T09:38:17.608Z - doc/interface-setup.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/interface-setup.md.invalid
+
+2026-10-20T09:38:17.610Z - doc/plugin-quick-reference.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/plugin-quick-reference.md.invalid
+
+2026-10-20T09:38:17.612Z - doc/directory-sync-git.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/directory-sync-git.md.invalid
+
+2026-10-20T09:38:17.614Z - doc/content-management.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/content-management.md.invalid
+
+2026-10-20T09:38:17.616Z - doc/feature-overview.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/feature-overview.md.invalid
+
+2026-10-20T09:38:17.619Z - doc/getting-started.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/getting-started.md.invalid
+
+2026-10-20T09:38:17.621Z - doc/external-plugin-authoring.md: Invalid entity data for doc: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "sourcePath"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+→ doc/external-plugin-authoring.md.invalid
+

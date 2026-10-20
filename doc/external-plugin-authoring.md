@@ -2,7 +2,6 @@
 title: "External Plugin Authoring"
 section: "Customization"
 order: 135
-sourcePath: "docs/external-plugin-authoring.md"
 slug: "external-plugin-authoring"
 description: "Alpha preview for collaborators. This candidate is under final API review and is not yet stable 0.2.0. The last exact registry-tested combination was @rizom/bra"
 ---

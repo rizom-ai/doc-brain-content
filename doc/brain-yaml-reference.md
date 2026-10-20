@@ -2,7 +2,6 @@
 title: "brain.yaml Reference"
 section: "Start here"
 order: 20
-sourcePath: "packages/brain-cli/docs/brain-yaml-reference.md"
 slug: "brain-yaml-reference"
 description: "brain.yaml is the instance-owned configuration for the canonical brain. It selects fixed capability bundles and applies explicit instance overrides. It does not"
 ---

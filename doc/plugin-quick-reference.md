@@ -2,7 +2,6 @@
 title: "Plugin Quick Reference"
 section: "Customization"
 order: 130
-sourcePath: "docs/plugin-quick-reference.md"
 slug: "plugin-quick-reference"
 description: "Use this checklist when choosing a declarative extension family. For package and composition guidance, see External Package Authoring. The authoritative standal"
 ---

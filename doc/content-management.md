@@ -2,7 +2,6 @@
 title: "Content Management"
 section: "Content and entities"
 order: 50
-sourcePath: "docs/content-management.md"
 slug: "content-management"
 description: "brains treats content as typed markdown entities. You can work with those entities through chat/MCP tools, the Studio, direct markdown edits, or plugin-owned ge"
 ---

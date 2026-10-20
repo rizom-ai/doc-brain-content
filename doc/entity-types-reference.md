@@ -2,7 +2,6 @@
 title: "Entity Types Reference"
 section: "Content and entities"
 order: 60
-sourcePath: "docs/entity-types-reference.md"
 slug: "entity-types-reference"
 description: "brains stores durable knowledge as typed markdown entities. Each entity type is registered by an entity plugin, validated with Zod, indexed for search, exposed "
 ---
@@ -379,7 +378,7 @@ Key frontmatter:
 - `coverImageId`
 - `seriesName`
 - `seriesIndex`
-- SEO fields: `ogImage`, `ogDescription`, `twitterCard`, `canonicalUrl`
+- SEO fields: `ogImage`, `canonicalUrl`
 
 ### `series`
 
@@ -458,8 +457,6 @@ Key frontmatter:
 - `entityIds`
 - `scheduledFor`
 - `sentAt`
-- `buttondownId`
-- `resendBroadcastId`
 - `sourceEntityType`
 
 A brain selects at most one delivery provider. Resend configuration requires an API key, a Segment ID, and a verified sender; Buttondown configuration may enable its native double opt-in behavior. With no provider configured, newsletter drafts and generation remain available while subscriber tools, signup UI, and external publishing stay disabled.

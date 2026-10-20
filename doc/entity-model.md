@@ -2,7 +2,6 @@
 title: "Entity Model"
 section: "Content and entities"
 order: 70
-sourcePath: "docs/entity-model.md"
 slug: "entity-model"
 description: "The entity model is a core part of the Brain architecture. It provides a unified, functional approach to data modeling using Zod schemas + TypeScript interfaces"
 ---

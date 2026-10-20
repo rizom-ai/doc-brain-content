@@ -2,7 +2,6 @@
 title: "Interface Setup"
 section: "Interfaces"
 order: 80
-sourcePath: "docs/interface-setup.md"
 slug: "interface-setup"
 description: "Interfaces are how users, tools, web clients, and peer agents talk to a running brain. Built-in interfaces include MCP, the webserver and operator web chat, mul"
 ---

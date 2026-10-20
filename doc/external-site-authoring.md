@@ -2,7 +2,6 @@
 title: "External Site and Theme Authoring"
 section: "Customization"
 order: 140
-sourcePath: "docs/external-site-authoring.md"
 slug: "external-site-authoring"
 description: "Alpha preview for collaborators. The last exact registry-tested combination was @rizom/brain@0.2.0-alpha.313 with @rizom/site@0.2.0-alpha.233. The final candida"
 ---

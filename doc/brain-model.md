@@ -2,7 +2,6 @@
 title: "Brain Models"
 section: "Architecture"
 order: 160
-sourcePath: "docs/brain-model.md"
 slug: "brain-model"
 description: "The repository ships one canonical brain definition through @rizom/brain/model. The definition owns an ordered capability catalog, eight capability bundles, and"
 ---

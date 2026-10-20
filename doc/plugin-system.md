@@ -2,7 +2,6 @@
 title: "Plugin System"
 section: "Customization"
 order: 120
-sourcePath: "docs/plugin-system.md"
 slug: "plugin-system"
 description: "brains composes behavior from package definitions. External authors declare domain capabilities; the runtime normalizes those definitions into its internal plug"
 ---

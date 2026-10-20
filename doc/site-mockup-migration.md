@@ -2,7 +2,6 @@
 title: "Site Mockup Migration"
 section: "Customization"
 order: 105
-sourcePath: "docs/site-mockup-migration.md"
 slug: "site-mockup-migration"
 description: "You can design a site in Claude Code, Cursor, or any other frontend environment first and migrate it into a Brain afterwards. Treat the mockup as a design lab: "
 ---

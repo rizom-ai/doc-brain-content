@@ -2,7 +2,6 @@
 title: "Architecture Overview"
 section: "Architecture"
 order: 150
-sourcePath: "docs/architecture-overview.md"
 slug: "architecture-overview"
 description: "Brains is a modular, plugin-based system for running AI-powered knowledge agents. Each running brain is an independently deployable MCP server with its own iden"
 ---

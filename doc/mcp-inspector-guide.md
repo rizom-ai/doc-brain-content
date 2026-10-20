@@ -2,7 +2,6 @@
 title: "MCP Inspector Guide"
 section: "Interfaces"
 order: 90
-sourcePath: "docs/mcp-inspector-guide.md"
 slug: "mcp-inspector-guide"
 description: "Use MCP Inspector to inspect the HTTP MCP endpoint exposed by a running brain."
 ---

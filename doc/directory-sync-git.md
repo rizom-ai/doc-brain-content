@@ -2,7 +2,6 @@
 title: "Directory Sync Git Overview"
 section: "Content and entities"
 order: 55
-sourcePath: "docs/directory-sync-git.md"
 slug: "directory-sync-git"
 description: "This document explains how @brains/directory-sync behaves in traditional git command terms."
 ---

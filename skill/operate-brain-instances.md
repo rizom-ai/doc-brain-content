@@ -1,11 +1,15 @@
 ---
 name: Operate Brain Instances
-description: Configure brain instances and guide their setup and day-to-day operation.
+description: >-
+  Configure and operate brain instances by applying the canonical brain model
+  and managing their capabilities.
 tags:
-  - brain operations
+  - operations
   - configuration
-  - setup
-  - instances
-examples: []
+  - brain-model
+  - capabilities
+examples:
+  - How do I configure a brain instance?
+  - How does the canonical brain model define capabilities?
 ---
 

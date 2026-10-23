@@ -16,9 +16,6 @@ fields:
   - id: description
     name: description
     type: Input
-  - id: domain
-    name: domain
-    type: Input
   - id: capturedAt
     name: capturedAt
     type: Input

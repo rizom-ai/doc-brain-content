@@ -39,20 +39,8 @@ fields:
   - id: ogImage
     name: ogImage
     type: Input
-  - id: ogDescription
-    name: ogDescription
-    type: Input
-  - id: twitterCard
-    name: twitterCard
-    options:
-      '0': summary
-      '1': summary_large_image
-    type: Select
   - id: canonicalUrl
     name: canonicalUrl
-    type: Input
-  - id: atprotoUri
-    name: atprotoUri
     type: Input
 filesPaths: post
 ---

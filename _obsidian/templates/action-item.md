@@ -1,16 +1,15 @@
 ---
+origin: conversation
 conversationId: ""
+interfaceType: ""
 channelId: ""
 channelName: ""
-interfaceType: ""
-spaceId: ""
-timeRange: ""
-sourceSummaryId: ""
-sourceMessageCount:
-projectionVersion:
+sourceRef: ""
+capturedAt: ""
 status: open
 assignedTo: []
 requestedBy: []
+projectedBodyHash: ""
 ---
 
 <!-- Write your content here -->

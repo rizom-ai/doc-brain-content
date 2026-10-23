@@ -2,60 +2,15 @@
 question: How do I set up and operate a Brain?
 status: draft
 asked: 4
-sources:
-  - id: 'doc:getting-started'
-    title: Getting Started
-    excerpt: |-
-      ---
-      title: Getting Started
-      section: Start here
-      order: 10
-      sourcePath: packages/brain-cli/docs/getting-started.md
-      description: >-
-        A brain is a private AI runtime whose durable knowledge is markdown. O...
-  - id: 'doc:interface-setup'
-    title: Interface Setup
-    excerpt: |-
-      ---
-      title: Interface Setup
-      section: Interfaces
-      order: 80
-      sourcePath: docs/interface-setup.md
-      description: >-
-        Interfaces are how users, tools, web clients, and peer agents talk to a
-        running brain. ...
-  - id: 'doc:feature-overview'
-    title: Feature Overview
-    excerpt: |-
-      ---
-      title: Feature Overview
-      section: Start here
-      order: 15
-      sourcePath: docs/feature-overview.md
-      description: >-
-        brains is a self-hosted AI knowledge system built around content you own. A
-        brain can...
-  - id: 'doc:deployment-guide'
-    title: Deployment Guide
-    excerpt: >-
-      ---
-
-      title: Deployment Guide
-
-      section: Start here
-
-      order: 40
-
-      sourcePath: packages/brain-cli/docs/deployment-guide.md
-
-      description: Deploy a brain to a server using the scaffolded GitHub
-      Actions + Kamal fl...
 ---
-# Setting up and operating a Brain
+# FAQ
+
+## Answer
+\# Setting up and operating a Brain
 
 A Brain is a self-hosted AI runtime whose durable knowledge is stored as Markdown. Configuration, enabled capabilities, identity, permissions, integrations, and site settings are declared explicitly in `brain.yaml`.
 
-## 1. Install the CLI
+\## 1. Install the CLI
 
 Prerequisites:
 
@@ -66,7 +21,7 @@ Prerequisites:
 bun add -g @rizom/brain
 ```
 
-## 2. Scaffold an instance
+\## 2. Scaffold an instance
 
 Choose a recipe based on the intended use:
 
@@ -104,7 +59,7 @@ The command creates:
 
 Recipes are scaffolding conveniences; the generated `brain.yaml` is the runtime source of truth.
 
-## 3. Configure secrets
+\## 3. Configure secrets
 
 ```bash
 cd my-brain
@@ -144,7 +99,7 @@ If migrating an older configuration, preview the canonical form without modifyin
 brain config migrate
 ```
 
-## 4. Start and test locally
+\## 4. Start and test locally
 
 Start the instance:
 
@@ -173,7 +128,7 @@ brain tool system_search '{"query":"what content exists?"}'
 
 The runtime stores durable content under `brain-data/`. SQLite supports indexing, semantic search, jobs, conversations, authentication, and runtime state, but does not replace the portable Markdown files.
 
-## 5. Configure access and permissions
+\## 5. Configure access and permissions
 
 Permissions distinguish public use from trusted and administrative operations. Configure exact identities and interface patterns in `brain.yaml`, for example:
 
@@ -206,11 +161,11 @@ For a fresh authenticated web/MCP instance, first boot prints a one-time `/setup
 
 Keep authentication state persistent and outside `brain-data`, typically under the runtime data volume.
 
-## 6. Connect interfaces
+\## 6. Connect interfaces
 
 Interfaces are enabled by capability bundles and configured under `plugins:`.
 
-### Web and Studio
+\### Web and Studio
 
 When enabled, the shared webserver provides routes such as:
 
@@ -222,7 +177,7 @@ http://localhost:8080/mcp
 http://localhost:8080/a2a
 ```
 
-### MCP
+\### MCP
 
 HTTP MCP is normally available at:
 
@@ -254,7 +209,7 @@ Example client configuration:
 }
 ```
 
-### Discord and Slack
+\### Discord and Slack
 
 The chat plugin supports Discord and Slack. Configure credentials through environment variables and adapter settings in `brain.yaml`.
 
@@ -265,7 +220,7 @@ Recommended production safeguards:
 - disable DMs unless they are intentional;
 - grant trusted or admin access only to users who need uploads or write operations.
 
-### A2A
+\### A2A
 
 A2A exposes:
 
@@ -276,7 +231,7 @@ A2A exposes:
 
 You can connect an external Brain through its exact domain, approve it, and then call it. Outbound contact approval is separate from inbound trust.
 
-## 7. Operate content and tools
+\## 7. Operate content and tools
 
 The main operational capabilities are:
 
@@ -313,7 +268,7 @@ brain --remote https://brain.example.com search "topics"
 brain --remote https://brain.example.com --token "$TOKEN" sync
 ```
 
-## 8. Deploy to a server
+\## 8. Deploy to a server
 
 For the documented self-hosted deployment path:
 
@@ -361,7 +316,7 @@ docker run -d \
   ghcr.io/<owner>/<repo>:latest
 ```
 
-## 9. Maintain and recover
+\## 9. Maintain and recover
 
 Common operational commands:
 
@@ -381,7 +336,7 @@ brain auth reinitialize-access --yes
 
 After recovery, restart the instance. Authentication storage must remain outside `brain-data`.
 
-## Recommended reading order
+\## Recommended reading order
 
 1. Getting Started
 2. Feature Overview
@@ -392,10 +347,18 @@ After recovery, restart the instance. Authentication storage must remain outside
 
 The current release is in the pre-stable `0.x` series, so configuration and extension APIs may change between minor releases.
 
+## Sources
+
+- [Getting Started](doc:getting-started)
+- [Interface Setup](doc:interface-setup)
+- [Feature Overview](doc:feature-overview)
+- [Deployment Guide](doc:deployment-guide)
+
 ## Alternative answers
 
-### Alternative 1
+### Alternative answer 1
 
+#### Answer
 A brain is a private AI runtime whose durable knowledge is Markdown.
 
 **Setup:**
@@ -409,8 +372,9 @@ Choose a recipe—`headless`, `personal`, `professional`, or `team`—to select 
 
 **Source:** [Getting Started](https://docs.rizom.ai/docs/getting-started) (public documentation).
 
-### Alternative 2
+### Alternative answer 2
 
+#### Answer
 A Brain is a private AI runtime whose durable knowledge is Markdown. To set one up:
 
 1. Install Bun 1.4+ and an API key.
@@ -424,8 +388,9 @@ Operate it through the CLI—especially `brain start`, `brain chat`, diagnostics
 
 **Sources:** [Getting Started](https://docs.rizom.ai/docs/getting-started); [Documentation index](https://docs.rizom.ai/docs).
 
-### Alternative 3
+### Alternative answer 3
 
+#### Answer
 Setting up a brain is a staged process: install the CLI, initialize a brain, configure its `brain.yaml`, connect interfaces and tools, then start it locally or deploy it. Operating one means maintaining content, checking diagnostics and services, managing authentication and secrets, and monitoring deployment health.
 
 **Sources:** [Documentation index](https://docs.rizom.ai/docs/index) (public `doc`, “Documentation”); **Brain Operations** (public `topic`).

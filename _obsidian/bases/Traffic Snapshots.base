@@ -1,0 +1,9 @@
+filters:
+  and:
+    - file.inFolder("traffic-snapshot")
+views:
+  - name: All Traffic Snapshots
+    order:
+      - file.name
+      - days
+    type: table

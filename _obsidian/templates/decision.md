@@ -3,11 +3,7 @@ conversationId: ""
 channelId: ""
 channelName: ""
 interfaceType: ""
-spaceId: ""
 timeRange: ""
-sourceSummaryId: ""
-sourceMessageCount:
-projectionVersion:
 status: active
 decidedBy: []
 mentionedBy: []

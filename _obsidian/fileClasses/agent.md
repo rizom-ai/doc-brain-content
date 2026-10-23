@@ -19,29 +19,17 @@ fields:
   - id: url
     name: url
     type: Input
-  - id: did
-    name: did
-    type: Input
   - id: repoDid
     name: repoDid
     type: Input
   - id: brainDid
     name: brainDid
     type: Input
-  - id: anchorDid
-    name: anchorDid
-    type: Input
   - id: cardUri
     name: cardUri
     type: Input
   - id: cardCid
     name: cardCid
-    type: Input
-  - id: cardObservedAt
-    name: cardObservedAt
-    type: Input
-  - id: cardLastCheckedAt
-    name: cardLastCheckedAt
     type: Input
   - id: cardLastError
     name: cardLastError
@@ -54,9 +42,6 @@ fields:
     type: Input
   - id: cardStaleAfter
     name: cardStaleAfter
-    type: Input
-  - id: a2aEndpoint
-    name: a2aEndpoint
     type: Input
   - id: status
     name: status

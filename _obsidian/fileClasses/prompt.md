@@ -6,5 +6,8 @@ fields:
   - id: target
     name: target
     type: Input
+  - id: defaultHash
+    name: defaultHash
+    type: Input
 filesPaths: prompt
 ---

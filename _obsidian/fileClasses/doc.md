@@ -9,9 +9,6 @@ fields:
   - id: order
     name: order
     type: Number
-  - id: sourcePath
-    name: sourcePath
-    type: Input
   - id: description
     name: description
     type: Input

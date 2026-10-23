@@ -5,7 +5,6 @@ url: 'https://aigrant.org/'
 description: >-
   AI Grant is a program that provides no-strings-attached grants for open source
   projects, including funding in the form of compute or cash.
-domain: aigrant.org
 capturedAt: '2026-05-21T07:28:23.450Z'
 source:
   ref: 'matrix:1448617817225166929'

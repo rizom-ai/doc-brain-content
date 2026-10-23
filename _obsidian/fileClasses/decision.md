@@ -12,21 +12,9 @@ fields:
   - id: interfaceType
     name: interfaceType
     type: Input
-  - id: spaceId
-    name: spaceId
-    type: Input
   - id: timeRange
     name: timeRange
     type: Input
-  - id: sourceSummaryId
-    name: sourceSummaryId
-    type: Input
-  - id: sourceMessageCount
-    name: sourceMessageCount
-    type: Number
-  - id: projectionVersion
-    name: projectionVersion
-    type: Number
   - id: status
     name: status
     options:

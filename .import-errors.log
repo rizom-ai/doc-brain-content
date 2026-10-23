@@ -350,3 +350,25 @@
 ]
 → doc/external-plugin-authoring.md.invalid
 
+2026-10-23T13:25:18.079Z - [RECOVERED] doc/site-mockup-migration.md
+2026-10-23T13:25:18.158Z - [RECOVERED] doc/customization-guide.md
+2026-10-23T13:25:18.207Z - [RECOVERED] doc/brain-model.md
+2026-10-23T13:25:18.272Z - [RECOVERED] doc/external-site-authoring.md
+2026-10-23T13:25:18.312Z - [RECOVERED] doc/cli-reference.md
+2026-10-23T13:25:18.347Z - [RECOVERED] doc/mcp-inspector-guide.md
+2026-10-23T13:25:18.399Z - [RECOVERED] doc/plugin-system.md
+2026-10-23T13:25:18.460Z - [RECOVERED] doc/entity-types-reference.md
+2026-10-23T13:25:18.504Z - [RECOVERED] doc/entity-model.md
+2026-10-23T13:25:18.561Z - [RECOVERED] doc/theming-guide.md
+2026-10-23T13:25:18.601Z - [RECOVERED] doc/brain-yaml-reference.md
+2026-10-23T13:25:18.656Z - [RECOVERED] doc/architecture-overview.md
+2026-10-23T13:25:18.692Z - [RECOVERED] doc/deployment-guide.md
+2026-10-23T13:25:18.725Z - [RECOVERED] doc/atproto-lexicons.md
+2026-10-23T13:25:18.753Z - [RECOVERED] doc/index.md
+2026-10-23T13:25:18.788Z - [RECOVERED] doc/interface-setup.md
+2026-10-23T13:25:18.829Z - [RECOVERED] doc/plugin-quick-reference.md
+2026-10-23T13:25:18.863Z - [RECOVERED] doc/directory-sync-git.md
+2026-10-23T13:25:18.897Z - [RECOVERED] doc/content-management.md
+2026-10-23T13:25:18.945Z - [RECOVERED] doc/feature-overview.md
+2026-10-23T13:25:18.971Z - [RECOVERED] doc/getting-started.md
+2026-10-23T13:25:18.994Z - [RECOVERED] doc/external-plugin-authoring.md

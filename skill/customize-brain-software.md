@@ -1,15 +1,15 @@
 ---
 name: Customize Brain Software
 description: >-
-  Extend and adapt the brain platform by designing its architecture and
-  authoring external plugins.
+  Extend brain capabilities by authoring plugins and adapting the software to
+  your needs.
 tags:
   - customization
-  - architecture
   - plugins
-  - software
+  - development
+  - capabilities
 examples:
   - How can I create an external plugin for a brain?
-  - How should I extend the brain platform without changing its core?
+  - How do I add a capability to my brain?
 ---
 

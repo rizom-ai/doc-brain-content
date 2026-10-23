@@ -1,15 +1,11 @@
 ---
 name: Manage Knowledge and Documentation
-description: >-
-  Organize, structure, update, and maintain documentation and knowledge content
-  so it remains discoverable and coherent.
+description: Organize brain knowledge and explain how to find and use its documentation.
 tags:
-  - documentation
   - knowledge
+  - documentation
   - organization
-  - maintenance
-examples:
-  - How should I structure documentation for a maintainable brain?
-  - What is the best way to organize and update knowledge content?
+  - retrieval
+examples: []
 ---
 

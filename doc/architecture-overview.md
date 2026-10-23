@@ -1,0 +1,441 @@
+---
+title: "Architecture Overview"
+section: "Architecture"
+order: 150
+slug: "architecture-overview"
+description: "Brains is a modular, plugin-based system for running AI-powered knowledge agents. Each running brain is an independently deployable MCP server with its own iden"
+---
+
+# Architecture Overview
+
+Brains is a modular, plugin-based system for running AI-powered knowledge agents. Each running brain is an independently deployable MCP server with its own identity, content, capabilities, and interfaces.
+
+At a high level:
+
+```text
+canonical definition + explicit brain.yaml bundles = running brain
+```
+
+- **Canonical definition** (`packages/brain-cli/src/model`) owns the built-in catalog and fixed bundles
+- **Instance config** (`brain.yaml`) provides environment-specific settings
+- **Shell packages** provide the runtime, services, and plugin framework
+- **Plugins** add content types, integrations, and interfaces
+
+## Core architecture principles
+
+1. **MCP-first** — every brain is an MCP server and exposes tools, resources, prompts, and resource templates through the same core transport model.
+2. **Entity-driven** — durable content lives as typed entities stored as markdown with frontmatter.
+3. **Schema-first** — Zod schemas define config, entities, tool inputs, and API contracts.
+4. **Plugin-based** — almost all product behavior is composed from EntityPlugins, ServicePlugins, and InterfacePlugins.
+5. **Definition / instance separation** — the reusable definition owns catalog policy; lightweight instances own explicit selection and deployment settings in `brain.yaml`.
+6. **Public API first** — external code should use the published `@rizom/brain/*` authoring APIs. Internal packages may use workspace packages, but should still avoid reaching into shell internals unless there is no supported boundary yet.
+
+## Supervised runtime topology
+
+The published Brain remains one Bun package, bundle, image, and container. Its
+entrypoint owns two children from that same bundle: a web process for
+interfaces, ingress, daemons, scheduling, and enqueue validation, and a worker
+process for durable queue execution. The worker runs no interfaces; it
+registers only each message interface's channels and senders, so queued work
+can still send on them. The parent runs migrations once, admits
+the worker only after the web process reports runtime readiness, and respawns a
+failed worker under a bounded rolling budget without taking web serving down.
+After worker readiness, a five-second IPC heartbeat lets the parent kill and
+replace a stuck worker after three missed beats under that same budget.
+Routing readiness remains independent of worker health: `/health/ready` fails
+only for web-critical dependencies, while `/health/operate` fails for stale
+worker sessions, queue leases, projection circuits, or unhealthy daemons.
+
+Job-handler registrations are finalized into an immutable inventory during
+boot. Web retains their validation side for durable enqueue, while the worker
+constructs every executable handler and only the internal message subscriptions
+explicitly marked as execution dependencies. Worker progress and terminal
+status cross the process boundary through the shared indexed queue database,
+not through a second message bus or deployment unit.
+
+## Effect runtime boundary
+
+The shell uses Effect for internal control-plane concerns where ownership and structured concurrency matter: transactional shell and plugin startup rollback, scoped resource finalization, daemon lifecycle, background monitors, worker and agent-turn fibers, cancellation, and concurrent lifecycle barriers.
+
+The boundary is intentionally narrow:
+
+- Public shell, plugin, daemon, and job APIs remain Promise-based.
+- Cancellation crosses public boundaries as standard `AbortSignal`, not Effect types.
+- Zod remains the schema and external contract system. The private Git broker RPC wire contract is the sole Effect Schema exception: declarations adapt authoritative Zod operation validation, without parallel domain models or public Effect types.
+- Simple CRUD, validation, and synchronous registry operations should not be wrapped mechanically in Effect.
+- Long-running work must be attached to an owning scope or supervised fiber; detached fibers require an explicit reason.
+- Wrapping a Promise does not make its underlying operation cancellable. Cancellation-sensitive adapters must consume the signal supplied by Effect.
+- Persistent jobs drain gracefully by default so interruption cannot abandon a claimed queue row.
+
+This keeps Effect focused on runtime orchestration while preserving the stable authoring surface consumed by external plugins and brain packages. Workspace packages import the curated private `@brains/utils/effect` subpath rather than depending on Effect independently; deterministic test services use `@brains/utils/effect/test`. Private Git broker transport code uses the curated `/effect/rpc` and `/effect/bun` subpaths; these are not authoring APIs.
+
+The A2A interface applies the same boundary locally: its private turn supervisor owns streaming and polling fibers plus scoped SSE heartbeat schedules. Stream disconnect, explicit task cancellation, and daemon shutdown propagate through `AbortSignal`; no Effect type appears in the interface contract. Its outbound client uses a package-private Effect timeout adapter so tool cancellation reaches Agent Card requests, message POSTs, and stalled SSE reads with the caller's original reason; stream cancellation settles before the call returns. MCP HTTP similarly owns idle-session eviction through a private scoped schedule, validates before acquisition, and drains transport closes admitted by a sweep before shutdown returns.
+
+The unified Chat SDK interface owns Discord gateway and Slack Socket Mode listener cycles through one package-private Effect supervisor. Restart delays use deterministic schedules, daemon stop interrupts the active adapter through `AbortSignal`, and tasks admitted through the adapters' `waitUntil` contract drain even when a listener fails. The interface's start, stop, and health contracts remain Promise-based.
+
+The shared media renderer applies scoped ownership to each launch-per-render browser. Acquisition remains interruptible, late launches are released exactly once, and render timeout or caller cancellation does not settle until an acquired browser has completed bounded cleanup. A hung or failed close falls back to process `SIGKILL`. Its public functions remain Promise-based and accept cancellation only through optional `AbortSignal`; fake-browser `TestClock` coverage exercises timeout and close-timeout behavior without launching Chromium.
+
+Shell boot, close, daemon, plugin, job-worker, and batch-cleanup transitions are serialized and joinable: matching concurrent callers observe one transition, crossed requests run in admission order, and terminal close prevents later work from entering. Shutdown follows dependency order—stop recurring schedules, interrupt agent and conversation work, drain claimed durable jobs, release plugins and daemons, then close databases and services. Plugin release similarly joins concurrent callers, closes admission for all plugin-scoped message subscriptions, drains callbacks admitted before teardown, and drains plugin-owned recurring checks before teardown completes.
+
+Conversation actor registries close terminally: queued operations receive the lifecycle abort reason without starting, active operations settle before XState actors stop, and eviction scopes close exactly once. Discord drains admitted message and interaction handlers during daemon stop, while site-builder disposal cancels pending debounce windows and awaits admitted rebuild enqueues. These package-local owners use Promise coordination and `AbortSignal`; they do not add Layers or expose Effect publicly.
+
+### Layer adoption
+
+Effect `Layer` is adopted only for complete vertical slices. Shell services carry no process-global state to wrap: `getInstance`/`resetInstance` are gone from every shell-owned service, and a repo-wide source grep in `service-ownership.test.ts` keeps them gone. Only three deliberate ambient registries keep a singleton accessor — `Logger`, `AtprotoProjectionRegistry`, and `EvalHandlerRegistry` — and they are allow-listed there by name. Entity URLs and citability are a plain value built from the one entity display the shell resolves.
+
+The first layer-owned slice is the job-service stack. The private `@brains/job-queue/effect` subpath owns its `Context.Tag` contracts and scoped queue/runtime layers; core composes those layers across the package boundary instead of rebuilding job-queue lifecycle ownership locally. Separate runtime and database scopes preserve shutdown order: workers and cleanup fibers stop before plugin teardown, while the queue database remains available until dependent shell resources have closed. Existing Promise interfaces and dependency-injected test implementations remain unchanged, and Effect types do not cross the public authoring boundary.
+
+Core also composes package-owned scoped layers for runtime state, conversations, and entities through each package's private `/effect` subpath. These layers own fresh or injected services and their database connections for exactly one shell lifetime, replacing manual core finalizers while preserving Promise service contracts. Pure registries, adapters, schemas, and configuration remain normal TypeScript services rather than Layer dependencies.
+
+Durable registrations created during synchronous construction need ownership even when they are not Layers. Core registers synchronous abandonment immediately after recurring-check handler and daemon registration, and unregisters the shell-owned recurring-check Inbox source during rollback; plugin resource scopes likewise unregister destination-owned Inbox follow-up kinds after failed registration or shutdown. Entity release unregisters its embedding handler before the injected or default queue database closes. A later constructor failure therefore cannot leave handlers, sources, launches, or stopped daemons in supplied registries.
+
+The ownership boundary is integration-tested with two no-interface shells using separate persistent SQLite paths. Construction or asynchronous initialization failure in one shell must leave entity, conversation, job, and runtime-state I/O in the other usable. Repeated register-only and startup-check boots share no state at all, generated `@rizom/brain` declarations are checked for Effect or private `/effect` imports, and the packed CLI is smoke-tested through startup-check acquisition and teardown. Normal PR feedback keeps that one package-boundary canary; the complete external-authoring tarball matrix runs nightly, on demand, and before publication through `bun run test:packed:compat`.
+
+Future layers must meet the same criteria:
+
+1. construct fresh service instances without static shared state;
+2. use internal `Context.Tag` contracts without exposing Effect types publicly;
+3. own acquisition and release through scoped layers;
+4. replace the corresponding manual service finalizers; and
+5. support test implementations through the existing dependency boundary.
+
+### Runtime impact
+
+The completed Effect hardening was measured against its pre-adoption merge base (`699aa9973`) using Bun 1.3.11. The bundled CLI grew from 7,510,645 to 7,795,413 bytes (+3.8%), or from 2,087,731 to 2,183,484 gzip bytes (+4.6%). Thirty interleaved fresh-process `brain --version` samples showed a median startup change from 430.5 ms to 434.5 ms (+4.0 ms, +0.9%) with a warm filesystem cache.
+
+Building public library subpaths in one split graph then removed duplicate runtime code and source maps. The packed `@rizom/brain` artifact fell from the pre-Effect baseline of 16,477,259 bytes to 14,554,611 bytes (-11.7%); it had been 17,454,522 bytes before shared chunks. Effect therefore retains a measurable standalone CLI cost but no material process-startup regression in this benchmark, while the distributed package is smaller overall. Keep Effect internal and scoped to lifecycle/concurrency boundaries so future growth remains attributable to concrete runtime benefits.
+
+## Workspace structure
+
+The monorepo is organized into these main categories:
+
+```text
+shell/          Core runtime, services, plugin framework
+shared/         Reusable utilities, themes, UI components, test helpers
+entities/       EntityPlugin packages for content types
+plugins/        ServicePlugin packages for tools and integrations
+sites/          Structural site packages (routes, plugins, inherited composition)
+interfaces/     InterfacePlugin packages for transports and daemons
+brains/         Brain model packages
+packages/       Standalone distributable packages (for example @rizom/brain)
+```
+
+A running brain is driven by an _instance directory_ centered on `brain.yaml` plus optional deploy/config files. The monorepo does not currently ship such instance directories; user instances are scaffolded outside the monorepo with `brain init`. Those generated instances also include support files such as `.env.example`, `.gitignore`, `tsconfig.json`, `package.json`, `src/site.tsx`, and `src/theme.css` depending on model and options.
+
+## Current package map
+
+### Shell packages
+
+| Package                                                 | Purpose                                                                  |
+| ------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `shell/app`                                             | Brain resolver, `defineBrain()`, instance loading, runtime bootstrap     |
+| `shell/core`                                            | Core shell, lifecycle orchestration, system tools/resources/prompts      |
+| `shell/ai-service`                                      | AI querying, orchestration, provider abstraction                         |
+| `shell/content-service`                                 | Template-based generation, multi-target planning and durable admission   |
+| `shell/conversation-service`                            | Conversation state and message history                                   |
+| `shell/entity-service`                                  | Entity CRUD, indexing, search, embeddings                                |
+| `shell/identity-service`                                | Brain identity, anchor profile, URL derivation                           |
+| `shell/job-queue`                                       | Background jobs, progress events, handler registration                   |
+| `shell/mcp-service`                                     | MCP tool/resource/prompt/template registration                           |
+| `shell/messaging-service`                               | Typed event bus used across plugins                                      |
+| `shell/runtime-state`                                   | Runtime state store service (`RuntimeStateService`/`RuntimeStateStore`)  |
+| `shell/scheduler`                                       | Shared scheduler contracts and deterministic test backend                |
+| `shell/recurring-checks`                                | Recurring cadence, dedupe, Inbox alerts, and channel delivery retries    |
+| `shell/plugins`                                         | Base plugin classes, contexts, harnesses, and app-scoped registries      |
+| `shell/templates`                                       | Template registry and resolution                                         |
+| `shell/ai-evaluation`                                   | Eval runner, test cases, judges, reporting                               |
+| [`shell/auth-service`](https://github.com/rizom-ai/brains/blob/main/shell/auth-service/README.md) | Private auth DB, OAuth/WebAuthn, users, identity, invitations, and audit |
+
+### Entity packages
+
+Entity packages live in `entities/`. Most packages define one entity type; a few define more than one. Tightly coupled 1:1 entity + service capabilities may instead be compound packages under `plugins/`.
+
+| Package                        | Entity type(s)                       | Notes                                               |
+| ------------------------------ | ------------------------------------ | --------------------------------------------------- |
+| `entities/blog`                | `post`                               | Essays, long-form publishing                        |
+| `entities/decks`               | `deck`                               | Presentation/deck content                           |
+| `entities/doc`                 | `doc`                                | Generic docs entity backing `/docs`                 |
+| `entities/document`            | `document`                           | Generated PDFs and publishable document attachments |
+| `entities/image`               | `image`                              | AI image generation                                 |
+| `entities/link`                | `link`                               | URL capture and extraction                          |
+| `entities/note`                | `note`                               | General markdown notes / notes                      |
+| `entities/portfolio`           | `project`                            | Case studies and portfolio entries                  |
+| `entities/prompt`              | `prompt`                             | Editable AI prompt entities                         |
+| `entities/series`              | `series`                             | Derived post grouping                               |
+| `entities/site-info`           | `site-info`                          | Site metadata                                       |
+| `entities/social-media`        | `social-post`                        | Social publishing content                           |
+| `entities/conversation-memory` | `summary`, `decision`, `action-item` | Conversation memory                                 |
+| `entities/faq`                 | `faq`                                | Chat Q&A captured as draft FAQs                     |
+| `entities/topics`              | `topic`                              | Derived topic/tag entities                          |
+| `entities/wishlist`            | `wish`                               | Unfulfilled requests / backlog                      |
+| `entities/agent-discovery`     | `agent`, `skill`                     | Agent directory + discoverable skills               |
+| `entities/assessment`          | `swot`                               | Derived assessment outputs                          |
+
+### Service plugins
+
+Service plugins live in `plugins/` and provide tools, handlers, routes, orchestration, or external integrations.
+
+| Package                    | Purpose                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------- |
+| `plugins/analytics`        | Analytics integration and reports                                                                  |
+| `plugins/atproto`          | AT Protocol identity, publishing, discovery, feeds                                                 |
+| `plugins/atproto-registry` | Canonical Rizom AT Protocol lexicon registry                                                       |
+| `plugins/content-pipeline` | Publishing queue, scheduling, retries                                                              |
+| `plugins/contact`          | Default-off bounded public contact intake with restricted Inbox records and durable notification   |
+| `plugins/dashboard`        | Dashboard widgets and UI slots                                                                     |
+| `plugins/directory-sync`   | File sync + git operations                                                                         |
+| `plugins/email-workflows`  | Restricted mail triage, Inbox detail, and a dormant tested reply backend                           |
+| `plugins/newsletter`       | Compound newsletter entity with selectable Buttondown or Resend delivery                           |
+| `plugins/notifications`    | Notification routing for transactional and administrative messages                                 |
+| `plugins/obsidian-vault`   | Obsidian export/templates                                                                          |
+| `plugins/site-builder`     | Static site build orchestration                                                                    |
+| `plugins/site-content`     | Site route/section discovery over the shell's generic content generation                           |
+| `plugins/stock-photo`      | Stock-photo search and selection                                                                   |
+| `plugins/unified-inbox`    | Live inbox projection, source facets, resolved launches, registered Studio triage, summary, digest |
+| `plugins/studio`           | Browser authoring routes + Studio config                                                           |
+
+### Interface plugins
+
+Interface packages live in `interfaces/`. Some chat-style interfaces use `MessageInterfacePlugin`, which is a specialized interface base class for conversational transports.
+
+| Package                | Purpose                                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `interfaces/a2a`       | Agent-to-agent protocol, Agent Card, async tasks                                                            |
+| `interfaces/chat-repl` | Local chat REPL / development chat interface                                                                |
+| `interfaces/chat`      | Discord + Slack bot interface via the Chat SDK                                                              |
+| `interfaces/email`     | Email interface with configurable Resend delivery, threaded replies, and IMAP intake/source reads           |
+| `interfaces/mcp`       | MCP transport over stdio and HTTP                                                                           |
+| `interfaces/web-chat`  | Guest-facing in-browser chat surface (default route `/ask`); shared Chat APIs                               |
+| `interfaces/webserver` | Browser-facing HTTP surface for site pages, dashboard/Studio routes, API routes, and split health endpoints |
+
+### Sites, themes, and the canonical definition
+
+| Area                  | Current packages                                                                         |
+| --------------------- | ---------------------------------------------------------------------------------------- |
+| `sites/`              | `default`, `personal`, `professional`, `rizom` and app-specific compositions             |
+| `shared/theme-*`      | `default`, `rizom`, `signal`, and related theme packages                                 |
+| `packages/brain-cli`  | canonical catalog/bundles, recipes, runtime assets, and the published `@rizom/brain` CLI |
+| `packages/brains-ops` | published `@rizom/ops` fleet tooling                                                     |
+
+## Plugin model
+
+Brains uses three primary plugin categories:
+
+- **EntityPlugin** — defines an entity schema, markdown adapter, optional generation handler, optional derivation logic, templates, and datasources.
+- **ServicePlugin** — provides tools, jobs, API routes, orchestration, and external service integrations.
+- **InterfacePlugin** — provides user-facing transports and long-lived daemons.
+
+### Static site build boundary
+
+`plugins/site-builder` owns site-build jobs, tools, rebuild policy, status, Studio actions, SEO/RSS staging hooks, and publication events. A build resolves its own fields — metadata, images, scripts, and app `public/` files — into a deeply frozen, JSON-serializable `PreparedSiteEnvelope`, and each page's route and content into a frozen `PreparedRoute` as the renderer asks for it, a few pages at a time, so a build never holds all of its pages. At that boundary, undefined object properties are recursively omitted while unsupported JSON values remain errors with route, section, template, and field-path diagnostics; a page that fails to prepare is never rendered, and the build fails. Renderers consume the validated envelope and pages and do not read entity or datasource services while writing output. React 19 is the single JSX runtime, and server-rendered surfaces use `renderToStaticMarkup()` without hydration.
+
+Automatic builds are requested only after a scheduler wave has committed its derived outputs. Environment-scoped queue deduplication and dirty generations ensure changes during an active build produce at most one necessary successor; preview and production never suppress each other. The prepared route/content/template/layout/theme/asset input is fingerprinted page by page as it is rendered, and a fingerprint matching the active successful manifest drops the staged generation unpublished.
+
+Each non-skipped build renders into an immutable generation under `dist/.site-builds/<environment>/<build-id>/`. The builder validates a manifest that accounts for and hashes every produced artifact, then publishes the generation by atomically replacing the preview or production output symlink. Preparation and rendering honor an `AbortSignal`; once a validated generation enters the bounded commit section, publication is non-interruptible. Failed or cancelled builds remove their staging generation and leave the previously published output active. Completion events run only after commit and must not mutate committed output.
+
+Shared renderer-neutral contracts live in `shared/site-engine`; shell-dependent preparation, React bindings, operational policy, and commit orchestration remain in `plugins/site-builder`.
+
+### EntityPlugin behavior
+
+Entity plugins are the default way content enters the system.
+
+They can automatically register:
+
+- entity type + schema + adapter
+- generation handlers (`{entityType}:generation`)
+- templates
+- site datasources
+- executable derived projections and immutable projection graph declarations
+
+Entity plugins intentionally do **not** expose their own CRUD tools. Creation, update, and deletion flow through shared system tools like `system_create`, `system_update`, and `system_delete`. Derived entities are maintained automatically by scheduler-owned projection rules.
+
+For creation, the standard pattern is:
+
+1. `system_create` receives a normalized request
+2. the target `EntityPlugin` may override `interceptCreate()`
+3. the plugin either:
+   - returns `handled` to fully own creation behavior, or
+   - returns `continue` to fall back to the shared create flow
+4. if the request includes a `prompt`, shared flow typically queues `{entityType}:generation`
+5. otherwise shared flow performs a direct entity create
+
+This is the canonical place for entity-specific create behavior such as URL capture, target resolution, deduplicating wishes, or enriching required metadata.
+
+### Multi-target content generation
+
+`shell/content-service` owns the generic mechanics for generating many entities from
+templates: validating structured destinations, checking template capability and existing
+output, applying `force` and `dryRun`, and enqueuing admitted work. Its contracts use
+content vocabulary only; no route, chapter, or section concepts enter the shell.
+
+A destination is an entity type, a structured `idPath` of segments, JSON-safe metadata, and
+an optional visibility. The shared entity-path codec serializes those segments to the stored
+string ID at the persistence boundary, so callers never concatenate separators. The
+registered domain schema remains the final authority over the generated entity.
+
+Domain plugins decide which targets exist. `plugins/site-content` discovers site-builder
+routes and maps eligible sections to generic targets; a book or course plugin would map its
+own structure the same way. Each domain keeps its entity schema, adapter, filters, tools,
+and presentation.
+
+Admitted children share one root job ID, which is the returned batch ID, so the queue's
+existing durable root index recovers them after a restart. Each target carries an operation
+ID and a conditional write, making retries idempotent: a job that commits and then fails
+before acknowledgement does not regenerate or overwrite later edits. Completion is observed
+by reading the destination entity, not through a generation-specific status channel.
+
+External authors reach the same capability declaratively through `@rizom/brain/services`.
+Generation-only templates need no React layout, so non-web compositions generate through the
+same pipeline as site sections.
+
+### Projection graph and causal runtime
+
+Projection declarations are plugin capabilities registered centrally by the
+plugin manager; plugins do not receive a mutable graph registry through the
+shell API. After all entity types and capabilities register, composition
+finalization expands wildcard entity sources, resolves entity and semantic-event
+edges, rejects undeclared cycles, and freezes the graph before initial sync or
+workers start. Custom projection execution declares the same static source,
+target, event, and bounded-feedback contract as the standard derived projection
+runner.
+
+A shared app-scoped operation context carries schema-validated provenance across
+message handlers and job attempts. Projection enqueue appends its projection ID,
+source reference, and derivation depth; job workers restore the persisted
+lineage only for the claimed attempt. Entity events inherit the same lineage.
+A separate core projection supervisor consumes the frozen graph and enforces
+per-root job and mutation budgets, depth limits, repeated-lineage rules, and
+repeated-target circuits. The static registry never owns runtime counters, and
+plugins cannot mutate or reset circuit state.
+
+### ServicePlugin behavior
+
+Service plugins provide the system's operational surface area:
+
+- external integrations
+- background job handlers
+- publishing pipelines
+- specialized tools such as sync, stock photo search, or analytics reports
+
+### InterfacePlugin behavior
+
+Interface plugins are how users or other agents interact with a brain:
+
+- MCP clients connect through `interfaces/mcp`
+- chat users connect through `interfaces/chat` (Discord, Slack) or `interfaces/chat-repl`
+- browsers connect through `interfaces/webserver` for public pages, dashboard/Studio routes, and browser-facing APIs
+- peer agents connect through `interfaces/a2a`
+
+## Operator browser state
+
+Dashboard, Studio, and web-chat are separate applications with separate lifecycles. They do not share a mutable browser store:
+
+- Dashboard stays server-rendered. Addressable tabs use the URL hash, request data stays request-owned, and transient enhancement state stays in the DOM.
+- Studio and web-chat each own an unpersisted package-local TanStack Query client. Keys come from typed package-local factories, and mutations update or invalidate only related entries.
+- The Studio query cache owns server snapshots while `editorWorkflowReducer` owns coordinated editor transitions. Cached snapshots and mutable drafts are separate; a background refresh cannot silently replace a dirty draft.
+- The AI SDK `Chat`/`useChat` instance exclusively owns active and streamed chat messages. A history query may load an immutable snapshot, but reopening copies that snapshot into the AI SDK owner rather than sharing it.
+- Addressable entity and conversation doors use URL hashes. Dialogs, panes, composer text, dirty drafts, and other transient state stay local.
+- Cross-surface preferences remain framework-neutral localStorage helpers with browser events; query clients and mutable application caches are never shared across surfaces.
+
+Package-specific key and invalidation rules are documented in the [Studio README](https://github.com/rizom-ai/brains/blob/main/plugins/studio/README.md) and [web-chat README](https://github.com/rizom-ai/brains/blob/main/interfaces/web-chat/README.md).
+
+## Runtime flow
+
+A typical boot sequence looks like this:
+
+1. `@rizom/brain` or the in-repo runtime loads a `brain.yaml`
+2. `shell/app` loads the canonical definition (or an explicitly scoped external definition) and resolves explicit bundles
+3. The shell constructs core services (entities, jobs, MCP, identity, messaging, AI)
+4. Plugins are instantiated and registered in dependency order
+5. Entity types, tools, resources, prompts, datasources, daemons, and projection declarations are registered
+6. Profile/channel composition and the complete projection graph are finalized
+7. Interfaces start their long-lived processes
+8. The brain begins serving MCP, web, Discord, A2A, or local chat traffic
+
+## Entity model
+
+All durable content follows the same base pattern:
+
+```ts
+{
+  id: string;
+  entityType: string;
+  content: string; // markdown, usually with YAML frontmatter
+  metadata: object; // query-friendly subset of structured data
+  contentHash: string;
+  created: string; // ISO timestamp
+  updated: string; // ISO timestamp
+}
+```
+
+This makes it possible to share infrastructure across content types:
+
+- one entity store
+- one sync/export model
+- one search pipeline
+- one set of system CRUD tools
+- one site-generation model
+
+## Architectural boundaries
+
+High-level dependency direction:
+
+```text
+brain-cli/   -> entities/, plugins/, interfaces/, sites/, shared/, shell/app
+entities/    -> shared/, shell/plugins
+plugins/     -> shared/, shell/plugins
+interfaces/  -> shared/, shell/plugins
+sites/       -> shared/, shell/*, other sites/ (explicit site composition and inheritance)
+shell/       -> shared/, other shell/
+```
+
+Practical rule of thumb: external plugins should import from the public `@rizom/brain/*` authoring API instead of coupling directly to shell internals.
+
+## Testing and quality
+
+The project relies on:
+
+- **Unit tests** with Bun
+- **Plugin harnesses** for EntityPlugins, ServicePlugins, and InterfacePlugins
+- **Mock helpers** from `@brains/test-utils`
+- **Eval suites** for end-to-end agent behavior and multi-model comparisons
+- **Type checking + linting** across the full monorepo via Turborepo
+
+### Dependency architecture validation
+
+Run `bun run arch:check` from the repository root after changing package imports. The command uses `git ls-files` to select tracked and non-ignored local TypeScript/JavaScript, removes only reviewed generated or standalone-consumer fixtures, and submits every selected entry to one dependency-cruiser graph. It fails on unresolved imports, circular dependencies, boundary violations, missing workspace-family sentinel edges, or unavailable TypeScript parsing.
+
+Use `bun scripts/architecture-check.ts --reporter json` to inspect the complete machine-readable graph. `bun run arch:graph` uses the same inventory and configuration to write `dependency-graph.svg` and requires Graphviz. Coverage counts are written to stderr so JSON and DOT stdout remain valid. Dependency-cruiser runs against the isolated `typescript-legacy` compiler because the repository's TypeScript 7 package no longer exposes the compiler API required by dependency-cruiser 17.
+
+## Deployment model
+
+Current deployment paths:
+
+- **Local development** via Bun inside the monorepo
+- **Published CLI** via `@rizom/brain`
+- **Container deployment** for production brains
+- **Kamal-based self-hosted deployments** as the default deploy path, including app-local deploy artifacts, env-schema generation, Cloudflare Origin CA bootstrap, and (optionally) `@rizom/ops`-managed multi-user fleets
+
+Each deployed instance stays lightweight: a package centered on explicit `brain.yaml` bundles plus instance-owned content, site/theme choices, and deployment artifacts.
+
+The shared webserver separates dependency-free liveness (`/health/live`) from
+web routing readiness (`/health/ready`) and full operational health
+(`/health/operate`). Routing readiness covers web-critical database access.
+Operational health additionally covers durable worker sessions, stale attempt
+leases, daemon health, and projection circuit state; both reports include
+bounded process, queue, and causal-work resource signals. Operational health
+also carries app version, entity counts, and daemon metadata for operator
+diagnostics. Generated containers probe liveness, while generated host
+deployment artifacts install a restart-budgeted systemd
+watchdog that preserves container diagnostics before restarting a persistently
+unhealthy Brain container.
+
+## Where to read next
+
+- [Roadmap](https://github.com/rizom-ai/brains/blob/main/docs/roadmap.md)
+- [Brain definition and instance guide](/docs/brain-model)
+- [Entity model](/docs/entity-model)
+- [Theming guide](/docs/theming-guide)
+- [External plugin authoring](/docs/external-plugin-authoring)
+- [Plugin quick reference](/docs/plugin-quick-reference)
+- [User-facing CLI docs](/docs/getting-started)

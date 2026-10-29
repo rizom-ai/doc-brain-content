@@ -1,13 +1,13 @@
 ---
 name: Design Brain Architecture
 description: >-
-  Design and customize brain software and architecture to extend its
-  capabilities while keeping it coherent and maintainable.
+  Design and customize brain capabilities by adapting its model, configuration,
+  and AT Protocol Lexicons.
 tags:
   - architecture
-  - software design
   - customization
-  - extensibility
+  - configuration
+  - AT Protocol
 examples: []
 ---
 

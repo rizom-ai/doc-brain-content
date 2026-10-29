@@ -1,13 +1,13 @@
 ---
 name: Operate Brain Instances
 description: >-
-  Configure, run, and maintain self-hosted brain instances and their supporting
-  services.
+  Configure, run, and troubleshoot brain instances and their operational
+  workflows.
 tags:
   - operations
+  - instances
   - configuration
-  - deployment
-  - self-hosting
+  - troubleshooting
 examples: []
 ---
 

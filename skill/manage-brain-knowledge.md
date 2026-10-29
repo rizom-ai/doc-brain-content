@@ -1,13 +1,13 @@
 ---
 name: Manage Brain Knowledge
 description: >-
-  Collect, organize, search, and maintain brain content so it remains useful as
-  durable, discoverable knowledge.
+  Create, organize, and maintain durable content that a brain can collect,
+  search, and share.
 tags:
-  - knowledge management
+  - knowledge
   - content
+  - collection
   - search
-  - documentation
 examples: []
 ---
 

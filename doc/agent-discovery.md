@@ -1,0 +1,202 @@
+---
+title: "Agent Discovery"
+section: "Interfaces"
+order: 88
+slug: "agent-discovery"
+description: "How a brain discovers capabilities within itself, and how it discovers and calls other brains across the network. This explains the shipped mechanism, with a fe"
+---
+
+# Agent Discovery
+
+How a brain discovers capabilities within itself, and how it discovers and
+calls _other_ brains across the network. This explains the **shipped**
+mechanism, with a fenced-off "What's coming" section at the end for the planned
+direction.
+
+There are two independent senses of "discovery" here, and they operate at
+different layers:
+
+1. **In-brain capability discovery** — how a brain knows which tools/resources
+   it can expose, and to whom. Mature and in production.
+2. **Cross-brain (A2A) agent discovery** — how a brain finds other brains,
+   reviews them, and is allowed to call them. Manual and seeded discovery, signed
+   peer calls, and the bounded Jetstream consumer are implemented; ambient discovery
+   remains disabled pending the policy correction described under "What's coming".
+
+---
+
+## 1. In-brain capability discovery
+
+A brain is assembled from plugins. There is **no dynamic registry** — plugins
+are declared statically in the brain definition. "Discovery" at this layer means
+capability registration at boot, plus permission-filtered listing at runtime.
+
+### Plugins declare capabilities
+
+Each plugin's `register()` returns a `PluginCapabilities`
+(`shell/plugins/src/interfaces.ts`):
+
+```ts
+interface PluginCapabilities {
+  tools: Tool[];
+  resources: Resource[];
+  instructions?: string;
+}
+```
+
+A `Tool` carries a `visibility` field that gates who can see and call it:
+
+```ts
+interface Tool<TOutput = ToolResponse> {
+  name: string;
+  description: string;
+  inputSchema: ZodRawShape;
+  handler: (input: unknown, context: ToolContext) => Promise<TOutput>;
+  visibility?: ToolVisibility; // "public" | "trusted" | "admin"
+}
+```
+
+### Registration flow
+
+```
+plugin.register() → PluginCapabilities
+  → CapabilityRegistrar          (shell/plugins/src/manager/capability-registrar.ts)
+      shell.registerTools(pluginId, tools)
+      shell.registerResources(pluginId, resources)
+      shell.registerInstructions(pluginId, instructions)
+  → Shell.registerTools          (shell/core/src/shell.ts)
+      → mcpService.registerTool(pluginId, tool)
+```
+
+### Listing by permission level
+
+At runtime, tools are filtered by the caller's permission level. Default
+visibility is the most restrictive (`admin`), so a tool is private unless it
+deliberately opts down to `trusted`/`public`.
+
+- `Shell.listToolsForPermissionLevel(level)` — `shell/core/src/shell.ts`
+- `McpService.listToolsForPermissionLevel(userLevel)` — `shell/mcp-service/src/mcp-service.ts`
+- `canExposeTool(permissionLevel, tool)` — `shell/mcp-service/src/mcp-registration.ts`
+  (defaults missing `visibility` to `admin`)
+
+---
+
+## 2. Cross-brain (A2A) agent discovery
+
+Other brains are stored as first-class **`agent` entities** and gated by an
+approval lifecycle. A brain can be added by URL, from a supplied ATProto repo,
+or through the opt-in bounded Jetstream consumer. All paths converge on the same
+entity and lifecycle; Jetstream is not enabled in current fleet configuration.
+
+### The agent entity
+
+`entities/agent-discovery/src/schemas/agent.ts`:
+
+```ts
+export const AGENT_ENTITY_TYPE = "agent";
+
+export const agentStatusSchema = z
+  .enum(["discovered", "approved", "archived"])
+  .describe("Discovered for review, approved for calling, or archived");
+```
+
+Frontmatter fields include `brainName`, `url`, `status`, `discoveredAt`, and
+optional ATProto provenance (`repoDid`, `brainDid`, `cardUri`, `cardCid`).
+Stored and queried via `AgentDataSource`
+(`entities/agent-discovery/src/datasources/agent-datasource.ts`), which can
+filter by `status` and sorts by `discoveredAt DESC`.
+
+### Agent Cards (the A2A wire format)
+
+Each brain serves an Agent Card at the conventional well-known URL:
+
+```
+https://{domain}/.well-known/agent-card.json
+```
+
+Schema and parser live in `shell/plugins/src/a2a/agent-card-schema.ts`
+(`name`, `url`, `description`, `skills[]`, `capabilities.extensions[]`).
+Fetching/parsing is `fetchAgentCard(domain, fetchFn)`
+(`entities/agent-discovery/src/lib/fetch-agent-card.ts`), which derives the
+well-known URL and runs `parseAgentCard()`. An optional anchor-profile extension
+(`https://rizom.ai/ext/anchor-profile/v1`) carries operator identity.
+
+### The discovered → approved → callable lifecycle
+
+This is the heart of cross-brain discovery: **discovery never implies access.**
+
+- **Default on discovery is `discovered`.**
+  `build-agent-content.ts`: `const status = options.status ?? "discovered";`
+- **Calls are gated on `approved`.** The `a2a_call` tool refuses any peer that
+  isn't approved (`interfaces/a2a/src/client.ts`):
+
+  ```ts
+  if (entity.metadata["status"] !== "approved") {
+    return {
+      success: false,
+      error: `Agent ${agentId} is discovered but not approved yet. Approve it first.`,
+    };
+  }
+  ```
+
+- **Approval** flips the status (via `system_update` with
+  `fields: { status: "approved" }`), which the adapter syncs to frontmatter.
+- **URL adds are the trusted shortcut.** When a user adds a brain by URL, the
+  create interceptor (`agent-create-interceptor.ts`) creates it as `approved`
+  immediately, and upgrades an existing `discovered` entry to `approved`. The
+  reasoning: if you already know the URL, you've made the trust decision.
+
+So the gate is held in exactly one place — the `a2a_call` tool — and every
+discovery path feeds the same `status` field that gate reads.
+
+### ATProto card discovery (the shipped network slice)
+
+A brain publishes a signed `ai.rizom.brain.card` record to its PDS
+(`buildBrainCardRecord` in `plugins/atproto/src/records.ts`, published via the
+`atproto_publish_card` tool to record key `self`). It carries brain identity
+(DID, name, role, purpose), a minimal anchor snapshot, public skills, and the
+site URL.
+
+The default discovery path remains seeded:
+`discoverBrainCards()` (`plugins/atproto/src/plugin.ts`) takes supplied repo
+DIDs/handles, resolves each PDS, fetches the card through
+`com.atproto.repo.getRecord`, validates it against the lexicon, and emits an
+`ATPROTO_BRAIN_CARD_DISCOVERED` event. The agent-directory side
+(`atproto-card-events.ts`) upserts an `agent` entity from that event —
+**preserving an existing `approved` status and only defaulting new entries to
+`discovered`** — so a card refresh can enrich a known peer but never silently
+grant it call access.
+
+### Signed peer identity
+
+A2A requests use RFC 9421 HTTP Message Signatures. Each brain serves its public
+keys, peer trust stores the approved domain/key binding and permission grant,
+and inbound tasks bind the verified caller rather than accepting a claimed role
+from request content. This replaces bearer-token identity for trusted peers
+without making discovery itself an approval.
+
+### Bundle ownership
+
+The `agents` capability lives in the posture-independent `core` bundle. Web and
+federation bundles provide publication/discovery channels; they do not own the
+agent entity or approval lifecycle.
+
+---
+
+## What's coming
+
+> Everything above is shipped. This section is the planned trajectory, owned by
+> the plan docs cited in each bullet. Treat it as direction, not current
+> behavior — and expect these plans to be deleted once they ship, so verify
+> against code before relying on any of it.
+
+- **Safe ambient network discovery** — [AT Protocol integration](https://github.com/rizom-ai/brains/blob/main/docs/plans/atproto-integration.md).
+  The bounded Jetstream consumer, durable cursor/dedupe state, authoritative PDS
+  refetch, and egress checks exist, but no fleet instance enables them. Before a
+  canary, discovery must be corrected to known-peer monitoring so an unknown valid
+  card cannot create an approved or implicitly trusted relationship. Configurable
+  allow/deny filters and later ingestion/feed work follow only after that gate.
+- **Trust calibration in real use** — [Identity and trust](https://github.com/rizom-ai/brains/blob/main/docs/plans/identity-and-trust.md).
+  Signed transport and runtime identity are shipped; sustained collective use must
+  now show whether peer grants, attribution, and review surfaces communicate the
+  right trust boundaries.

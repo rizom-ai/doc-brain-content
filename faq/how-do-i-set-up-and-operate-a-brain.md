@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 6
+asked: 7
 ---
 # FAQ
 
@@ -450,3 +450,31 @@ brain start
 On first start, the terminal prints a one-time `/setup` link. Open it to register your passkey and set up the first Admin. Choose a different recipe if you have a different use case: `headless`, `professional`, or `team`. Recipes scaffold the configuration and starter content; review the generated `brain.yaml` for the actual bundle selection.
 
 For a server deployment, scaffold deployment files with `brain init my-brain --recipe professional --deploy`, then follow the **Deployment Guide**. For the full local setup and recipe details, see **Getting Started**.
+
+### Alternative answer 6
+
+#### Answer
+For a local setup, install the CLI, scaffold an instance, add your AI API key, and start it:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Copy `.env.example` to `.env` and set `AI_API_KEY`, then run:
+
+```bash
+brain start
+```
+
+On first start, the terminal prints a one-time `/setup` link. Open it to register a passkey and set up the first Admin. To receive setup links by email, configure `SETUP_EMAIL_TO`, `SETUP_EMAIL_API_KEY`, and `SETUP_EMAIL_FROM`.
+
+Choose a recipe based on your needs:
+
+- `headless` — core capabilities only
+- `personal` — personal knowledge and chat
+- `professional` — publishing and website capabilities
+- `team` — collaborative features, plus docs and action board
+
+To use a different recipe, replace `personal` in the `brain init` command. Recipes scaffold the instance; the generated `brain.yaml` records the bundles that determine runtime behavior.

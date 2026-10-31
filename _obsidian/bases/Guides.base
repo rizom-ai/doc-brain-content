@@ -1,0 +1,16 @@
+filters:
+  and:
+    - file.inFolder("guide")
+views:
+  - name: All Guides
+    order:
+      - file.name
+      - title
+      - slug
+      - order
+      - persona
+      - for
+      - recipe
+      - brings
+      - material
+    type: table

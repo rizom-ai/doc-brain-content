@@ -30,5 +30,8 @@ fields:
   - id: sections
     name: sections
     type: Input
+  - id: translations
+    name: translations
+    type: Input
 filesPaths: site-info
 ---

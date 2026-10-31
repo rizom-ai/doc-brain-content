@@ -40,8 +40,17 @@ fields:
   - id: requestedBy
     name: requestedBy
     type: Multi
+  - id: dueDate
+    name: dueDate
+    type: Input
   - id: projectedBodyHash
     name: projectedBodyHash
+    type: Input
+  - id: projectedAssigneeHash
+    name: projectedAssigneeHash
+    type: Input
+  - id: projectedDueDate
+    name: projectedDueDate
     type: Input
 filesPaths: action-item
 ---

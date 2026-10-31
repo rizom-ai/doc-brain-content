@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 4
+asked: 5
 ---
 # FAQ
 
@@ -394,3 +394,37 @@ Operate it through the CLI—especially `brain start`, `brain chat`, diagnostics
 Setting up a brain is a staged process: install the CLI, initialize a brain, configure its `brain.yaml`, connect interfaces and tools, then start it locally or deploy it. Operating one means maintaining content, checking diagnostics and services, managing authentication and secrets, and monitoring deployment health.
 
 **Sources:** [Documentation index](https://docs.rizom.ai/docs/index) (public `doc`, “Documentation”); **Brain Operations** (public `topic`).
+
+### Alternative answer 4
+
+#### Answer
+\## Set up a new brain
+
+The **Getting Started** doc recommends Bun 1.4.0 or newer and an API key supported by your configured AI provider.
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Set `AI_API_KEY` in `.env`, then start it:
+
+```bash
+brain start
+```
+
+On first startup, the terminal prints a one-time `/setup` link. Open it to register your passkey.
+
+Choose a recipe based on what you need:
+
+- `headless` — core capabilities
+- `personal` — core, media, web, chat
+- `professional` — adds automation, site, publishing, and federation
+- `team` — includes team-oriented capabilities, plus docs and action board
+
+For example, initialize a team brain with `brain init my-brain --recipe team`. Add `--deploy` if you want deployment scaffolding. `brain init` creates `brain.yaml`, starter content, package and environment files, and—when applicable—site files.
+
+If you want setup links and invitations sent by email, configure `SETUP_EMAIL_TO`, `SETUP_EMAIL_API_KEY` (a Resend API key), and `SETUP_EMAIL_FROM` (a verified Resend sender). Otherwise, team members can be added through **Admin → Add a person** using a manual invite link.
+
+Source: [Getting Started](https://docs.rizom.ai/docs/getting-started)

@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 5
+asked: 6
 ---
 # FAQ
 
@@ -428,3 +428,25 @@ For example, initialize a team brain with `brain init my-brain --recipe team`. A
 If you want setup links and invitations sent by email, configure `SETUP_EMAIL_TO`, `SETUP_EMAIL_API_KEY` (a Resend API key), and `SETUP_EMAIL_FROM` (a verified Resend sender). Otherwise, team members can be added through **Admin → Add a person** using a manual invite link.
 
 Source: [Getting Started](https://docs.rizom.ai/docs/getting-started)
+
+### Alternative answer 5
+
+#### Answer
+Install the CLI, scaffold an instance, add your AI key, then start it:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+cp .env.example .env
+```
+
+Set `AI_API_KEY` in `.env`, then run:
+
+```bash
+brain start
+```
+
+On first start, the terminal prints a one-time `/setup` link. Open it to register your passkey and set up the first Admin. Choose a different recipe if you have a different use case: `headless`, `professional`, or `team`. Recipes scaffold the configuration and starter content; review the generated `brain.yaml` for the actual bundle selection.
+
+For a server deployment, scaffold deployment files with `brain init my-brain --recipe professional --deploy`, then follow the **Deployment Guide**. For the full local setup and recipe details, see **Getting Started**.

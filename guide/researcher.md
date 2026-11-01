@@ -74,3 +74,4 @@ Your notes, papers and links answer to one question box instead of five apps.
 - **Room to grow**: if the brain later adds a site and publishing, the same notes feed your writing.
 
 Exact steps: [Feature overview](/docs/feature-overview).
+

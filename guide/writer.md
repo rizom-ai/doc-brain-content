@@ -78,4 +78,3 @@ The brain has read everything you brought. New drafts start from your notes inst
 - **Drafts a LinkedIn post** for a new essay, for you to edit and send.
 
 Exact steps: [Feature overview](/docs/feature-overview).
-

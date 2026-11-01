@@ -78,4 +78,3 @@ Your work is visible in one place, and it answers for you.
 - **An agent card** that represents you to other brains.
 
 Exact steps: [Feature overview](/docs/feature-overview).
-

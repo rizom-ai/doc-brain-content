@@ -67,4 +67,3 @@ The brain runs on its own, and you know where everything is.
 - **Everything else** works as in the guide for your kind of user.
 
 Exact steps: [CLI reference](/docs/cli-reference).
-

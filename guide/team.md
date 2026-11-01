@@ -68,4 +68,3 @@ What the team knows stays with the team.
 - **Shared memory** that outlasts any one member.
 
 Exact steps: [Feature overview](/docs/feature-overview).
-

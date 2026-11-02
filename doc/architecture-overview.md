@@ -1,9 +1,9 @@
 ---
 title: "Architecture Overview"
-section: "Architecture"
-order: 150
+section: "Extend a brain"
+order: 280
 slug: "architecture-overview"
-description: "Brains is a modular, plugin-based system for running AI-powered knowledge agents. Each running brain is an independently deployable MCP server with its own iden"
+description: "How the shell, plugins, entities and interfaces fit together"
 ---
 
 # Architecture Overview

@@ -1,9 +1,9 @@
 ---
 title: "ATProto Lexicons"
-section: "Interfaces"
-order: 85
+section: "Extend a brain"
+order: 310
 slug: "atproto-lexicons"
-description: "Rizom publishes AT Protocol custom lexicons under the ai.rizom.brain. NSID namespace."
+description: "The AT Protocol lexicons published under ai.rizom.brain"
 ---
 
 # ATProto Lexicons

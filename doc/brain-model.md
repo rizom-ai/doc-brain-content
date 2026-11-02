@@ -1,9 +1,9 @@
 ---
 title: "Brain Models"
-section: "Architecture"
-order: 160
+section: "Extend a brain"
+order: 290
 slug: "brain-model"
-description: "The repository ships one canonical brain definition through @rizom/brain/model. The definition owns an ordered capability catalog, eight capability bundles, and"
+description: "The canonical brain definition, its capability catalog and bundles"
 ---
 
 # Brain Definition & Instance Architecture

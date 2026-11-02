@@ -1,9 +1,9 @@
 ---
 title: "External Plugin Authoring"
-section: "Customization"
-order: 135
+section: "Extend a brain"
+order: 250
 slug: "external-plugin-authoring"
-description: "Alpha preview for collaborators. This candidate is under final API review and is not yet stable 0.2.0. The last exact registry-tested combination was @rizom/bra"
+description: "Package and load your own plugins"
 ---
 
 # External Package Authoring
@@ -340,7 +340,7 @@ Several unrelated concepts also use the word “template”:
 | Entity `markdown` codec         | Converts persisted content/metadata to and from Markdown; not presentation |
 | Service `templates`             | Schema-validated text formatting available to that service                 |
 | Service `views`                 | Schema-validated web rendering; may share a key/schema with a template     |
-| Site route `template`           | A `namespace.section` reference created by `sectionGroup()`                |
+| Site route `template`           | A `namespace:section` reference created by `sectionGroup()`                |
 | `@rizom/brain/templates` import | Advanced rich-rendering API outside the patch-stable `0.2` contract        |
 
 Normal external packages should use the family fields above. Pin an exact Brain

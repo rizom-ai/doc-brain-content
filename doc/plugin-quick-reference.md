@@ -1,9 +1,9 @@
 ---
 title: "Plugin Quick Reference"
-section: "Customization"
-order: 130
+section: "Extend a brain"
+order: 240
 slug: "plugin-quick-reference"
-description: "Use this checklist when choosing a declarative extension family. For package and composition guidance, see External Package Authoring. The authoritative standal"
+description: "A checklist for choosing a declarative extension family"
 ---
 
 # Package Authoring Quick Reference
@@ -102,7 +102,7 @@ validates `value` against that template's schema before formatting it. A service
 the template key.
 
 Do not confuse service templates with an entity's persistence `markdown` codec
-or a site's `namespace.section` route template. The generic
+or a site's `namespace:section` route template. The generic
 `@rizom/brain/templates` subpath remains an advanced exact-version API. See
 [Entity data, templates, and views](/docs/external-plugin-authoring#entity-data-templates-and-views)
 for the complete rules and checked reference.

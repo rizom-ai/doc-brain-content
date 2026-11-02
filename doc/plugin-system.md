@@ -1,9 +1,9 @@
 ---
 title: "Plugin System"
-section: "Customization"
-order: 120
+section: "Extend a brain"
+order: 230
 slug: "plugin-system"
-description: "brains composes behavior from package definitions. External authors declare domain capabilities; the runtime normalizes those definitions into its internal plug"
+description: "How built-in and custom plugins are organized"
 ---
 
 # Plugin System

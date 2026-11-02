@@ -1,9 +1,9 @@
 ---
 title: "Theming Guide"
-section: "Customization"
-order: 110
+section: "Extend a brain"
+order: 220
 slug: "theming-guide"
-description: "Complete guide to the Brains theming system using Tailwind v4"
+description: "Theme tokens, CSS layers and custom themes"
 ---
 
 # Theming Guide

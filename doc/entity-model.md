@@ -1,9 +1,9 @@
 ---
 title: "Entity Model"
-section: "Content and entities"
-order: 70
+section: "Extend a brain"
+order: 270
 slug: "entity-model"
-description: "The entity model is a core part of the Brain architecture. It provides a unified, functional approach to data modeling using Zod schemas + TypeScript interfaces"
+description: "How markdown files, frontmatter and schemas fit together"
 ---
 
 # Extensible Entity Model

@@ -1,9 +1,9 @@
 ---
 title: "MCP Inspector Guide"
-section: "Interfaces"
-order: 90
+section: "Run a brain"
+order: 160
 slug: "mcp-inspector-guide"
-description: "Use MCP Inspector to inspect the HTTP MCP endpoint exposed by a running brain."
+description: "Debug MCP connections and tool calls"
 ---
 
 # MCP Inspector Quick Guide

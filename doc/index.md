@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-section: "Start here"
+section: "Use a brain"
 order: 0
 slug: "index"
 description: "Start here if you want to install brains, create a local brain, connect it to tools, or deploy it."

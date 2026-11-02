@@ -1,9 +1,9 @@
 ---
 title: "Agent Discovery"
-section: "Interfaces"
-order: 88
+section: "Extend a brain"
+order: 300
 slug: "agent-discovery"
-description: "How a brain discovers capabilities within itself, and how it discovers and calls other brains across the network. This explains the shipped mechanism, with a fe"
+description: "How a brain finds capabilities in itself and calls other brains"
 ---
 
 # Agent Discovery

@@ -1,13 +1,13 @@
 ---
 name: Operate Brain Instances
 description: >-
-  Configure, run, and troubleshoot brain instances and their operational
-  workflows.
+  Configure and operate brain instances, including their settings, content
+  flows, and available capabilities.
 tags:
   - operations
-  - instances
   - configuration
-  - troubleshooting
+  - content
+  - capabilities
 examples: []
 ---
 

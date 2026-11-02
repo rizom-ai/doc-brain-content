@@ -25,6 +25,9 @@ fields:
   - id: brings
     name: brings
     type: Multi
+  - id: section
+    name: section
+    type: Input
   - id: material
     name: material
     type: Multi

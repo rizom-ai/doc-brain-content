@@ -28,6 +28,9 @@ fields:
   - id: section
     name: section
     type: Input
+  - id: summary
+    name: summary
+    type: Input
   - id: material
     name: material
     type: Multi

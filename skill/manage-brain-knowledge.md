@@ -1,13 +1,15 @@
 ---
 name: Manage Brain Knowledge
 description: >-
-  Collect, organize, search, and publish brain content so people and agents can
-  use it.
+  Organize, maintain, and share durable content so individuals and teams can
+  find and use their knowledge.
 tags:
+  - knowledge management
   - content
+  - teams
   - search
-  - knowledge
-  - agents
-examples: []
+examples:
+  - How should our team organize shared knowledge in a brain?
+  - How can I update or remove outdated content?
 ---
 

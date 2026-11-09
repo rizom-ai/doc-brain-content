@@ -1,11 +1,13 @@
 ---
 name: Discover and Connect Agents
-description: Find compatible agents and connect them through MCP and AT Protocol lexicons.
+description: >-
+  Find compatible agents and connect them to a brain through MCP and other
+  supported integrations.
 tags:
   - agents
   - discovery
   - MCP
-  - AT Protocol
+  - integrations
 examples: []
 ---
 

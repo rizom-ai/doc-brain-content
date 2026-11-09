@@ -1,13 +1,13 @@
 ---
 name: Design Brain Architecture
 description: >-
-  Design and customize brain architectures by connecting platform components,
-  configuration choices, and software extensions.
+  Design and customize brain components, integrations, and configuration to fit
+  a team’s workflows.
 tags:
   - architecture
-  - customization
   - configuration
-  - platform
+  - customization
+  - integrations
 examples: []
 ---
 

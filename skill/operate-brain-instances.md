@@ -1,13 +1,13 @@
 ---
 name: Operate Brain Instances
 description: >-
-  Configure and operate brain instances, including their settings, integrations,
-  and ongoing maintenance.
+  Configure, run, and maintain brain instances, including their settings and
+  day-to-day operations.
 tags:
   - operations
   - instances
   - configuration
-  - integrations
+  - maintenance
 examples: []
 ---
 

@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 12
+asked: 13
 ---
 # FAQ
 
@@ -619,3 +619,35 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 `brain init` creates the instance configuration (`brain.yaml`), seed-content directory, package files, and environment templates. Recipes such as `personal`, `professional`, and `team` are scaffold-time starting points; the resulting `brain.yaml` explicitly selects the capabilities the instance uses.
 
 For a hosted setup, add `--deploy` when initializing, then follow the **Deployment Guide**. For configuration details, see **brain.yaml Reference**.
+
+### Alternative answer 12
+
+#### Answer
+\## Set up a brain locally
+
+The **Getting Started** guide recommends this quick start:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Copy `.env.example` to `.env` if needed, then set `AI_API_KEY`—the only required variable for first start—and run:
+
+```bash
+brain start
+```
+
+On first start, the brain prints a one-time `/setup` link in the terminal. Open it to register the first passkey.
+
+Choose a recipe to suit your use:
+
+- `headless` — core capabilities
+- `personal` — core, media, web, and chat
+- `professional` — adds automation, site, publishing, and federation
+- `team` — collaboration-focused setup with docs and action board
+
+For example, use `brain init my-brain --recipe professional` instead if you want publishing and a site. Recipes scaffold the instance; the selected bundles are written explicitly in `brain.yaml`.
+
+For a server deployment, `brain init` also accepts `--deploy` and `--domain`. See the **Deployment Guide** for the deployment workflow, and the **brain.yaml Reference** for configuration details.

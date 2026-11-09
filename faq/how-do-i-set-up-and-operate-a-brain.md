@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 13
+asked: 14
 ---
 # FAQ
 
@@ -651,3 +651,27 @@ Choose a recipe to suit your use:
 For example, use `brain init my-brain --recipe professional` instead if you want publishing and a site. Recipes scaffold the instance; the selected bundles are written explicitly in `brain.yaml`.
 
 For a server deployment, `brain init` also accepts `--deploy` and `--domain`. See the **Deployment Guide** for the deployment workflow, and the **brain.yaml Reference** for configuration details.
+
+### Alternative answer 13
+
+#### Answer
+The **“Running your own brain”** guide gives this quick local setup:
+
+1. Install Bun 1.4 or later and get an AI API key.
+2. Install the CLI and create an instance:
+   ```bash
+   bun add -g @rizom/brain
+   brain init my-brain --recipe personal
+   cd my-brain
+   ```
+3. Put `AI_API_KEY=...` in `.env`, then start the brain:
+   ```bash
+   brain start
+   ```
+4. Open the one-time setup link printed in the terminal and register a passkey.
+
+Choose a recipe based on what you want the brain to do: `personal` for private chat, `professional` for a site and publishing, `team` for collaboration, or `headless` without the web interface.
+
+Your content lives in `brain-data/`: top-level Markdown files become notes; typed content goes in folders such as `brain-data/link/`, and images go in `brain-data/image/`. Add a content Git repository with `--content-repo owner/name`. For a server deployment, initialize with `--deploy --domain your.domain`.
+
+For exact details, see [Getting Started](/docs/getting-started) and [Running your own brain](/guides/self-hosting).

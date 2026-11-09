@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 14
+asked: 15
 ---
 # FAQ
 
@@ -675,3 +675,26 @@ Choose a recipe based on what you want the brain to do: `personal` for private c
 Your content lives in `brain-data/`: top-level Markdown files become notes; typed content goes in folders such as `brain-data/link/`, and images go in `brain-data/image/`. Add a content Git repository with `--content-repo owner/name`. For a server deployment, initialize with `--deploy --domain your.domain`.
 
 For exact details, see [Getting Started](/docs/getting-started) and [Running your own brain](/guides/self-hosting).
+
+### Alternative answer 14
+
+#### Answer
+\## Set up a brain locally
+
+1. Install **Bun 1.4.0 or newer** and get an API key supported by your configured AI provider.
+2. Install the CLI and scaffold an instance:
+   ```bash
+   bun add -g @rizom/brain
+   brain init my-brain --recipe personal
+   cd my-brain
+   ```
+3. Put your key in `.env` as `AI_API_KEY`.
+4. Start it:
+   ```bash
+   brain start
+   ```
+5. On first start, open the one-time `/setup` link printed in the terminal and register your passkey.
+
+Choose a recipe based on what you need: `headless` (core only), `personal`, `professional`, or `team`. Recipes are scaffolding: `brain init` writes the selected bundles explicitly into `brain.yaml` and copies starter content into `seed-content/`.
+
+For email-delivered setup links and invitations, configure `SETUP_EMAIL_TO`, `SETUP_EMAIL_API_KEY` (a Resend API key), and `SETUP_EMAIL_FROM` (a verified sender). For other configuration options and deployment next steps, see **Getting Started**.

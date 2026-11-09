@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 10
+asked: 12
 ---
 # FAQ
 
@@ -558,3 +558,64 @@ To scaffold a team brain instead, run `brain init my-brain --recipe team`. Recip
 The scaffold includes `brain.yaml`, starter markdown in `seed-content/`, a pinned package dependency, environment templates, and supporting config files. You can add a content repository, connect an interface such as Discord, or customize the site and theme afterward. For deployment, use `brain init my-brain --deploy` and follow the deployment steps.
 
 See [Getting Started](/docs/getting-started) for full setup details and the [Deployment Guide](/docs/deployment-guide) for deploying to a server.
+
+### Alternative answer 10
+
+#### Answer
+The quickest way to set up a new brain is to scaffold one with the CLI and run it locally:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Add your AI provider key to `.env`:
+
+```env
+AI_API_KEY=your-key
+```
+
+Then start the brain:
+
+```bash
+brain start
+```
+
+On first start, the terminal prints a one-time `/setup` link. Open it to register your passkey.
+
+Choose a recipe based on your needs:
+
+- `headless` — core capabilities only
+- `personal` — core, media, web, and chat
+- `professional` — adds automation, site, publishing, and federation
+- `team` — collaboration-oriented setup, plus docs and action-board
+
+For a server deployment, scaffold with `brain init my-brain --recipe professional --deploy --domain your-domain.com`, then follow the generated setup in the Deployment Guide. Recipes provide starter configuration and content; the instance’s actual capabilities are recorded in `brain.yaml`.
+
+Sources: [Getting Started](/docs/getting-started), [Deployment Guide](/docs/deployment-guide), [CLI Reference](/docs/cli-reference).
+
+### Alternative answer 11
+
+#### Answer
+\## Set up a new brain
+
+The **Getting Started** doc gives the quickest path to a local instance:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Set `AI_API_KEY` in the generated `.env`, then start it:
+
+```bash
+brain start
+```
+
+On first start, the terminal prints a one-time `/setup` link. Open it to register a passkey and set up the first Admin.
+
+`brain init` creates the instance configuration (`brain.yaml`), seed-content directory, package files, and environment templates. Recipes such as `personal`, `professional`, and `team` are scaffold-time starting points; the resulting `brain.yaml` explicitly selects the capabilities the instance uses.
+
+For a hosted setup, add `--deploy` when initializing, then follow the **Deployment Guide**. For configuration details, see **brain.yaml Reference**.

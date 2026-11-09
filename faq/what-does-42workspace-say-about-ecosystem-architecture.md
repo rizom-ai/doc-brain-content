@@ -1,7 +1,7 @@
 ---
 question: What does 42workspace say about ecosystem architecture?
 status: draft
-asked: 1
+asked: 2
 ---
 # FAQ
 
@@ -11,3 +11,12 @@ asked: 1
 ## Sources
 
 - [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview "doc:architecture-overview")
+
+## Alternative answers
+
+### Alternative answer 1
+
+#### Answer
+“Ecosystem architecture” generally means how a platform’s parts and extensions fit together as a system. In 42workspace’s public documentation, a brain is described as modular and plugin-based: a reusable definition and instance configuration combine with runtime packages and plugins that add content types, integrations, and interfaces.
+
+Source: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview).

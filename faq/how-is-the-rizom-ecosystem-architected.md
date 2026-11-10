@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 4
+asked: 5
 ---
 # FAQ
 
@@ -33,3 +33,10 @@ Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overvie
 
 #### Answer
 A brain is an independently deployable MCP server, assembled from a definition, instance configuration, and plugins. Entity plugins provide durable content types, service plugins add tools and integrations, and interface plugins provide transports. **Sources:** [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Plugin System](https://docs.rizom.ai/docs/plugin-system).
+
+### Alternative answer 4
+
+#### Answer
+Each brain runs as an independently deployable MCP server, assembled from a canonical definition and its `brain.yaml` configuration. The shell provides runtime services, while plugins add entity types, integrations, and interfaces. Brains can also connect to peer brains through the A2A interface.
+
+Source: [Architecture Overview](/docs/architecture-overview).

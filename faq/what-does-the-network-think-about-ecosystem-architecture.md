@@ -1,7 +1,7 @@
 ---
 question: What does the network think about ecosystem architecture?
 status: draft
-asked: 3
+asked: 4
 ---
 # FAQ
 
@@ -29,3 +29,8 @@ The public docs describe ecosystem architecture as **independent, composable bra
 The documentation says an ecosystem works best when brains remain independently deployable and extensible through focused plugins and clear public APIs, while cross-brain discovery and calling are governed by review and approval.
 
 Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 3
+
+#### Answer
+Our public docs describe an ecosystem of **independently deployable, MCP-first brains**, extended through composable plugins and connected through governed agent discovery and A2A calls. See [Architecture Overview](/docs/architecture-overview), [Feature Overview](/docs/feature-overview), and [Agent Discovery](/docs/agent-discovery).

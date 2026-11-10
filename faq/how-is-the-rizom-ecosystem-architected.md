@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 24
+asked: 25
 ---
 # FAQ
 
@@ -157,3 +157,8 @@ Sources: [Architecture Overview](/docs/architecture-overview) and [Feature Overv
 
 #### Answer
 The ecosystem consists of independently deployable brains connected through shared protocols, with plugins to extend capabilities and approval controls for peer calls. See [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 24
+
+#### Answer
+The architectural theme is modularity: brains are independently deployable, plugin-composed systems, while MCP and agent discovery let them connect across a network. Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Feature Overview](https://docs.rizom.ai/docs/feature-overview).

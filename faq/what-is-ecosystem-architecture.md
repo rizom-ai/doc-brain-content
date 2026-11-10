@@ -1,7 +1,7 @@
 ---
 question: What is ecosystem architecture?
 status: draft
-asked: 1
+asked: 2
 ---
 # FAQ
 
@@ -11,3 +11,10 @@ Ecosystem architecture involves discoverable capabilities, peer-agent directorie
 ## Sources
 
 - [agent-discovery](topic:agent-discovery)
+
+## Alternative answers
+
+### Alternative answer 1
+
+#### Answer
+Ecosystem architecture emphasizes extensibility across tools, integrations, agents, and future platform capabilities. Source: the public “Design Platform Architecture” skill.

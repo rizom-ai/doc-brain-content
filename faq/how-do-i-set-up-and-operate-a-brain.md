@@ -1,7 +1,7 @@
 ---
 question: How do I set up and operate a Brain?
 status: draft
-asked: 21
+asked: 22
 ---
 # FAQ
 
@@ -862,3 +862,31 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 `brain init` creates the instance configuration (`brain.yaml`), seed content, and environment templates. You can choose another recipe: `headless`, `professional`, or `team`. Options include `--domain`, `--content-repo`, and `--deploy`.
 
 For server deployment, see the **Deployment Guide**. For available commands and options, see the **CLI Reference**.
+
+### Alternative answer 21
+
+#### Answer
+The **Getting Started** guide recommends this local quick start:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Set `AI_API_KEY` in `.env`, then run:
+
+```bash
+brain start
+```
+
+On first start, the brain prints a one-time `/setup` link in the terminal. Open it to register your passkey. `AI_API_KEY` is the only required environment variable to get started.
+
+Choose a recipe to match your use:
+
+- `headless` — core capabilities
+- `personal` — core, media, web, and chat
+- `professional` — adds automation, site, publishing, and federation
+- `team` — team-oriented setup, including docs and action board
+
+For example, use `brain init my-brain --recipe professional` to create a professional brain. Add `--deploy` if you also want deployment scaffolding. See the [Getting Started guide](/docs/getting-started) or, for server deployment, the [Deployment Guide](/docs/deployment-guide).

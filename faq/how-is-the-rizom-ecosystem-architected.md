@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 10
+asked: 13
 ---
 # FAQ
 
@@ -73,3 +73,20 @@ Sources: [Architecture Overview](/docs/architecture-overview), [Agent Discovery]
 
 #### Answer
 The architecture favors independently deployable brains composed of focused plugins with clear public APIs. Brains can connect through reviewed, permission-gated agent networking. Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).
+
+### Alternative answer 10
+
+#### Answer
+The architecture is modular: independent brains compose typed plugins around an MCP-first core, and cross-brain discovery is gated—finding a peer doesn’t automatically grant access. Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).
+
+### Alternative answer 11
+
+#### Answer
+The ecosystem consists of independently deployable brains, extended through modular plugins and connected through reviewed, permissioned agent links—not an open, automatic mesh. Sources: [Architecture Overview](/docs/architecture-overview), [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 12
+
+#### Answer
+The ecosystem is built from independently deployable brains and composable plugins, with public APIs for extensions. For cross-brain collaboration, discovery is separate from permission: peers must be approved before they can be called.
+
+Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview), [Plugin System](https://docs.rizom.ai/docs/plugin-system), [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).

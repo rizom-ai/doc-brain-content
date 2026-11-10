@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 19
+asked: 22
 ---
 # FAQ
 
@@ -126,3 +126,22 @@ Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discove
 Our public docs describe ecosystem architecture as **modular and interoperable**: independent brains expose capabilities through shared interfaces, while plugins and explicit bundles let each brain extend or configure itself without coupling everything together.
 
 Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Feature Overview](https://docs.rizom.ai/docs/feature-overview).
+
+### Alternative answer 19
+
+#### Answer
+The public docs describe an ecosystem of independently deployable brains, extended through plugins and connected to peers through reviewed, approved agent relationships. This is not a network consensus.
+
+Sources: [Architecture Overview](/docs/architecture-overview), [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 20
+
+#### Answer
+The ecosystem is built from independently deployable brains, composed through plugins and capability bundles, with explicit approval governing peer connections. This favors modularity and controlled interoperability over a single shared system.
+
+Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).
+
+### Alternative answer 21
+
+#### Answer
+The ecosystem is designed as independently deployable, plugin-composed brains, with shared interfaces and controlled peer discovery rather than one central runtime. See [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).

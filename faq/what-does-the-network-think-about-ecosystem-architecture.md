@@ -1,7 +1,7 @@
 ---
 question: What does the network think about ecosystem architecture?
 status: draft
-asked: 4
+asked: 5
 ---
 # FAQ
 
@@ -34,3 +34,8 @@ Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discove
 
 #### Answer
 Our public docs describe an ecosystem of **independently deployable, MCP-first brains**, extended through composable plugins and connected through governed agent discovery and A2A calls. See [Architecture Overview](/docs/architecture-overview), [Feature Overview](/docs/feature-overview), and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 4
+
+#### Answer
+The public docs describe an ecosystem of independently deployable, plugin-composed brains, with peer discovery and calls gated by approval rather than automatic trust. This is not a network consensus. ([Architecture Overview](/docs/architecture-overview); [Agent Discovery](/docs/agent-discovery))

@@ -1,7 +1,7 @@
 ---
 question: What does the network think about ecosystem architecture?
 status: draft
-asked: 7
+asked: 8
 ---
 # FAQ
 
@@ -53,3 +53,8 @@ Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discove
 The architecture favors independently deployable, plugin-composed brains with explicit capability bundles and standard interfaces for connecting them. The ecosystem is federated through agent discovery and A2A, with peers reviewed before they can be called.
 
 Sources: [Architecture Overview](/docs/architecture-overview), [Feature Overview](/docs/feature-overview), and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 7
+
+#### Answer
+The architecture favors independently deployable brains composed from focused plugins through public APIs, with approved peer-to-peer connections rather than one central system. Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).

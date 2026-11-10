@@ -1,7 +1,7 @@
 ---
 question: How do I set up a new brain locally?
 status: draft
-asked: 2
+asked: 3
 ---
 # FAQ
 
@@ -72,3 +72,26 @@ For email delivery of setup links and invitations, configure `SETUP_EMAIL_TO`, `
 For deployment, scaffold deployment files with `brain init my-brain --deploy --domain your-domain.example`; see the Deployment Guide for the full flow.
 
 Sources: [Getting Started](/docs/getting-started), [Deployment Guide](/docs/deployment-guide).
+
+### Alternative answer 2
+
+#### Answer
+The **Getting Started** guide gives this local quick start:
+
+```bash
+bun add -g @rizom/brain
+brain init my-brain --recipe personal
+cd my-brain
+```
+
+Set `AI_API_KEY` in `.env`, then start the brain:
+
+```bash
+brain start
+```
+
+On first start, the terminal prints a one-time `/setup` link. Open it to register your passkey.
+
+`brain init` creates the instance configuration (`brain.yaml`), seed content, and environment templates. You can choose another recipe: `headless`, `professional`, or `team`. Options include `--domain`, `--content-repo`, and `--deploy`.
+
+For server deployment, see the **Deployment Guide**. For available commands and options, see the **CLI Reference**.

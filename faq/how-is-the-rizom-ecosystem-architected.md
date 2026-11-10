@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 5
+asked: 6
 ---
 # FAQ
 
@@ -40,3 +40,10 @@ A brain is an independently deployable MCP server, assembled from a definition, 
 Each brain runs as an independently deployable MCP server, assembled from a canonical definition and its `brain.yaml` configuration. The shell provides runtime services, while plugins add entity types, integrations, and interfaces. Brains can also connect to peer brains through the A2A interface.
 
 Source: [Architecture Overview](/docs/architecture-overview).
+
+### Alternative answer 5
+
+#### Answer
+The architecture favors **independent, modular brains**: each brain owns its identity and content, composes capabilities through plugins, and connects to peers through explicit discovery and approval—not open-ended automatic access.
+
+Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview), [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).

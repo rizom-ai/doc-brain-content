@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 23
+asked: 24
 ---
 # FAQ
 
@@ -152,3 +152,8 @@ The ecosystem is designed as independently deployable, plugin-composed brains, w
 The public docs describe an ecosystem built from independent, deployable brains with explicit bundles and plugins, connected through interfaces such as MCP and A2A. This favors composability and clear boundaries over one central system.
 
 Sources: [Architecture Overview](/docs/architecture-overview) and [Feature Overview](/docs/feature-overview).
+
+### Alternative answer 23
+
+#### Answer
+The ecosystem consists of independently deployable brains connected through shared protocols, with plugins to extend capabilities and approval controls for peer calls. See [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).

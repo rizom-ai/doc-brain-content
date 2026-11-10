@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 15
+asked: 16
 ---
 # FAQ
 
@@ -100,3 +100,10 @@ The public docs describe a modular-composition approach: brains combine focused 
 
 #### Answer
 The public docs describe an ecosystem of independently deployable brains built from modular plugins and explicit bundles, with standard interfaces for sharing capabilities and connecting peers. **Sources:** [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 15
+
+#### Answer
+The ecosystem consists of independent, composable brains. Plugins add capabilities, while MCP and A2A provide ways to interact and connect. Cross-brain discovery is approval-gated rather than ambient.
+
+Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) · [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery)

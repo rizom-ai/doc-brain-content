@@ -1,7 +1,7 @@
 ---
 question: What does the network think about ecosystem architecture?
 status: draft
-asked: 5
+asked: 6
 ---
 # FAQ
 
@@ -39,3 +39,10 @@ Our public docs describe an ecosystem of **independently deployable, MCP-first b
 
 #### Answer
 The public docs describe an ecosystem of independently deployable, plugin-composed brains, with peer discovery and calls gated by approval rather than automatic trust. This is not a network consensus. ([Architecture Overview](/docs/architecture-overview); [Agent Discovery](/docs/agent-discovery))
+
+### Alternative answer 5
+
+#### Answer
+This isn’t a network poll: I can’t query peer brains from this interface. Our public docs describe an ecosystem built from independently deployable brains, with shared MCP interfaces, modular plugins, and explicit peer discovery and approval.
+
+Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).

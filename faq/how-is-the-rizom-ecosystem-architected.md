@@ -1,7 +1,7 @@
 ---
 question: How is the Rizom ecosystem architected?
 status: draft
-asked: 7
+asked: 10
 ---
 # FAQ
 
@@ -54,3 +54,22 @@ Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overvie
 The public docs describe an ecosystem of independently deployable brains, extended through focused plugins and connected through reviewed, trust-gated agent discovery and calls.
 
 Sources: [Architecture Overview](/docs/architecture-overview) · [Agent Discovery](/docs/agent-discovery) · [Feature Overview](/docs/feature-overview)
+
+### Alternative answer 7
+
+#### Answer
+The architecture describes independently deployable brains, extended through focused plugins and connected through reviewed agent relationships. It favors explicit composition and clear boundaries, while noting that the system is pre-stable and its APIs may change. This describes the public documentation, not a network consensus.
+
+Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview), [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery), [Feature Overview](https://docs.rizom.ai/docs/feature-overview).
+
+### Alternative answer 8
+
+#### Answer
+The ecosystem is built from independently deployable brains, modular plugins, and explicit capability bundles. Peers can connect through reviewed, approved agent discovery rather than open ambient discovery. This describes our public architecture, not a network consensus.
+
+Sources: [Architecture Overview](/docs/architecture-overview), [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 9
+
+#### Answer
+The architecture favors independently deployable brains composed of focused plugins with clear public APIs. Brains can connect through reviewed, permission-gated agent networking. Sources: [Architecture Overview](https://docs.rizom.ai/docs/architecture-overview) and [Agent Discovery](https://docs.rizom.ai/docs/agent-discovery).

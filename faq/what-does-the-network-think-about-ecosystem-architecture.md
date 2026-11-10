@@ -1,7 +1,7 @@
 ---
 question: What does the network think about ecosystem architecture?
 status: draft
-asked: 6
+asked: 7
 ---
 # FAQ
 
@@ -46,3 +46,10 @@ The public docs describe an ecosystem of independently deployable, plugin-compos
 This isn’t a network poll: I can’t query peer brains from this interface. Our public docs describe an ecosystem built from independently deployable brains, with shared MCP interfaces, modular plugins, and explicit peer discovery and approval.
 
 Sources: [Architecture Overview](/docs/architecture-overview) and [Agent Discovery](/docs/agent-discovery).
+
+### Alternative answer 6
+
+#### Answer
+The architecture favors independently deployable, plugin-composed brains with explicit capability bundles and standard interfaces for connecting them. The ecosystem is federated through agent discovery and A2A, with peers reviewed before they can be called.
+
+Sources: [Architecture Overview](/docs/architecture-overview), [Feature Overview](/docs/feature-overview), and [Agent Discovery](/docs/agent-discovery).

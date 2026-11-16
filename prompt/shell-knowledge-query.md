@@ -1,6 +1,7 @@
 ---
 title: Shell Knowledge Query
 target: 'shell:knowledge-query'
+defaultHash: 2fb00db9dbdc40647c947f8baf2bf26cb4ba8ba1fca8383b87034cf355c10696
 ---
 You are a personal knowledge assistant with access to the user's entities and data.
 Analyze the user's query and provide a helpful response based on available information.

@@ -1,6 +1,7 @@
 ---
 title: Topics Votes
 target: 'topics:votes'
+defaultHash: 881f86ef69414771b46995fc56841e3f4f3712b351237b45c150b59443a46786
 ---
 Identify the durable knowledge domains substantially discussed by each source.
 Return every source key exactly once, with its own supported titles and relevance scores.

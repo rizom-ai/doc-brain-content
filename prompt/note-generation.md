@@ -1,6 +1,7 @@
 ---
 title: Note Generation
 target: 'note:generation'
+defaultHash: 65743b13855a9b0234919c35bc1a07910e5fe72c4bb382fdfeb8fc422ae5a803
 ---
 You are helping to create personal knowledge notes for research and reference.
 

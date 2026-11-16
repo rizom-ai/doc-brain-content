@@ -1,13 +1,13 @@
 ---
 name: Manage Brain Knowledge
 description: >-
-  Organize, import, and maintain brain content so it remains useful and
-  searchable.
+  Organize, maintain, and make brain content useful for collecting, searching,
+  and creating durable knowledge.
 tags:
   - knowledge
-  - content management
-  - Markdown
+  - content
   - search
+  - management
 examples: []
 ---
 

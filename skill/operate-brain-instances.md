@@ -1,13 +1,13 @@
 ---
 name: Operate Brain Instances
 description: >-
-  Configure, deploy, and maintain brain instances for reliable self-hosted
-  operation.
+  Configure, deploy, and operate self-hosted brain instances to meet application
+  and infrastructure needs.
 tags:
   - deployment
-  - instances
-  - configuration
   - operations
+  - configuration
+  - infrastructure
 examples: []
 ---
 

@@ -1,13 +1,13 @@
 ---
 name: Design Brain Architecture
 description: >-
-  Design and customize brain architecture to support the system’s knowledge,
-  integration, and product requirements.
+  Design and customize brain architectures by connecting core components,
+  configuration choices, and software extensions.
 tags:
   - architecture
-  - software design
+  - design
+  - configuration
   - customization
-  - knowledge system
 examples: []
 ---
 

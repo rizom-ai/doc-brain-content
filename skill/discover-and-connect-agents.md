@@ -1,13 +1,13 @@
 ---
 name: Discover and Connect Agents
 description: >-
-  Find relevant agents and configure connections that extend a brain’s
-  capabilities.
+  Find suitable agents and integrate them with a brain through MCP and related
+  connection workflows.
 tags:
   - agents
   - discovery
-  - integrations
-  - configuration
+  - MCP
+  - integration
 examples: []
 ---
 

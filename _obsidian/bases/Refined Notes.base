@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.inFolder("refined-note")
+views:
+  - name: All Refined Notes
+    order:
+      - file.name
+      - title
+      - summary
+      - status
+      - error
+    type: table
+  - groupBy:
+      direction: ASC
+      property: status
+    name: By Status
+    order:
+      - file.name
+      - title
+      - summary
+      - status
+      - error
+    type: table

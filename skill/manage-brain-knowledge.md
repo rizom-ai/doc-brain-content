@@ -1,15 +1,13 @@
 ---
 name: Manage Brain Knowledge
 description: >-
-  Help collect, organize, search, and maintain knowledge content so a brain can
-  use it effectively.
+  Collect, organize, search, and develop durable knowledge and profile content
+  within a brain.
 tags:
-  - knowledge
   - content
+  - knowledge
   - search
-  - notes
-examples:
-  - How do I import my Markdown notes and make them searchable?
-  - Help me organize the knowledge this brain should retain.
+  - profiles
+examples: []
 ---
 

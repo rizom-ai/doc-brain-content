@@ -1,13 +1,13 @@
 ---
 name: Discover and Connect Agents
 description: >-
-  Find relevant agents and connect them to brain capabilities and knowledge
-  sources.
+  Find relevant agents and configure connections that extend a brain’s
+  capabilities.
 tags:
   - agents
   - discovery
-  - integration
-  - knowledge
+  - integrations
+  - configuration
 examples: []
 ---
 

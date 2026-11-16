@@ -5,9 +5,9 @@ description: >-
   operation.
 tags:
   - deployment
+  - instances
   - configuration
   - operations
-  - self-hosted
 examples: []
 ---
 

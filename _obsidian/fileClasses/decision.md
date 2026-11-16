@@ -1,11 +1,5 @@
 ---
 fields:
-  - id: conversationId
-    name: conversationId
-    type: Input
-  - id: channelId
-    name: channelId
-    type: Input
   - id: channelName
     name: channelName
     type: Input

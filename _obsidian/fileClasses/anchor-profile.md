@@ -12,6 +12,9 @@ fields:
   - id: avatar
     name: avatar
     type: Input
+  - id: photo
+    name: photo
+    type: Input
   - id: website
     name: website
     type: Input
@@ -41,6 +44,15 @@ fields:
     type: Input
   - id: availability
     name: availability
+    type: Input
+  - id: headline
+    name: headline
+    type: Input
+  - id: industry
+    name: industry
+    type: Input
+  - id: location
+    name: location
     type: Input
 filesPaths: anchor-profile
 ---

@@ -8,10 +8,6 @@ repoDid: ""
 brainDid: ""
 cardUri: ""
 cardCid: ""
-cardLastError: ""
-cardFailureCount:
-cardUnavailableAt: ""
-cardStaleAfter: ""
 status: discovered
 discoveredAt: ""
 introducedBy: []

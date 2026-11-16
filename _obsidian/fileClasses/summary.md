@@ -1,8 +1,5 @@
 ---
 fields:
-  - id: channelId
-    name: channelId
-    type: Input
   - id: channelName
     name: channelName
     type: Input
@@ -18,8 +15,5 @@ fields:
   - id: participants
     name: participants
     type: Multi
-  - id: sourceHash
-    name: sourceHash
-    type: Input
 filesPaths: summary
 ---

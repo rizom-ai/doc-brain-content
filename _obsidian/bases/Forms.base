@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.inFolder("form")
+views:
+  - name: All Forms
+    order:
+      - file.name
+      - target
+      - path
+      - title
+      - pageTitle
+      - submitLabel
+      - thanks
+      - steps
+      - notify
+      - limits
+      - scoring
+      - translations
+    type: table

@@ -1,6 +1,4 @@
 ---
-conversationId: ""
-channelId: ""
 channelName: ""
 interfaceType: ""
 timeRange: ""

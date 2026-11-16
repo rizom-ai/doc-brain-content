@@ -31,18 +31,6 @@ fields:
   - id: cardCid
     name: cardCid
     type: Input
-  - id: cardLastError
-    name: cardLastError
-    type: Input
-  - id: cardFailureCount
-    name: cardFailureCount
-    type: Number
-  - id: cardUnavailableAt
-    name: cardUnavailableAt
-    type: Input
-  - id: cardStaleAfter
-    name: cardStaleAfter
-    type: Input
   - id: status
     name: status
     options:

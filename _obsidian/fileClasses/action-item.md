@@ -7,14 +7,8 @@ fields:
       '1': inbox
       '2': board
     type: Select
-  - id: conversationId
-    name: conversationId
-    type: Input
   - id: interfaceType
     name: interfaceType
-    type: Input
-  - id: channelId
-    name: channelId
     type: Input
   - id: channelName
     name: channelName
@@ -42,15 +36,6 @@ fields:
     type: Multi
   - id: dueDate
     name: dueDate
-    type: Input
-  - id: projectedBodyHash
-    name: projectedBodyHash
-    type: Input
-  - id: projectedAssigneeHash
-    name: projectedAssigneeHash
-    type: Input
-  - id: projectedDueDate
-    name: projectedDueDate
     type: Input
 filesPaths: action-item
 ---

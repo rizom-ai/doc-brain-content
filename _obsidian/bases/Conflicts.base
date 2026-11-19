@@ -1,0 +1,15 @@
+filters:
+  and:
+    - file.inFolder("conflict")
+views:
+  - name: All Conflicts
+    order:
+      - file.name
+      - targetType
+      - targetId
+      - origin
+      - actor
+      - base
+      - current
+      - edit
+    type: table

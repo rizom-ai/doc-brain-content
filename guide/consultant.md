@@ -13,6 +13,7 @@ brings:
 section: Use a brain
 summary: Client work, decks and a profile
 ---
+
 ## For
 
 Your expertise is locked in client work, slide decks and a LinkedIn summary. You want it findable and askable without writing it all again.

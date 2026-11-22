@@ -7,6 +7,7 @@ recipe: professional
 section: Use a brain
 summary: Years of essays and drafts
 ---
+
 ## For
 
 You have years of essays and a folder of drafts. Some of it is published on platforms you don't own. Most of it never left Google Docs.

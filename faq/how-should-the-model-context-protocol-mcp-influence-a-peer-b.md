@@ -5,9 +5,8 @@ question: >-
 status: draft
 asked: 1
 ---
-# FAQ
-
 ## Answer
+
 Treat MCP and A2A as complementary interfaces: MCP lets an assistant use a brain’s tools, while A2A lets brains communicate. Keep the handoff at the A2A boundary and pass a concise question with the context needed to answer it. Return the peer’s answer with its sources attributed to that peer; don’t assume MCP tool or session context transfers automatically.
 
 In our plan, `network_ask` selects suitable approved peers, asks them in parallel for brief answers from their public content, and returns answers with citations. Keep outbound approval distinct from inbound trust; trusted A2A calls are authenticated separately.

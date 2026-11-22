@@ -4,7 +4,8 @@ title: "{{title}}"
 url: ""
 description: ""
 capturedAt: ""
-source: ""
+sourceRef: ""
+sourceLabel: ""
 ---
 
 <!-- Write your content here -->

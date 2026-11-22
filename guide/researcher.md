@@ -7,7 +7,6 @@ recipe: personal
 section: Use a brain
 summary: Notes, papers and saved links
 ---
-
 ## For
 
 Years of notes, papers and saved links you want to connect and question. Most of it sits in apps that never talk to each other.

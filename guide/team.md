@@ -7,7 +7,6 @@ recipe: team
 section: Use a brain
 summary: What a team knows, in one place
 ---
-
 ## For
 
 What your team knows is spread across people, channels and shared drives. It leaves when someone does.

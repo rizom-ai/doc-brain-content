@@ -19,8 +19,11 @@ fields:
   - id: capturedAt
     name: capturedAt
     type: Input
-  - id: source
-    name: source
+  - id: sourceRef
+    name: sourceRef
+    type: Input
+  - id: sourceLabel
+    name: sourceLabel
     type: Input
 filesPaths: link
 ---

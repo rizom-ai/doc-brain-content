@@ -3,9 +3,8 @@ question: How do I set up and operate a Brain?
 status: draft
 asked: 22
 ---
-# FAQ
-
 ## Answer
+
 \# Setting up and operating a Brain
 
 A Brain is a self-hosted AI runtime whose durable knowledge is stored as Markdown. Configuration, enabled capabilities, identity, permissions, integrations, and site settings are declared explicitly in `brain.yaml`.
@@ -356,9 +355,8 @@ The current release is in the pre-stable `0.x` series, so configuration and exte
 
 ## Alternative answers
 
-### Alternative answer 1
+### Alternative 1
 
-#### Answer
 A brain is a private AI runtime whose durable knowledge is Markdown.
 
 **Setup:**
@@ -372,9 +370,8 @@ Choose a recipe—`headless`, `personal`, `professional`, or `team`—to select 
 
 **Source:** [Getting Started](https://docs.rizom.ai/docs/getting-started) (public documentation).
 
-### Alternative answer 2
+### Alternative 2
 
-#### Answer
 A Brain is a private AI runtime whose durable knowledge is Markdown. To set one up:
 
 1. Install Bun 1.4+ and an API key.
@@ -388,16 +385,14 @@ Operate it through the CLI—especially `brain start`, `brain chat`, diagnostics
 
 **Sources:** [Getting Started](https://docs.rizom.ai/docs/getting-started); [Documentation index](https://docs.rizom.ai/docs).
 
-### Alternative answer 3
+### Alternative 3
 
-#### Answer
 Setting up a brain is a staged process: install the CLI, initialize a brain, configure its `brain.yaml`, connect interfaces and tools, then start it locally or deploy it. Operating one means maintaining content, checking diagnostics and services, managing authentication and secrets, and monitoring deployment health.
 
 **Sources:** [Documentation index](https://docs.rizom.ai/docs/index) (public `doc`, “Documentation”); **Brain Operations** (public `topic`).
 
-### Alternative answer 4
+### Alternative 4
 
-#### Answer
 \## Set up a new brain
 
 The **Getting Started** doc recommends Bun 1.4.0 or newer and an API key supported by your configured AI provider.
@@ -429,9 +424,8 @@ If you want setup links and invitations sent by email, configure `SETUP_EMAIL_TO
 
 Source: [Getting Started](https://docs.rizom.ai/docs/getting-started)
 
-### Alternative answer 5
+### Alternative 5
 
-#### Answer
 Install the CLI, scaffold an instance, add your AI key, then start it:
 
 ```bash
@@ -451,9 +445,8 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 
 For a server deployment, scaffold deployment files with `brain init my-brain --recipe professional --deploy`, then follow the **Deployment Guide**. For the full local setup and recipe details, see **Getting Started**.
 
-### Alternative answer 6
+### Alternative 6
 
-#### Answer
 For a local setup, install the CLI, scaffold an instance, add your AI API key, and start it:
 
 ```bash
@@ -479,9 +472,8 @@ Choose a recipe based on your needs:
 
 To use a different recipe, replace `personal` in the `brain init` command. Recipes scaffold the instance; the generated `brain.yaml` records the bundles that determine runtime behavior.
 
-### Alternative answer 7
+### Alternative 7
 
-#### Answer
 Install the Brain CLI and scaffold a local instance:
 
 ```bash
@@ -502,9 +494,8 @@ Choose a recipe for your use case: `headless`, `personal`, `professional`, or `t
 
 For a deployed setup, initialize with `--deploy` and follow the Deployment Guide. For more setup details and options, see Getting Started.
 
-### Alternative answer 8
+### Alternative 8
 
-#### Answer
 For a local brain, install the CLI and create a brain with the personal recipe:
 
 ```bash
@@ -523,9 +514,8 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 
 For a team or publishing-focused brain, use `--recipe team` or `--recipe professional` instead. See the **Getting Started** documentation for generated files and configuration, or the **Deployment Guide** to run it on a server.
 
-### Alternative answer 9
+### Alternative 9
 
-#### Answer
 \## Set up a brain locally
 
 You’ll need **Bun 1.4.0 or newer** and an API key supported by the configured AI provider.
@@ -559,9 +549,8 @@ The scaffold includes `brain.yaml`, starter markdown in `seed-content/`, a pinne
 
 See [Getting Started](/docs/getting-started) for full setup details and the [Deployment Guide](/docs/deployment-guide) for deploying to a server.
 
-### Alternative answer 10
+### Alternative 10
 
-#### Answer
 The quickest way to set up a new brain is to scaffold one with the CLI and run it locally:
 
 ```bash
@@ -595,9 +584,8 @@ For a server deployment, scaffold with `brain init my-brain --recipe professiona
 
 Sources: [Getting Started](/docs/getting-started), [Deployment Guide](/docs/deployment-guide), [CLI Reference](/docs/cli-reference).
 
-### Alternative answer 11
+### Alternative 11
 
-#### Answer
 \## Set up a new brain
 
 The **Getting Started** doc gives the quickest path to a local instance:
@@ -620,9 +608,8 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 
 For a hosted setup, add `--deploy` when initializing, then follow the **Deployment Guide**. For configuration details, see **brain.yaml Reference**.
 
-### Alternative answer 12
+### Alternative 12
 
-#### Answer
 \## Set up a brain locally
 
 The **Getting Started** guide recommends this quick start:
@@ -652,9 +639,8 @@ For example, use `brain init my-brain --recipe professional` instead if you want
 
 For a server deployment, `brain init` also accepts `--deploy` and `--domain`. See the **Deployment Guide** for the deployment workflow, and the **brain.yaml Reference** for configuration details.
 
-### Alternative answer 13
+### Alternative 13
 
-#### Answer
 The **“Running your own brain”** guide gives this quick local setup:
 
 1. Install Bun 1.4 or later and get an AI API key.
@@ -676,9 +662,8 @@ Your content lives in `brain-data/`: top-level Markdown files become notes; type
 
 For exact details, see [Getting Started](/docs/getting-started) and [Running your own brain](/guides/self-hosting).
 
-### Alternative answer 14
+### Alternative 14
 
-#### Answer
 \## Set up a brain locally
 
 1. Install **Bun 1.4.0 or newer** and get an API key supported by your configured AI provider.
@@ -699,9 +684,8 @@ Choose a recipe based on what you need: `headless` (core only), `personal`, `pro
 
 For email-delivered setup links and invitations, configure `SETUP_EMAIL_TO`, `SETUP_EMAIL_API_KEY` (a Resend API key), and `SETUP_EMAIL_FROM` (a verified sender). For other configuration options and deployment next steps, see **Getting Started**.
 
-### Alternative answer 15
+### Alternative 15
 
-#### Answer
 \## Set up a new brain
 
 Follow the local quick start:
@@ -724,9 +708,8 @@ To choose another recipe, pass `--recipe` with one of these options: `headless`,
 
 For server deployment, see the Deployment Guide. For configuration options, see the `brain.yaml` Reference.
 
-### Alternative answer 16
+### Alternative 16
 
-#### Answer
 \## Set up a brain locally
 
 With **Bun 1.4.0 or newer** installed, run:
@@ -756,9 +739,8 @@ To use another recipe, replace `personal` in the `brain init` command. You can a
 
 See the **Getting Started** doc for full setup details and next steps.
 
-### Alternative answer 17
+### Alternative 17
 
-#### Answer
 The **Getting Started** guide gives the local quick start:
 
 ```bash
@@ -777,9 +759,8 @@ On first start, the brain prints a one-time `/setup` link in the terminal. Open 
 
 Choose another recipe if it better fits your use: `headless`, `professional`, or `team`. You can also add `--deploy` to `brain init` for deployment scaffolding. For available options and next steps, such as connecting a content repository or configuring a domain, see [Getting Started](/docs/getting-started).
 
-### Alternative answer 18
+### Alternative 18
 
-#### Answer
 \## Set up a brain locally
 
 1. **Install Bun 1.4.0 or newer** and get an API key supported by your configured AI provider.
@@ -811,9 +792,8 @@ Choose another recipe if it better fits your use: `headless`, `professional`, or
 
 Source: [Getting Started](/docs/getting-started).
 
-### Alternative answer 19
+### Alternative 19
 
-#### Answer
 \## Set up a new brain
 
 For a local instance, install the CLI, scaffold a brain, add your AI API key, and start it:
@@ -840,9 +820,8 @@ For deployment, scaffold deployment files with `brain init my-brain --deploy --d
 
 Sources: [Getting Started](/docs/getting-started), [Deployment Guide](/docs/deployment-guide).
 
-### Alternative answer 20
+### Alternative 20
 
-#### Answer
 The **Getting Started** guide gives this local quick start:
 
 ```bash
@@ -863,9 +842,8 @@ On first start, the terminal prints a one-time `/setup` link. Open it to registe
 
 For server deployment, see the **Deployment Guide**. For available commands and options, see the **CLI Reference**.
 
-### Alternative answer 21
+### Alternative 21
 
-#### Answer
 The **Getting Started** guide recommends this local quick start:
 
 ```bash

@@ -6,9 +6,8 @@ description: >-
   AI Grant is a program that provides no-strings-attached grants for open source
   projects, including funding in the form of compute or cash.
 capturedAt: '2026-05-21T07:28:23.450Z'
-source:
-  ref: 'matrix:1448617817225166929'
-  label: '1448617817225166929'
+sourceRef: 'matrix:1448617817225166929'
+sourceLabel: '1448617817225166929'
 ---
 AI Grant is a grant program for open source projects, offering $5,000 to $50,000 in support with no strings attached. The page notes that grants may be provided as compute or cash, and it links to a separate accelerator program at aigrant.com.
 

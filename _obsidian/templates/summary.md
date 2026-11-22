@@ -1,8 +1,9 @@
 ---
 channelName: ""
 interfaceType: ""
-timeRange: ""
 messageCount:
+startedAt: ""
+endedAt: ""
 participants: []
 ---
 

@@ -24,14 +24,14 @@ fields:
       '0': light
       '1': dark
     type: Select
-  - id: cta
-    name: cta
+  - id: ctaHeading
+    name: ctaHeading
     type: Input
-  - id: sections
-    name: sections
+  - id: ctaButtonText
+    name: ctaButtonText
     type: Input
-  - id: translations
-    name: translations
+  - id: ctaButtonLink
+    name: ctaButtonLink
     type: Input
 filesPaths: site-info
 ---

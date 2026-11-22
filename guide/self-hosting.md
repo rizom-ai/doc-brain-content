@@ -6,7 +6,6 @@ persona: Running your own brain
 section: Run a brain
 summary: Your own server, content and domain
 ---
-
 ## For
 
 You want the brain on your own machine or server, your content in a folder and a git repository you control, and the site on your own domain.

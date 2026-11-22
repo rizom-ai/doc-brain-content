@@ -6,12 +6,15 @@ fields:
   - id: interfaceType
     name: interfaceType
     type: Input
-  - id: timeRange
-    name: timeRange
-    type: Input
   - id: messageCount
     name: messageCount
     type: Number
+  - id: startedAt
+    name: startedAt
+    type: Input
+  - id: endedAt
+    name: endedAt
+    type: Input
   - id: participants
     name: participants
     type: Multi

@@ -12,9 +12,6 @@ fields:
   - id: persona
     name: persona
     type: Input
-  - id: for
-    name: for
-    type: Input
   - id: recipe
     name: recipe
     options:
@@ -31,8 +28,5 @@ fields:
   - id: summary
     name: summary
     type: Input
-  - id: material
-    name: material
-    type: Multi
 filesPaths: guide
 ---

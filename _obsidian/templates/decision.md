@@ -1,8 +1,9 @@
 ---
 channelName: ""
 interfaceType: ""
-timeRange: ""
 status: active
+startedAt: ""
+endedAt: ""
 decidedBy: []
 mentionedBy: []
 ---

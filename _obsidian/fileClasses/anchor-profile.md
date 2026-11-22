@@ -6,9 +6,6 @@ fields:
   - id: organization
     name: organization
     type: Input
-  - id: description
-    name: description
-    type: Input
   - id: avatar
     name: avatar
     type: Input
@@ -21,9 +18,6 @@ fields:
   - id: email
     name: email
     type: Input
-  - id: socialLinks
-    name: socialLinks
-    type: Multi
   - id: tagline
     name: tagline
     type: Input

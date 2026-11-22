@@ -12,14 +12,8 @@ fields:
   - id: contactLabel
     name: contactLabel
     type: Input
-  - id: contactNote
-    name: contactNote
-    type: Input
   - id: mapCaption
     name: mapCaption
-    type: Input
-  - id: refusal
-    name: refusal
     type: Input
   - id: faqHeading
     name: faqHeading

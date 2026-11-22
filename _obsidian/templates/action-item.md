@@ -2,12 +2,14 @@
 origin: conversation
 interfaceType: ""
 channelName: ""
-sourceRef: ""
 capturedAt: ""
 status: open
+dueDate: ""
+sourceRef: ""
+sourceEntityType: ""
+sourceEntityId: ""
 assignedTo: []
 requestedBy: []
-dueDate: ""
 ---
 
 <!-- Write your content here -->

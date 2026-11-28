@@ -7,8 +7,7 @@ excerpt: ""
 author: ""
 coverImageId: ""
 ogImageId: ""
-seriesName: ""
-seriesIndex:
+series: []
 ogImage: ""
 canonicalUrl: ""
 ---

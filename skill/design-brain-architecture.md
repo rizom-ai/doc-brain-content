@@ -3,11 +3,14 @@ name: Design Brain Architecture
 tags:
   - architecture
   - entities
-  - customization
   - knowledge
+  - customization
 ---
 ## Description
 
-Design brain architectures by connecting system components, entity models, and customization choices into a coherent knowledge system.
+Design brain structures, entity models, and software customizations that make knowledge durable, searchable, and extensible.
 
 ## Examples
+
+- How should I model project knowledge as entities?
+- How can I extend a brain with a custom entity type?

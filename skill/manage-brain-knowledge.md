@@ -8,6 +8,9 @@ tags:
 ---
 ## Description
 
-Organize, model, and maintain durable content so it can be searched, reused, and extended.
+Organize, create, and maintain content so people and agents can find and use a brain’s knowledge.
 
 ## Examples
+
+- How do I add and organize knowledge in a brain?
+- How should I update content so it stays searchable?

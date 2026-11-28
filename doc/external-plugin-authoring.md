@@ -1,9 +1,9 @@
 ---
-title: "External Plugin Authoring"
+title: "External Package Authoring"
 section: "Extend a brain"
 order: 250
 slug: "external-plugin-authoring"
-description: "Package and load your own plugins"
+description: "Package, test and load your own plugin packages"
 ---
 
 # External Package Authoring

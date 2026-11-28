@@ -1,9 +1,9 @@
 ---
-title: "Plugin Quick Reference"
+title: "Package Authoring Quick Reference"
 section: "Extend a brain"
 order: 240
 slug: "plugin-quick-reference"
-description: "A checklist for choosing a declarative extension family"
+description: "A checklist for choosing a definition family, with import, config, template and lifecycle rules"
 ---
 
 # Package Authoring Quick Reference
@@ -74,9 +74,12 @@ The first argument says what the package is and sets up the `state` it holds; th
 
 ## Templates and entity data
 
-Entity definitions do not directly declare presentation templates. Read an
-entity through a service job, transform it into a schema-backed render value,
-and call the service-local formatter:
+An entity type can declare presentation `templates` and a `feed` of its own
+through `defineEntity()`; the entity fixture's
+[presentation canary](https://github.com/rizom-ai/brains/blob/main/packages/brain-cli/test/fixtures/public-authoring/entity/src/presentation-type-canary.ts)
+shows both. Formatting that a service's work produces belongs in that service's
+`templates`: read the entity through a service job, transform it into a
+schema-backed render value, and call the service-local formatter:
 
 <!-- public-authoring-example: quick-template-flow source=packages/brain-cli/test/fixtures/public-authoring/service/src/index.tsx -->
 

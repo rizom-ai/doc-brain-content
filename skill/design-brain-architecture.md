@@ -2,12 +2,12 @@
 name: Design Brain Architecture
 tags:
   - architecture
-  - design
-  - configuration
+  - entities
   - customization
+  - knowledge
 ---
 ## Description
 
-Design and customize brain architectures by connecting core components, configuration choices, and software extensions.
+Design brain architectures by connecting system components, entity models, and customization choices into a coherent knowledge system.
 
 ## Examples

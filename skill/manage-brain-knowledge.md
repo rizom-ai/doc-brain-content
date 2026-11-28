@@ -1,13 +1,13 @@
 ---
 name: Manage Brain Knowledge
 tags:
-  - knowledge
   - content
+  - entities
   - search
-  - management
+  - knowledge
 ---
 ## Description
 
-Organize, maintain, and make brain content useful for collecting, searching, and creating durable knowledge.
+Organize, model, and maintain durable content so it can be searched, reused, and extended.
 
 ## Examples

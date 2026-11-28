@@ -3,11 +3,11 @@ name: Discover and Connect Agents
 tags:
   - agents
   - discovery
-  - MCP
   - integration
+  - workflows
 ---
 ## Description
 
-Find suitable agents and integrate them with a brain through MCP and related connection workflows.
+Find relevant agents and explain how to connect them to brain capabilities and workflows.
 
 ## Examples
